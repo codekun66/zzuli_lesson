@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8" />
+    <title></title>
+    <script src = "../js/jquery/jquery.min.js"></script>
+    <script>
+         $(document).ready(function(){
+            $.getJSON("http://localhost:8080/api/city", function(result){
+               $.each(result, function(key,value) {
+            	   $("#productsJson").append(value.id+" "+value.name+" ");
+         
+                  
+               }); 
+            });
+         });
+      </script>
+</head>
+<body>
+
+<div id = "productsJson" > </div>
+</body>
+</html>
