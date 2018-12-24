@@ -1,0 +1,391 @@
+.carousel-item>img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: auto;
+    height: auto;
+    min-width: 100%;
+    min-height: 100%;
+    max-width: 150%;
+    max-height: 150%;
+    object-fit: cover;
+    overflow: hidden;
+    /* min-height: 100%; */
+}
+
+.carousel-caption {
+    max-width: 40em;
+    background-color: rgba(80, 80, 80, 0.5);
+    border-radius: 15px;
+    padding: 2rem;
+    bottom: 3rem;
+    z-index: 10;
+}
+
+.nav-link {
+    margin-left: 1.5rem;
+}
+
+.wp {
+    width: 620px;
+}
+
+.channels li {
+    overflow: hidden;
+    margin-bottom: 30px;
+    background: #FFF;
+    border-radius: 15px;
+    box-shadow: rgb(188, 188, 188) -2px 2px 8px;
+    height: 240px;
+}
+
+.channel-pic {
+    padding: 0;
+    margin: 10px;
+    margin-right: 20px;
+    height: 220px;
+    width: 220px;
+    overflow: hidden;
+}
+
+.channel-pic img {
+    padding: 0;
+    margin: 0;
+    height: 100%;
+    widows: 100%;
+    border-radius: 15px;
+    display: block;
+}
+
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.fl {
+    float: left;
+}
+
+.fr {
+    float: right;
+}
+
+.channel-body {
+    margin-left: 210px;
+    padding: 30px;
+}
+
+.channel-title {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+.channel-title a:hover{
+	color: #EE5044;
+}
+
+.channel-meta {
+    margin-bottom: 10px;
+    color: #999;
+}
+
+.channel-meta span {
+    display: inline-block;
+    margin-right: 7px;
+    margin-bottom: 5px;
+}
+
+.channel-desc {
+    text-indent: 2em;
+    line-height: 22px;
+    letter-spacing: 1px;
+    word-break: break-all;
+}
+.channel-desc p{
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	-webkit-line-clamp: 4;
+	overflow: hidden;
+}
+/* .channel-desc p::after{content: "..."; position: absolute; bottom: 0; right: 0; padding-left: 40px;
+background: -webkit-linear-gradient(left, transparent, #fff 55%);
+background: -o-linear-gradient(right, transparent, #fff 55%);
+background: -moz-linear-gradient(right, transparent, #fff 55%);
+background: linear-gradient(to right, transparent, #fff 55%);
+} */
+
+.channel-item {
+    padding: 30px;
+    background: #FFF;
+    margin-bottom: 30px;
+    overflow: hidden;
+}
+
+.channel-item h3 {
+    font-size: 14px;
+    border-left: 3px solid #ee5044;
+    padding-left: 8px;
+    line-height: 16px;
+}
+
+.channel-top10 li {
+    border-bottom: 1px solid #EEE;
+    list-style: decimal;
+    margin-left: 20px;
+}
+
+.side {
+    width: 430px;
+    margin-left: 30px;
+}
+
+.side-sponsor {
+    overflow: hidden;
+    max-width: 100%;
+    max-height: 100%;
+    width: 430px;
+    height: 430px;
+    margin-bottom: 30px;
+}
+
+.side-sponsor img {
+    width: 100%;
+    height: 100%;
+}
+
+.channel-list {
+    padding-top: 30px;
+}
+
+.channel-list li {
+    padding-bottom: 10px;
+    border-bottom: 1px dashed #EEE;
+    margin-bottom: 10px;
+    line-height: 20px;
+}
+
+.channel-list li a:hover{
+	color: #EE5044;
+}
+
+.channel-list li div {
+    color: #999;
+}
+
+.channel-list li div span {
+    margin-right: 20px;
+}
+
+.channel-list li:last-child {
+    border: none;
+    padding: 0;
+    margin-bottom: 0;
+}
+
+.featurette-divider {
+    clear: both;
+    margin-top: 3rem;
+}
+
+/* 
+.marketing {
+    width: 1400px; 
+    margin: auto;
+    padding: 40px 0;
+    background-color: #F5F5F5;
+} */
+
+
+body {
+    background-color: #F5F5F5;
+}
+.container{
+    min-width: 1200px;
+    overflow: hidden;
+}
+.channel-title a{
+    text-decoration: none;
+    color: #333;
+}
+.channel-list a{
+    text-decoration: none;
+    color: #333;
+}
+
+.h2-title {
+    padding: 0;
+    margin: 0;
+    margin-bottom: 1rem;
+    text-align: center;
+    color: #000;
+}
+
+.h5-sub_title {
+    padding: 0;
+    margin: 0;
+    text-align: center;
+}
+
+
+
+
+/* from here -- edited by keyon on 12.23*/
+.h2-isolation {
+    padding: 0;
+    margin: 0;
+    margin-bottom: 4rem;
+    text-align: center;
+    color: #000;
+}
+/* footer */
+.footer {
+    position: absolute;
+    width: 100%;
+    height: 18rem;
+    margin-bottom: 0;
+    padding-bottom: 0;
+    background-color: #333;
+    color: #EEE;
+    min-width: 1275px;
+    overflow: hidden;
+}
+
+.footer a {
+    text-decoration: none;
+    color: #EEE;
+
+}
+
+.footer a:hover {
+    color: aqua;
+}
+
+#footer_copyright {
+    text-align: center;
+    position: absolute;
+    width: 100%;
+    height: 4rem;
+    line-height: 4rem;
+    bottom: 0;
+    background-color: #000;
+}
+
+.footer p {
+    margin-left: 7em;
+}
+
+#back2head {
+    float: right;
+    padding-right: 3em;
+}
+.navbar{
+    position: absolute;
+}
+
+/* .hide {
+    animation: .5s opacity2 0s forwards;
+    -webkit-animation: .5s opacity2 0s forwards;
+    -moz-animation: .5s opacity2 0s forwards;
+}
+
+@keyframes opacity2 {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+@-webkit-keyframes opacity2 {
+    0% {
+        opacity: 1
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+@-moz-keyframes opacity2 {
+    0% {
+        opacity: 1
+    }
+    100% {
+        opacity: 0;
+    }
+} */
+
+.footer-fl{
+    margin: 0;
+    padding: 0;
+    float: left;
+    margin-top: 4rem;
+    margin-left: 5rem;
+}
+.footer-fr{
+    margin: 0;
+    padding: 0;
+    float: right;
+    margin-top: 3rem;
+    margin-right: 3rem;
+}
+#logo_desc{
+    font-size: 1.3rem;
+}
+.proj_desc{
+    font-size: 1rem;
+    color: #999;
+}
+#about_us{
+    margin-left: 5rem;
+}
+#a_u_table td{
+    padding-right:1rem;
+    padding-bottom:1rem;
+}
+#a_u_table td a{
+    color: #999;
+}
+#a_u_table td a:hover {
+    color: aqua;
+}
+#f_u_table td{
+    color: #999;
+    text-align: center;
+    padding-right:1rem;
+    padding-top:0.5rem;
+}
+#f_u_table i{
+    padding-top: 1rem;
+    font-size: 1.5rem;
+}
+#f_u_table a{
+    color: #999;
+}
+#url_wb a:hover{
+    color: white;
+}
+#url_wb a:hover i{
+    color: rgb(227, 28, 52);
+}
+#url_wx a:hover{
+    color: white;
+}
+#url_wx a:hover i{
+    color: rgb(51, 171, 37);
+}
+#fri_u_table td{
+    width: 9rem;
+    padding-right:1rem;
+    padding-top:1rem;
+}
+#fri_u_table a{
+    color: #999;
+}
+#fri_u_table a:hover {
+    color: aqua;
+}
+#navbarCollapse a:hover{
+    color: #FFF;
+}
+/* to here -- edited by keyon on 12.23*/
