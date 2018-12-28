@@ -3,7 +3,7 @@ package com.zzuli.lesson.bean;
 import java.util.Date;
 /**
  * 教师信息
- * @author xkk
+ * @author xk
  * @data 2018/12/07
  * 
  */

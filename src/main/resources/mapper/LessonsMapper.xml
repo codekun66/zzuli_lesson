@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.zzuli.lesson.mapper.LessonsMapper">  
+
+	<select id="queryLessons" resultType="com.zzuli.lesson.bean.Lessons">
+		SELECT id as lessId , 
+		less_pic_url as lessPicUrl, 
+		less_name as lessname, 
+		rank, 
+		tea_name as teaName,
+		pageview as pageView,
+		summary,
+		less_category as lessCategory
+		FROM lessons
+	</select>
+	
+</mapper>
