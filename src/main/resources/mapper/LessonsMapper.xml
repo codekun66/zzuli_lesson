@@ -1,17 +1,62 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.zzuli.lesson.mapper.LessonsMapper">  
+<mapper namespace="com.zzuli.lesson.mapper.LessonsMapper">
 
+	<!-- 获取课程信息列表 -->
 	<select id="queryLessons" resultType="com.zzuli.lesson.bean.Lessons">
-		SELECT id as lessId , 
-		less_pic_url as lessPicUrl, 
-		less_name as lessname, 
-		rank, 
+		SELECT id,
+		less_pic_url as lessPicUrl,
+		less_name as lessName,
+		rank,
 		tea_name as teaName,
-		pageview as pageView,
+		pageview as	pageView,
 		summary,
 		less_category as lessCategory
 		FROM lessons
 	</select>
-	
+	<!-- 添加课程信息 -->
+	<insert id="insertLessons" useGeneratedKeys="true" keyProperty="id"
+		keyColumn="id" parameterType="com.zzuli.lesson.bean.Lessons">
+		insert into
+		lessons(
+
+		less_name ,
+
+		tea_name,
+		pageview,
+		create_time,
+		modifield_time
+		)
+
+		values
+		(#{lessName},#{teaName},0,now(),now())
+	</insert>
+	<!-- 获取热门课程信息 -->
+	<select id="queryPageViewByPageView" resultType="java.util.Map">
+		SELECT id,
+		less_name as lessName,
+		tea_name as teaName,
+		pageview 
+		FROM lessons
+		ORDER BY
+		pageview
+		DESC
+	</select>
+	<!-- 更新对应id浏览量 -->
+	<update id="updatePageView">
+		update
+		lessons
+		set
+		pageview=(pageview+1)
+		where id = #{id}
+	</update>
+	<!-- 根据Id查询课程信息 -->
+	<select id="queryLessonsInfoById" resultType="java.util.Map">
+		SELECT  
+		tea_name as teaName,
+		less_name as lessName
+		FROM lessons
+		WHERE
+		id=#{id}
+	</select>
 </mapper>

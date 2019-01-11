@@ -130,13 +130,13 @@
       <!-- 此处 -->
       <div class="wp fl">
         <ul class="channels">
-          <li th:each="m:${list}">
+          <li th:each="m:${pageInfo.list}">
             <div class="channel-pic fl">
               <a href="#"><img src="" th:src="${m.lessPicUrl}"></a>
             </div>
             <div class="channel-body">
               <div class="channel-title">
-                <a href="#" th:text ="${m.lessName}">Oracle数据库技术</a>
+                <a th:href="@{http://localhost:8080/lessons/list/{id}(id=${m.id})}" th:text ="${m.lessName}">Oracle数据库技术</a>
               </div>
               <div class="channel-meta">
                 <span><i class="fa fa-pencil" th:text ="${m.rank}"/>梁树军</span>
@@ -149,6 +149,14 @@
               </div>
             </div>
           </li>
+              <br>
+    <div>
+                <a th:href="@{?start=1}">[首  页]</a>
+            <a th:href="@{?start={num}(num=${pageInfo.pageNum-1})}">[上一页]</a>
+            <a th:href="@{?start={num}(num=${pageInfo.pageNum+1})}">[下一页]</a>
+            <a th:href="@{?start={num}(num=${pageInfo.pages})}"}>[末  页]</a>
+    </div>
+    <br>
           
         </ul>
       </div>
@@ -158,46 +166,10 @@
         </div>
         <div class="channel-item channel-top10">
           <h3>热门课程 Top10</h3>
-          <ul class="channel-list">
-            <li>
-              <a href="#">Oracle数据库技术</a>
-              <div><span>梁树军</span><span>郑州轻工业大学</span></div>
-            </li>
-            <li>
-              <a href="#">C语言程序设计</a>
-              <div><span>翁凯</span><span>浙江大学</span></div>
-            </li>
-            <li>
-              <a href="#">概率论与数理统计</a>
-              <div><span>赵进</span><span>南京大学</span></div>
-            </li>
-            <li>
-              <a href="#">企业网络建设与管理</a>
-              <div><span>崔建涛</span><span>郑州轻工业大学</span></div>
-            </li>
-            <li>
-              <a href="#">人工智能实践：TensorFlow笔记</a>
-              <div><span>曹健</span><span>北京大学</span></div>
-            </li>
-            <li>
-              <a href="#">大学生计算机基础</a>
-              <div><span>战德臣</span><span>哈尔滨工业大学</span></div>
-            </li>
-            <li>
-              <a href="#">算法分析与设计</a>
-              <div><span>师夏阳</span><span>郑州轻工业大学</span></div>
-            </li>
-            <li>
-              <a href="#">嵌入式系统设计</a>
-              <div><span>郭建</span><span>华东师范大学</span></div>
-            </li>
-            <li>
-              <a href="#">货币银行学</a>
-              <div><span>范立夫</span><span>东北财经大学</span></div>
-            </li>
-            <li>
-              <a href="#">移动通信网络技术</a>
-              <div><span>杨华</span><span>郑州轻工业大学</span></div>
+          <ul class="channel-list" >
+            <li th:each="m2:${pageView}">
+              <a href="#"   th:text ="${m2.lessName}">Oracle数据库技术</a>
+              <div><span th:text ="${m2.teaName}">梁树军</span><span th:text ="${m2.pageview}">郑州轻工业大学</span></div>
             </li>
           </ul>
         </div>

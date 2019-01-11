@@ -9,7 +9,7 @@ import java.util.Date;
  */
 public class Teacher {
 	// 主键ID
-	private int teaId;
+	private int id;
 	// 教师编号
 	private String teaNum;
 	// 教师名字
@@ -27,11 +27,12 @@ public class Teacher {
 	// 更新时间
 	private Date modifieldTime;
 	
-	public int getTeaId() {
-		return teaId;
+
+	public int getId() {
+		return id;
 	}
-	public void setTeaId(int teaId) {
-		this.teaId = teaId;
+	public void setId(int id) {
+		this.id = id;
 	}
 	public String getTeaNum() {
 		return teaNum;

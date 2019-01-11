@@ -2,15 +2,25 @@ package com.zzuli.lesson.bean;
 
 import java.util.Date;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.zzuli.lesson.util.DateUtil;
+import java.io.Serializable;
+
 /**
  * 课程
  * @author xk
  * @data 2018/12/07
  * 
  */
-public class Lessons {
+public class Lessons implements Serializable {
+	
+	//序列化
+	private static final long seriaVersionUID = 1L;
+	
 	//课程id
-	private int lessId;
+	private int id;
 	//图片地址
 	private String lessPicUrl;
 	//课程名称
@@ -20,21 +30,25 @@ public class Lessons {
 	//教师名字
 	private String teaName;
 	//访问量
-	private int pageView;
+	private String pageView;
 	//课程简介
 	private String summary;
 	//课程分类
 	private String lessCategory;
 	//创建时间
-	// 创建时间
+	@DateTimeFormat(pattern = "yyyy-MM-dd hh:mm:ss")
+	@JsonSerialize(using = DateUtil.class)
 	private Date createTime;
 	// 更新时间
+	@DateTimeFormat(pattern = "yyyy-MM-dd hh:mm:ss")
+	@JsonSerialize(using = DateUtil.class)
 	private Date modifieldTime;
-	public int getLessId() {
-		return lessId;
+
+	public int getId() {
+		return id;
 	}
-	public void setLessId(int lessId) {
-		this.lessId = lessId;
+	public void setId(int id) {
+		this.id = id;
 	}
 	public String getLessPicUrl() {
 		return lessPicUrl;
@@ -60,10 +74,11 @@ public class Lessons {
 	public void setTeaName(String teaName) {
 		this.teaName = teaName;
 	}
-	public int getPageView() {
+
+	public String getPageView() {
 		return pageView;
 	}
-	public void setPageView(int pageView) {
+	public void setPageView(String pageView) {
 		this.pageView = pageView;
 	}
 	public String getSummary() {
