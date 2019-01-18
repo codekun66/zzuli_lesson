@@ -24,7 +24,7 @@ public class LessonsServiceImpl implements LessonsService {
 	@Autowired
 	RedisUtil redisUtil;
 	@Override
-	public List<Lessons> getLessonsList() throws Exception {
+	public List<Map<String, Object>> getLessonsList() throws Exception {
 		//从redis拿到访问量放list中
    		/*List<Lessons> listLessons = lessonsMapper.queryLessons();
 		for (Iterator iterator = listLessons.iterator(); iterator.hasNext();) {
@@ -35,12 +35,6 @@ public class LessonsServiceImpl implements LessonsService {
 		return lessonsMapper.queryLessons();
 	}
 
-	@Override
-	public int addLessons(Lessons lessons) {
-		
-		return  lessonsMapper.insertLessons(lessons);
-	}
-	
 	@Override
 	public List<Map<String, Object>> getPageView() {
 	
@@ -61,11 +55,18 @@ public class LessonsServiceImpl implements LessonsService {
 	}
 
 	@Override
-	/*@Cacheable(value="getLessons",key="'lessons.getLessonsList2'") //表示当前方法使用缓存 ，并存入redis数据库中
+	public int getLessonsTotalCount() {
+		
+		return lessonsMapper.queryLessonsTotalCount();
+	}
+	
+	
+/*	@Override
+	@Cacheable(value="getLessons",key="'lessons.getLessonsList2'") //表示当前方法使用缓存 ，并存入redis数据库中
 			   //value属性：表示存入redis数据库的key
 				//key属性：用于指定方法执行返回值的key，该属性是spring用的，不写也有默认值
 				//key="'fdflj'"
-*/	public List<Lessons> getLessonsList2() {
+	public List<Lessons> getLessonsList2() {
 		return lessonsMapper.queryLessons();
-	}
+	}*/
 }

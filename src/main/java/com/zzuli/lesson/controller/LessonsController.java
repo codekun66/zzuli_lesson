@@ -29,38 +29,27 @@ public class LessonsController {
 	LessonsService lessonsService;
 
 	
-	@RequestMapping(value = "/lessons/list", method = RequestMethod.GET)	
-    public String getLessonsList(ModelMap modelMap,@RequestParam(value = "start", defaultValue = "0") int start,@RequestParam(value = "size", defaultValue = "5") int size) throws Exception {
-		PageHelper.startPage(start,size);
-		List<Lessons> list = lessonsService.getLessonsList();
-		PageInfo<Lessons> lessonsPage = new PageInfo<>(list);
-		modelMap.addAttribute("pageInfo",lessonsPage);
+	@RequestMapping(value = "/lessons/index.html", method = RequestMethod.GET)
+    public String getIndexInfo(ModelMap modelMap) throws Exception {
 		modelMap.addAttribute("pageView",lessonsService.getPageView());
         return "index";
     }
-	@RequestMapping(value = "/lessons/list2", method = RequestMethod.GET)
-	@ResponseBody
-	public List<Lessons> getLessonList(){
-		return lessonsService.getLessonsList2();
-	}
-    @RequestMapping("/goadd")
-    public String goAddPage(){
-        return "addLessons";
-    }
-
-	@RequestMapping(value = "/lessons/add", method = RequestMethod.POST)
-	public String addLessons(Lessons lessons , ModelMap modelMap) {
-		int count = lessonsService.addLessons(lessons);
-		if(count > 0) {
-			return "redirect:list";
-		}
-		else {
-			modelMap.addAttribute("erro","失败");
-			return"errro";
-		}
-	}
 	
-	  @RequestMapping(value = "/lessons/list/{id}", method = RequestMethod.GET)
+	@RequestMapping(value = "/lessons/all", method = RequestMethod.GET)
+	@ResponseBody
+	public List<Map<String, Object>> getLessonList(@RequestParam(value = "start", defaultValue = "1") int start,@RequestParam(value = "size", defaultValue = "5") int size) throws Exception{
+		PageHelper.startPage(start,size);
+		return  lessonsService.getLessonsList();
+	}
+	@RequestMapping(value = "/lessons/totalCount", method = RequestMethod.GET)
+	@ResponseBody
+	public Map<String, Object> getLessonTotalCount(){
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("totalCount", lessonsService.getLessonsTotalCount());
+		return map;
+	}
+
+	  @RequestMapping(value = "/lessons/{id}", method = RequestMethod.GET)
 	    public String index(@PathVariable("id") int id , ModelMap modelMap) {  //@PathVariable用于定义自定义或动态请求URI
 		   modelMap.addAttribute("info",lessonsService.getlessonsInfoById(id));
 	       return "info";

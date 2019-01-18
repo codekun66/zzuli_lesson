@@ -12,20 +12,13 @@ import com.zzuli.lesson.bean.Lessons;
  * 
  */
 
-
 public interface LessonsMapper {
     /**
-     * 获取课程信息列表
+     * 查询课程信息列表
      *
      * @return
      */
-	List<Lessons> queryLessons();   
-	 /**
-     * 添加课程信息
-     *
-     * @return
-     */
-	int insertLessons(Lessons lessons);
+	List<Map<String, Object>> queryLessons();   
 	 /**
      * 根据pagegview获取热门课程信息
      * 
@@ -44,5 +37,11 @@ public interface LessonsMapper {
 	 * @return Teacher
 	 */
 	Map<String, Object> queryLessonsInfoById(@Param("id") int id);
+	/**
+	 * 查询课程总数totalCount
+	 * @param 
+	 * @return 
+	 */
+	int queryLessonsTotalCount();
 	
 }

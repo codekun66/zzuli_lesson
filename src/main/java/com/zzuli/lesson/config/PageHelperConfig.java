@@ -6,7 +6,13 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
  
 import com.github.pagehelper.PageHelper;
- 
+/**
+ * 注册MyBatis分页插件PageHelper  
+ * Created by  19.1.08
+ * @author xk
+ */
+
+
 @Configuration
 public class PageHelperConfig {
  

@@ -16,15 +16,7 @@ public interface LessonsService {
 	 * 
 	 * @return
 	 */
-	List<Lessons> getLessonsList() throws Exception;
-
-	/**
-	 * 新增课程信息
-	 *
-	 * @param Lessons
-	 * @return
-	 */
-	int addLessons(Lessons lessons);
+	List<Map<String, Object>> getLessonsList() throws Exception;
 
 	/**
 	 * 热门课程排行
@@ -47,7 +39,11 @@ public interface LessonsService {
 	 * @return
 	 */
 	Map<String, Object> getlessonsInfoById(int id);
-	
-	
-	List<Lessons> getLessonsList2();
+	/**
+	 * 获得课程总数totalCount
+	 *
+	 * @return
+	 */
+	int getLessonsTotalCount();
+	/*List<Lessons> getLessonsList2();*/
 }

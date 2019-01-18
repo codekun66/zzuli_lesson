@@ -12,12 +12,13 @@ import redis.clients.jedis.JedisPool;
  * @author 
  */
 @Component
-public class RedisUtil {
+public  class RedisUtil {
 	 //private static final Logger logger = LoggerFactory.getLogger(RedisUtil.class);
 	 @Autowired
 	 private JedisPool jedisPool;
 	 
-	// jedisPool = new JedisPool("redis://localhost:6379");
+	 private RedisUtil(){	
+	 }
 	  /**
      * 存储String
      *
@@ -25,7 +26,7 @@ public class RedisUtil {
      * @param value String
      * @throws Exception e
      */
-    public void setString(String key, String value) throws Exception {
+    public  void setString(String key, String value) throws Exception {
         Jedis jedis = null;
         try {
             jedis = jedisPool.getResource();
@@ -45,7 +46,7 @@ public class RedisUtil {
      * @return String
      * @throws Exception e
      */
-    public String getString(String key) throws Exception {
+    public  String getString(String key) throws Exception {
         Jedis jedis = null;
         try {
             jedis = jedisPool.getResource();
@@ -66,7 +67,7 @@ public class RedisUtil {
 	 * @return 返回自增后结果
 	 * @since qlchat 1.0
 	 */
-	public Long incr(String key) {
+	public  Long incr(String key) {
 		Jedis jedis = null;
 		try {
 			jedis = jedisPool.getResource();
@@ -86,7 +87,7 @@ public class RedisUtil {
 	 * @return 返回自增后结果
 	 * @since qlchat 1.0
 	 */
-	public Long incrBy(String key, long integer) {
+	public  Long incrBy(String key, long integer) {
 		Jedis jedis = null;
 		try {
 			jedis = jedisPool.getResource();

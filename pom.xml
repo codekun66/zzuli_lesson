@@ -8,6 +8,7 @@
 	<name>zzuli_lesson Maven Webapp</name>
 	<url>http://maven.apache.org</url>
 
+
 	<!-- Spring Boot 启动父依赖 -->
 	<parent>
 		<groupId>org.springframework.boot</groupId>
@@ -114,13 +115,19 @@
 			<artifactId>pagehelper</artifactId>
 			<version>4.1.3</version>
 		</dependency>
-
 		<!--阿里巴巴数据库连接池 -->
 		<dependency>
 			<groupId>com.alibaba</groupId>
 			<artifactId>druid</artifactId>
 			<version>1.0.25</version>
 		</dependency>
+		<!-- ftp -->
+		<dependency>
+			<groupId>commons-net</groupId>
+			<artifactId>commons-net</artifactId>
+			<version>3.3</version>
+		</dependency>
+
 		<!-- Test -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
