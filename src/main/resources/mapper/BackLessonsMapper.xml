@@ -13,6 +13,7 @@
 		less_category as lessCategory,
 		create_time as createTime
 		FROM lessons
+		WHERE valid_sts_cd =1
 	</select>
 		<!-- 添加课程信息 -->
 	<insert id="insertLessons" useGeneratedKeys="true" keyProperty="id"
@@ -29,4 +30,13 @@
 		values
 		(#{lessName},#{teaName},0,now(),now())
 	</insert>
+	
+	<!-- 删除课程信息 --> 
+	<update id="deleteLessons">
+	update
+		lessons
+		set
+		valid_sts_cd = 2
+		where id = #{id}
+	</update>
 </mapper>

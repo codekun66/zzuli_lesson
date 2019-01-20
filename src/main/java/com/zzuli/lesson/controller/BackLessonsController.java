@@ -6,6 +6,7 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -41,4 +42,17 @@ public class BackLessonsController {
 			return"errro";
 		}
 	}
+	
+	  @RequestMapping(value = "/back/deleteLessons/{id}", method = RequestMethod.GET)
+	    public String deleteLesson(@PathVariable("id") int id , ModelMap modelMap) {  //@PathVariable用于定义自定义或动态请求URI
+		  int count =backLessonsService.deleteLessonsById(id);
+		  if(count > 0) {
+				return "redirect:/back/lessonsInfo";
+			}
+		  else {
+				modelMap.addAttribute("erro","失败");
+				return"errro";
+			}
+	    }
+	
 }

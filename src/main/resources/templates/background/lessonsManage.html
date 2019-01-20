@@ -136,7 +136,7 @@
 										      	<td>
 										      		<a th:href="@{'newsEdit?id='+${info.id}}" title="修改"><i class="fa fa-edit text-navy"></i></a>
 										      		&nbsp;&nbsp;&nbsp;&nbsp;
-										      		<a href="#" th:onclick="'javascript:updateState('+${info.id}+',2,0);'" title="删除"><i class="fa fa-trash-o text-navy"></i></a>
+										      		<a th:href="@{http://localhost:8080/back/deleteLessons/{id}(id=${info.id})}"  title="删除"><i class="fa fa-trash-o text-navy"></i></a>
 										      	</td>
 											</tr>
 	                                    </tbody>

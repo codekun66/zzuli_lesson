@@ -21,4 +21,12 @@ public interface BackLessonsService {
 	 * @return
 	 */
 	int addLessons(Lessons lessons);
+	
+	/**
+	 * 删除课程信息
+	 *
+	 * @param Lessons
+	 * @return
+	 */
+	int deleteLessonsById(int id);
 }

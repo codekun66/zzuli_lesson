@@ -26,5 +26,10 @@ public class BackLessonsServiceImpl implements BackLessonsService {
 		
 		return  backLessonsMapper.insertLessons(lessons);
 	}
+	@Override
+	public int deleteLessonsById(int id) {
+		
+		return backLessonsMapper.deleteLessons(id);
+	}
 
 }
