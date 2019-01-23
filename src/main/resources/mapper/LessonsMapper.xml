@@ -24,6 +24,7 @@
 		ORDER BY
 		pageview
 		DESC
+		LIMIT 10
 	</select>
 	<!-- 更新对应id浏览量 -->
 	<update id="updatePageView">

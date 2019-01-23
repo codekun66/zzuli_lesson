@@ -11,19 +11,33 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.sun.tools.javac.util.Name.Table;
 import com.zzuli.lesson.bean.Lessons;
 import com.zzuli.lesson.service.BackLessonsService;
+import com.zzuli.lesson.service.LoginService;
 
 @Controller
 public class BackLessonsController {
 
 	@Autowired
 	private BackLessonsService backLessonsService;
-	
+
 	@RequestMapping(value = "/back/lessonsInfo", method = RequestMethod.GET)
-	public String getLessonList(ModelMap modelMap) throws Exception{
+	public String getLessonAdminList(ModelMap modelMap) throws Exception{
 		modelMap.addAttribute("backInfo", backLessonsService.getBackLessonsList());
-		return "background/lessonsManage" ;
+		return "background/table" ;
+	}	
+	
+	@RequestMapping(value = "/back/lessonsInfojson", method = RequestMethod.GET)
+	@ResponseBody
+	public List<Map<String, Object>> getLessonAdminListjson() throws Exception{
+		return backLessonsService.getBackLessonsList() ;
+	}	
+	
+	@RequestMapping(value = "/back/lessonsInfoTea/{userId}", method = RequestMethod.GET)
+	public String getLessonTeacherList(@PathVariable("userId") int userId ,ModelMap modelMap ) throws Exception{
+		modelMap.addAttribute("backInfo", backLessonsService.getBackLessonsListTeacher(userId));
+		return "background/lessonsManage";
 	}
 	
     @RequestMapping("back/lessonAdd.html")

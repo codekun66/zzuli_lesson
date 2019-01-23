@@ -9,22 +9,31 @@ import com.zzuli.lesson.bean.Lessons;
 
 public interface BackLessonsMapper {
 
-	   /**
-     * 查询后台需要课程信息列表
-     *
-     * @return
-     */
+	/**
+	 * 查询后台admin课程信息列表
+	 *
+	 * @return
+	 */
 	List<Map<String, Object>> queryBackLessons();
-	 /**
-     * 添加课程信息
-     *
-     * @return
-     */
+
+	/**
+	 * 查询后台teacher课程信息列表
+	 *
+	 * @return
+	 */
+	List<Map<String, Object>> queryBackLessonsTeacher(int userId);
+
+	/**
+	 * 添加课程信息
+	 *
+	 * @return
+	 */
 	int insertLessons(Lessons lessons);
-	 /**
-     * 删除课程信息
-     *
-     * @return
-     */
+
+	/**
+	 * 删除课程信息
+	 *
+	 * @return
+	 */
 	int deleteLessons(@Param("id") int id);
 }
