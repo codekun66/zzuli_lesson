@@ -27,20 +27,34 @@ public class LessonsController {
 
 	@Autowired 
 	LessonsService lessonsService;
-
 	
+	
+	/**
+	 * 热门课程排行
+	 * 
+	 * @return
+	 */
 	@RequestMapping(value = "/lessons/index.html", method = RequestMethod.GET)
     public String getIndexInfo(ModelMap modelMap) throws Exception {
 		modelMap.addAttribute("pageView",lessonsService.getPageView());
         return "index";
     }
-	
+	/**
+	 * 获取课程列表
+	 * 
+	 * @return
+	 */
 	@RequestMapping(value = "/lessons/all", method = RequestMethod.GET)
 	@ResponseBody
 	public List<Map<String, Object>> getLessonList(@RequestParam(value = "start", defaultValue = "1") int start,@RequestParam(value = "size", defaultValue = "5") int size) throws Exception{
 		PageHelper.startPage(start,size);
 		return  lessonsService.getLessonsList();
 	}
+	/**
+	 * 获得课程总数totalCount
+	 *
+	 * @return
+	 */
 	@RequestMapping(value = "/lessons/totalCount", method = RequestMethod.GET)
 	@ResponseBody
 	public Map<String, Object> getLessonTotalCount(){
@@ -48,13 +62,19 @@ public class LessonsController {
 		map.put("totalCount", lessonsService.getLessonsTotalCount());
 		return map;
 	}
-
+	/**
+	 * 通过Id获取课程信息
+	 * 
+	 * @param teacher
+	 * @return
+	 */
 	  @RequestMapping(value = "/lessons/{id}", method = RequestMethod.GET)
-	    public String index(@PathVariable("id") int id , ModelMap modelMap) {  //@PathVariable用于定义自定义或动态请求URI
-		   modelMap.addAttribute("info",lessonsService.getlessonsInfoById(id));
-	       return "info";
+	    public String getAllChapter(@PathVariable("id") int id , ModelMap modelMap) {  //@PathVariable用于定义自定义或动态请求URI
+		   modelMap.addAttribute("info",lessonsService.getAllChapter(id));
+	       return "lesson";
 	    }
 	
+	  
 	
 
 	

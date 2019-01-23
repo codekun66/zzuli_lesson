@@ -15,6 +15,12 @@ public interface BackLessonsService {
 	List<Map<String, Object>> getBackLessonsList() throws Exception;
 	
 	/**
+	 * 获取后台teacher信息列表
+	 * 
+	 * @return
+	 */
+	List<Map<String, Object>> getBackLessonsListTeacher(int userId) throws Exception;
+	/**
 	 * 新增课程信息
 	 *
 	 * @param Lessons

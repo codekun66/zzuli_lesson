@@ -26,8 +26,7 @@ public class Teacher {
 	private Date createTime;
 	// 更新时间
 	private Date modifieldTime;
-	
-
+	//有效状态码
 	public int getId() {
 		return id;
 	}

@@ -43,7 +43,9 @@ public class Lessons implements Serializable {
 	@DateTimeFormat(pattern = "yyyy-MM-dd hh:mm:ss")
 	@JsonSerialize(using = DateUtil.class)
 	private Date modifieldTime;
-
+	//有效状态码
+	private String validStsCd;
+	
 	public int getId() {
 		return id;
 	}
@@ -104,6 +106,12 @@ public class Lessons implements Serializable {
 	}
 	public void setModifieldTime(Date modifieldTime) {
 		this.modifieldTime = modifieldTime;
+	}
+	public String getValidStsCd() {
+		return validStsCd;
+	}
+	public void setValidStsCd(String validStsCd) {
+		this.validStsCd = validStsCd;
 	}
 	
 	

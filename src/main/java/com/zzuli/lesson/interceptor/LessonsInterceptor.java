@@ -21,8 +21,8 @@ public class LessonsInterceptor implements HandlerInterceptor {
     	String url = httpServletRequest.getServletPath(); 
     	String [] urls = url.split("\\/");
     	int x = urls.length;	
-    	if(x>3) {  // 如果存在文章id 
-    		String id = urls[3];
+    	if(x>2 && urls[2].length()<3) {  // 如果存在文章id 
+    		String id = urls[2];
     		jedisService.saveNewsClickNum(id);
     	}
        // System.out.println("被one拦截，放行...");

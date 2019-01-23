@@ -21,6 +21,13 @@ public class BackLessonsServiceImpl implements BackLessonsService {
 		
 		return backLessonsMapper.queryBackLessons();
 	}
+	
+	@Override
+	public List<Map<String, Object>> getBackLessonsListTeacher(int userId) throws Exception {
+	
+		return backLessonsMapper.queryBackLessonsTeacher(userId);
+	}
+
 	@Override
 	public int addLessons(Lessons lessons) {
 		

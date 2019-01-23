@@ -5,17 +5,33 @@
 	<!-- 获取课程信息列表 -->
 	<select id="queryBackLessons" resultType="java.util.Map">
 		SELECT id,
-		less_name as lessName,
+		less_name as
+		lessName,
 		rank,
 		tea_name as teaName,
-		pageview as	pageView,
+		pageview as pageView,
 		summary,
 		less_category as lessCategory,
 		create_time as createTime
 		FROM lessons
 		WHERE valid_sts_cd =1
 	</select>
-		<!-- 添加课程信息 -->
+	<select id="queryBackLessonsTeacher" resultType="java.util.Map">
+		SELECT id,
+		less_name as lessName,
+		rank,
+		tea_name as teaName,
+		pageview as
+		pageView,
+		summary,
+		less_category as lessCategory,
+		create_time as createTime
+		FROM lessons
+		WHERE valid_sts_cd =1
+		AND user_id = #{userId}
+	</select>
+
+	<!-- 添加课程信息 -->
 	<insert id="insertLessons" useGeneratedKeys="true" keyProperty="id"
 		keyColumn="id" parameterType="com.zzuli.lesson.bean.Lessons">
 		insert into
@@ -30,10 +46,10 @@
 		values
 		(#{lessName},#{teaName},0,now(),now())
 	</insert>
-	
-	<!-- 删除课程信息 --> 
+
+	<!-- 删除课程信息 -->
 	<update id="deleteLessons">
-	update
+		update
 		lessons
 		set
 		valid_sts_cd = 2
