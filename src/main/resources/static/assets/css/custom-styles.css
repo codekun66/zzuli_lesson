@@ -422,4 +422,12 @@ font-size: 19px;
 }
 }
 
+/*
+    edited by keyon
+    */
+    .split{
+        border: #000 dashed .5px;
+        padding: 10px;
+        margin-bottom: 10px;
+    }
 
