@@ -69,11 +69,12 @@ public class LessonsController {
 	 * @return
 	 */
 	  @RequestMapping(value = "/lessons/{id}", method = RequestMethod.GET)
-	    public String index(@PathVariable("id") int id , ModelMap modelMap) {  //@PathVariable用于定义自定义或动态请求URI
-		   modelMap.addAttribute("info",lessonsService.getlessonsInfoById(id));
-	       return "info";
+	    public String getAllChapter(@PathVariable("id") int id , ModelMap modelMap) {  //@PathVariable用于定义自定义或动态请求URI
+		   modelMap.addAttribute("info",lessonsService.getAllChapter(id));
+	       return "lesson";
 	    }
 	
+	  
 	
 
 	

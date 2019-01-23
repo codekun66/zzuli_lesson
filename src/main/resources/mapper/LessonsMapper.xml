@@ -49,4 +49,16 @@
 	    FROM 
 	    lessons
 	</select>
+	<select id="queryAllChapter" resultType="java.util.Map">
+		SELECT chapter_name , chapter_intro ,id
+		FROM less_chapter
+		where less_id = #{id}
+		ORDER BY chapter_seqno
+	</select>
+	<select id="queryAllSection" resultType="java.util.Map">
+		SELECT section_name , section_seqno
+		FROM less_section
+		where chapter_id = #{id}
+		ORDER BY  section_seqno 
+	</select>
 </mapper>

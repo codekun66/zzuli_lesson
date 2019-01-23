@@ -45,5 +45,12 @@ public interface LessonsService {
 	 * @return
 	 */
 	int getLessonsTotalCount();
+	/**
+	 * 获得课程所有章
+	 *
+	 * @return
+	 */
+	List<Map<String, Object>> getAllChapter(int id);
+	
 	/*List<Lessons> getLessonsList2();*/
 }

@@ -1,5 +1,7 @@
 package com.zzuli.lesson.serviceImpl;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
@@ -7,6 +9,7 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
+import org.w3c.dom.ls.LSInput;
 
 import com.zzuli.lesson.bean.Lessons;
 import com.zzuli.lesson.mapper.LessonsMapper;
@@ -59,6 +62,22 @@ public class LessonsServiceImpl implements LessonsService {
 		
 		return lessonsMapper.queryLessonsTotalCount();
 	}
+
+	@Override
+	public List<Map<String, Object>> getAllChapter(int id) {
+		List<Map<String, Object>> list = new ArrayList<Map<String, Object>>();
+		List<Map<String, Object>> list2 = new ArrayList<Map<String, Object>>();
+		list = lessonsMapper.queryAllChapter(id);
+		for (Map<String, Object> map : list) {
+			int chapterId= (int) map.get("id");
+			list2 = lessonsMapper.queryAllSection(chapterId);
+			map.put("section", list2);
+		}
+		return list;
+	}
+	
+	
+	
 	
 	
 /*	@Override

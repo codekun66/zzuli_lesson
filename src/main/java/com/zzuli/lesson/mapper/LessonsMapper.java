@@ -44,4 +44,17 @@ public interface LessonsMapper {
 	 */
 	int queryLessonsTotalCount();
 	
+	/**
+	 * 查询课程所有章
+	 * @param 
+	 * @return 
+	 */
+	List<Map<String, Object>> queryAllChapter(@Param("id") int id);
+	
+	/**
+	 * 查询课程所有节
+	 * @param 
+	 * @return 
+	 */
+	List<Map<String, Object>> queryAllSection(@Param("id") int id);
 }
