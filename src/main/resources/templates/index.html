@@ -1,6 +1,7 @@
 <!doctype html>
 <html lang="en">
-<html xmlns:th="http://www.thymeleaf.org"> 
+<html xmlns:th="http://www.thymeleaf.org">
+
 <head>
   <title>U课 · 更懂你的在线学习平台</title>
   <!-- Required meta tags -->
@@ -8,8 +9,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <link rel="icon" th:href="@{img/logo-elements/icon.ico}">
   <!-- Bootstrap CSS -->
-  <link rel="stylesheet" th:href="@{https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css}" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
-    crossorigin="anonymous">
+  <link rel="stylesheet" th:href="@{https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css}"
+    integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
   <link th:href="@{https://netdna.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css}" rel="stylesheet">
   <!-- Custom styles for this template -->
   <link th:href="@{/css/carousel.css}" rel="stylesheet">
@@ -129,15 +130,15 @@
 
       <!-- 此处 -->
 
-      <div class="wp fl" >
-       <ul class="channels" id = "lessonsall">
+      <div class="wp fl">
+        <ul class="channels" id="lessonsall">
         </ul>
         <div>
-			<div style="width: 100%;text-align: center;">
-			<div id='page'></div>
-			</div>				
-		</div>
-			<br> <br>
+          <div style="width: 100%;text-align: center;">
+            <div id='page'></div>
+          </div>
+        </div>
+        <br> <br>
       </div>
       <div class="side fr">
         <div class="side-sponsor">
@@ -145,11 +146,11 @@
         </div>
         <div class="channel-item channel-top10">
           <h3>热门课程 Top10</h3>
-          <ul class="channel-list" >
+          <ul class="channel-list">
             <li th:each="m2:${pageView}">
-              <a href="#"   th:text ="${m2.lessName}">Oracle数据库技术</a>
-              <div><span th:text ="${m2.teaName}">梁树军</span>
-              <span th:text ="${m2.pageview}">郑州轻工业大学</span>
+              <a href="#" th:text="${m2.lessName}">Oracle数据库技术</a>
+              <div><span th:text="${m2.teaName}">梁树军</span>
+                <span th:text="${m2.pageview}">郑州轻工业大学</span>
               </div>
             </li>
           </ul>
@@ -167,7 +168,7 @@
 
 
   </main>
-  
+
 
   <h2 class="h2-isolation">· · ·</h2>
 
@@ -186,9 +187,11 @@
       </span>
     </div>
     <div class="footer-fr" id="friendly_url">
-      <span>友情链接</span>
       <!-- friendly_url_table -->
       <table id="fri_u_table">
+        <tr>
+          <td colspan="2" class="td_title">友情链接</td>
+        </tr>
         <tr>
           <td><a href="">郑州轻工业大学</a></td>
           <td><a href="">河南大学</a></td>
@@ -204,31 +207,33 @@
       </table>
     </div>
     <div class="footer-fr" id="follow_us">
-        <span>关注我们</span><br>
-        <!-- follow_us_table -->
-        <table id="f_u_table">
-          <tr>
-            <td id="url_wb"><a href=""><i class="fa fa-weibo"></i><br>微博</a></td>
-            <td id="url_wx"><a href=""><i class="fa fa-weixin"></i><br>微信</a></td>
-          </tr>
-        </table>
-      </div>
+      <!-- follow_us_table -->
+      <table id="f_u_table">
+        <tr>
+          <td colspan="2" class="td_title">关注我们</td>
+        </tr>
+        <tr>
+          <td id="url_wb"><a href=""><i class="fa fa-weibo"></i><br>微博</a></td>
+          <td id="url_wx"><a href=""><i class="fa fa-weixin"></i><br>微信</a></td>
+        </tr>
+      </table>
+    </div>
     <div class="footer-fr" id="about_us">
-        <!-- about_us_table -->
-        <table id="a_u_table">
-          <tr>
-            <td>关于我们</td>
-          </tr>
-          <tr>
-            <td><a href="">关于我们</a></td>
-            <td><a href="">意见反馈</a></td>
-          </tr>
-          <tr>
-            <td><a href="">常见问题</a></td>
-            <td><a href="">资源下载</a></td>
-          </tr>
-        </table>
-      </div>
+      <!-- about_us_table -->
+      <table id="a_u_table">
+        <tr>
+          <td colspan="2" class="td_title">关于我们</td>
+        </tr>
+        <tr>
+          <td><a href="">关于我们</a></td>
+          <td><a href="">意见反馈</a></td>
+        </tr>
+        <tr>
+          <td><a href="">常见问题</a></td>
+          <td><a href="">资源下载</a></td>
+        </tr>
+      </table>
+    </div>
     <div id="footer_copyright">
       <p>&copy; 郑州轻工业大学 &middot; <a href="">豫ICP备05002456号</a> &middot; 软件学院Genius项目组<a href="" id="back2head">返回页首</a></p>
     </div>
@@ -241,58 +246,59 @@
     crossorigin="anonymous"></script>
   <script th:src="@{https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.js}"></script>
   <script th:src="@{/js/my-custom.js}"></script>
-  <script th:src="@{/js/initPage.js}" ></script>
-  <script th:src="@{/js/layui.all.js}" ></script>
-  <script th:src="@{/js/handlebars-v4.0.12.js}" ></script>
+  <script th:src="@{/js/initPage.js}"></script>
+  <script th:src="@{/js/layui.all.js}"></script>
+  <script th:src="@{/js/handlebars-v4.0.12.js}"></script>
   <script>
-			/**
-			 * 纯粹的JS分页插件，代码缺点：JS操作DOM冗余太多，太繁琐
-			 */	
-		/* 	 var curPage;
-			if(curPage){
-				
-			}
-			else{
-				curPage=1;
-			} */
-			currrentPage(1);
-			         $.ajax({ 
-			        	   type: "GET", //发送是以POST还是GET
-			        	   url: "http://localhost:8080/lessons/totalCount", //发送的地址
-			        	   dataType: "json", //传输数据的格式
-			        	   data: {}, //传输的数据
-			        	   //成功的回调函数
-			        	   success: function(msg) {
-			        		   var totalCount;
-			        		   totalCount=msg.totalCount
-			        		   console.log(totalCount) 
-			       			pageUtil.initPage('page',{
-			    				totalCount:totalCount,//总页数，一般从回调函数中获取。如果没有数据则默认为1页
-			    				curPage:1,//初始化时的默认选中页，默认第一页。如果所填范围溢出或者非数字或者数字字符串，则默认第一页
-			    				showCount:9,//分页栏显示的数量
-			    				pageSizeList:[5,10,15,20,25,30],//自定义分页数，默认[5,10,15,20,50]
-			    				defaultPageSize:5,//默认选中的分页数,默认选中第一个。如果未匹配到数组或者默认数组中，则也为第一个
-			    				isJump:true,//是否包含跳转功能，默认false
-			    				isPageNum:false,//是否显示分页下拉选择，默认false
-			    				isPN:true,//是否显示上一页和下一面，默认true
-			    				isFL:true,//是否显示首页和末页，默认true
-			    				jump:function(curPage,pageSize){//跳转功能回调，传递回来2个参数，当前页和每页大小。如果没有设置分页下拉，则第二个参数永远为0。这里的this被指定为一个空对象，如果回调中需用到this请自行使用bind方法
-			    					console.log(curPage,pageSize);
-			    					currrentPage(curPage);
-			    				},
-			    			});
-			        		   
-			        	     console.log(msg) 
-			        	   }, 
-			        	   //失败的回调函数
-			        	   error: function() { 
-			        	     console.log("error") 
-			        	   } 
-			        	 });
-			         
-			         
-	           function currrentPage(start){
-	        	   let teml = `{{#each this}}
+    /**
+     * 纯粹的JS分页插件，代码缺点：JS操作DOM冗余太多，太繁琐
+     */
+    /* 	 var curPage;
+    	if(curPage){
+    		
+    	}
+    	else{
+    		curPage=1;
+    	} */
+    currrentPage(1);
+    $.ajax({
+      type: "GET", //发送是以POST还是GET
+      url: "http://localhost:8080/lessons/totalCount", //发送的地址
+      dataType: "json", //传输数据的格式
+      data: {}, //传输的数据
+      //成功的回调函数
+      success: function (msg) {
+        var totalCount;
+        totalCount = msg.totalCount
+        console.log(totalCount)
+        pageUtil.initPage('page', {
+          totalCount: totalCount, //总页数，一般从回调函数中获取。如果没有数据则默认为1页
+          curPage: 1, //初始化时的默认选中页，默认第一页。如果所填范围溢出或者非数字或者数字字符串，则默认第一页
+          showCount: 9, //分页栏显示的数量
+          pageSizeList: [5, 10, 15, 20, 25, 30], //自定义分页数，默认[5,10,15,20,50]
+          defaultPageSize: 5, //默认选中的分页数,默认选中第一个。如果未匹配到数组或者默认数组中，则也为第一个
+          isJump: true, //是否包含跳转功能，默认false
+          isPageNum: false, //是否显示分页下拉选择，默认false
+          isPN: true, //是否显示上一页和下一面，默认true
+          isFL: true, //是否显示首页和末页，默认true
+          jump: function (curPage, pageSize) { //跳转功能回调，传递回来2个参数，当前页和每页大小。如果没有设置分页下拉，则第二个参数永远为0。这里的this被指定为一个空对象，如果回调中需用到this请自行使用bind方法
+            console.log(curPage, pageSize);
+            currrentPage(curPage);
+          },
+        });
+
+        console.log(msg)
+      },
+      //失败的回调函数
+      error: function () {
+        console.log("error")
+      }
+    });
+
+
+    function currrentPage(start) {
+      let teml =
+        `{{#each this}}
 	                   <li class="lesson" id={{id}}>
 	                   <div class="channel-pic fl">
 	                     <a href="/lessons/{{id}}"><img src="{{lessPicUrl}}"></a>
@@ -312,32 +318,34 @@
 	                     </div>
 	                 </li>
 	                  {{/each }}  `
-	                  
-	        	   $.ajax({
-		               type: "GET",
-		               url: "http://localhost:8080/lessons/all",
-		               dataType: "json",
-		               data: {"start": start}, 
-		               success: function (json) {
-		            	   //console.log(json)
-		            	   //var tmpl= $('#lessonsall').html();
-		                   var func = Handlebars.compile(teml);
-		                   var result = func(json);
-		                   $('#lessonsall').html(result);
-		               }
-		           });
-	           }
-	           
-	  /*           $('.lesson').click(function(){
-	              // alert(this.id)
-	            	window.location.href="/lessons/"+this.id
-	           })  */
-       
-	           
-	           $(document).on("click",'.lesson',function(){
-	        	   console.log(this.id)
-	        	window.location.href="/lessons/"+this.id
-	       /*  	   $.ajax({
+
+      $.ajax({
+        type: "GET",
+        url: "http://localhost:8080/lessons/all",
+        dataType: "json",
+        data: {
+          "start": start
+        },
+        success: function (json) {
+          //console.log(json)
+          //var tmpl= $('#lessonsall').html();
+          var func = Handlebars.compile(teml);
+          var result = func(json);
+          $('#lessonsall').html(result);
+        }
+      });
+    }
+
+    /*           $('.lesson').click(function(){
+                // alert(this.id)
+              	window.location.href="/lessons/"+this.id
+             })  */
+
+
+    $(document).on("click", '.lesson', function () {
+      console.log(this.id)
+      window.location.href = "/lessons/" + this.id
+      /*  	   $.ajax({
 		               type: "GET",
 		               url: "/lessons/list/"+this.id,
 		               dataType: "json",
@@ -346,11 +354,9 @@
 		           
 		               }
 		           });  */
-	         });
-	    //      */
-	          
-	           
-		</script>
+    });
+    //      */
+  </script>
 </body>
 
 </html>
