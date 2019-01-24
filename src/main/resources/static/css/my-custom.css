@@ -1,3 +1,8 @@
+html{
+    font-size: 15px;
+}
+
+
 .carousel-item>img {
     position: absolute;
     top: 0;
@@ -221,6 +226,7 @@ background: linear-gradient(to right, transparent, #fff 55%);
 } */
 
 body {
+    width: 100vw;
     min-width: 1275px;
     background-color: #F5F5F5;
     margin: 0;
@@ -303,10 +309,10 @@ body {
     padding-right: 3em;
 }
 .navbar-brand{
-    font-size: 1.3rem;
+    font-size: 22px;
 }
 .navbar-brand>img{
-    height: 2rem;
+    height: 32px;
     max-width: 100%;
     max-height: 100%;
 }
