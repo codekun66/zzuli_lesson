@@ -1,23 +1,23 @@
 ﻿<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns:th="http://www.w3.org/1999/xhtml">
 
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>后台管理系统</title>
-    <link rel="icon" href="img/logo-elements/icon.ico">
+    <link rel="icon" th:href="@{/img/logo-elements/icon.ico}">
     <!-- Bootstrap Styles-->
-    <link href="background/css/bootstrap.css" rel="stylesheet" />
+    <link th:href="@{/background/css/bootstrap.css}" rel="stylesheet" />
     <!-- FontAwesome Styles-->
-    <link href="background/css/font-awesome.css" rel="stylesheet" />
+    <link th:href="@{/background/css/font-awesome.css}" rel="stylesheet" />
     <!-- Morris Chart Styles-->
 
     <!-- Custom Styles-->
-    <link href="background/css/custom-styles.css" rel="stylesheet" />
+    <link th:href="@{/background/css/custom-styles.css}" rel="stylesheet" />
     <!-- Google Fonts-->
-    <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
+    <link th:href='@{/https://fonts.googleapis.com/css?family=Open+Sans}' rel='stylesheet' type='text/css' />
     <!-- TABLE STYLES-->
-    <link href="background/js/dataTables/dataTables.bootstrap.css" rel="stylesheet" />
+    <link th:href="@{/background/js/dataTables/dataTables.bootstrap.css}" rel="stylesheet" />
 </head>
 
 <body>
@@ -30,7 +30,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.html">后台管理系统</a>
+                <a class="navbar-brand" href="#">后台管理系统</a>
             </div>
 
             <ul class="nav navbar-top-links navbar-right">
@@ -265,10 +265,10 @@
                     </li>
                     -->
                     <li>
-                        <a href="bkground-mng-index-form.html"><i class="fa fa-edit"></i> 添加课程 </a>
+                        <a href="background-form.html"><i class="fa fa-edit"></i> 添加课程 </a>
                     </li>
                     <li>
-                        <a href="bkground-mng-index-table.html" class="active-menu"><i class="fa fa-table"></i> 编辑信息</a>
+                        <a href="background-table.html" class="active-menu"><i class="fa fa-table"></i> 编辑信息</a>
                     </li>
                     <!--
 
@@ -1028,9 +1028,7 @@
                 <!-- /. ROW  -->
             </div>
             <footer>
-                <p>Copyright &copy; 2016.Company name All rights reserved.More Templates <a href="http://www.cssmoban.com/"
-                        target="_blank" title="模板之家">模板之家</a> - Collect from <a href="http://www.cssmoban.com/" title="网页模板"
-                        target="_blank">网页模板</a></p>
+                <p> &copy; 郑州轻工业大学 · 豫ICP备05002456号 · 软件学院Genius项目组</p>
             </footer>
         </div>
         <!-- /. PAGE INNER  -->
@@ -1039,21 +1037,21 @@
     <!-- /. WRAPPER  -->
     <!-- JS Scripts-->
     <!-- jQuery Js -->
-    <script src="background/js/jquery-1.10.2.js"></script>
+    <script th:src="@{/background/js/jquery-1.10.2.js}"></script>
     <!-- Bootstrap Js -->
-    <script src="background/js/bootstrap.min.js"></script>
+    <script th:src="@{/background/js/bootstrap.min.js}"></script>
     <!-- Metis Menu Js -->
-    <script src="background/js/jquery.metisMenu.js"></script>
+    <script th:src="@{/background/js/jquery.metisMenu.js}"></script>
     <!-- DATA TABLE SCRIPTS -->
-    <script src="background/js/dataTables/jquery.dataTables.js"></script>
-    <script src="background/js/dataTables/dataTables.bootstrap.js"></script>
+    <script th:src="@{/background/js/dataTables/jquery.dataTables.js}"></script>
+    <script th:src="@{/background/js/dataTables/dataTables.bootstrap.js}"></script>
     <script>
         $(document).ready(function () {
             $('#dataTables-example').dataTable();
         });
     </script>
     <!-- Custom Js -->
-    <script src="background/js/custom-scripts.js"></script>
+    <script th:src="@{/background/js/custom-scripts.js}"></script>
 
 
 </body>
