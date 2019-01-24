@@ -335,15 +335,13 @@
                                     </thead>
                                     <tbody >
                                      <tr class="odd gradeX"  th:each="info : ${backInfo}">
-                                        	    <td th:text="${info.id}">Onions</td>
-										      	<td th:text="${info.lessName}">Onions</td>
+                                        	    <td th:text="${info.lessName}">Onions</td>
+										      	<td th:text="${info.teaName}">Onions</td>
 										      	<td th:text="${info.lessCategory}">Onions</td>
 										      	<td th:text="${info.rank}">Onions</td>
 										      	<td th:text="${info.pageView}">Onions</td>
-                                            <td class="center">4</td>
-                                            <td class="center">X</td>
-                                        </tr>
-                                    
+										      	 <td><button>编辑</button></td>
+                                      </tr>
                                     </tbody>
                                 </table>
                             </div>

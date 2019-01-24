@@ -6464,7 +6464,8 @@
 
 			.course-chapters .chapter .video li:first-child a button {
 				position: relative;
-				right: -12px
+				right: -12px;
+				line-height: 24px;
 			}
 
 			.course-chapters .chapter .video li {

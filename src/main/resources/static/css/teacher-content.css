@@ -55,14 +55,14 @@
 				
 			}
 			.cont{
-				margin-bottom: -3rem;
-				margin-top: 3rem;
+				margin-bottom: -30px;
+				margin-top: 50px;
 			}
 			.cont img{
-				width: 13rem;display: inline-block;position: relative;top: -5rem;
+				width: 200px;display: inline-block;position: relative;top: -50px;
 			}
 			.cont-right{
-				display: inline-block;margin-left: 3rem;
+				display: inline-block;margin-left: 20px;
 			}
 			.mtm {
 				margin-top: 10px !important;
