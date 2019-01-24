@@ -1,5 +1,6 @@
 package com.zzuli.lesson.controller;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -58,15 +59,19 @@ public class BackLessonsController {
 	}
 	
 	  @RequestMapping(value = "/back/deleteLessons/{id}", method = RequestMethod.GET)
-	    public String deleteLesson(@PathVariable("id") int id , ModelMap modelMap) {  //@PathVariable用于定义自定义或动态请求URI
+	  @ResponseBody
+	    public Map<String, Object> deleteLesson(@PathVariable("id") int id , ModelMap modelMap) {  //@PathVariable用于定义自定义或动态请求URI
 		  int count =backLessonsService.deleteLessonsById(id);
+		  Map<String, Object> map  = new HashMap<>();
 		  if(count > 0) {
-				return "redirect:/back/lessonsInfo";
+			  map.put("msg", "succes");
+				
 			}
 		  else {
-				modelMap.addAttribute("erro","失败");
-				return"errro";
+			  map.put("msg", "error");
+				
 			}
+		  return map;   
 	    }
 	
 }
