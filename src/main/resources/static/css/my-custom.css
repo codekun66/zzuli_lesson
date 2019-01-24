@@ -1,3 +1,7 @@
+html{
+    font-size: 15px;
+}
+
 .carousel-item>img {
     position: absolute;
     top: 0;
@@ -34,7 +38,7 @@
     overflow: hidden;
     margin-bottom: 30px;
     background: #FFF;
-    border-radius: 15px;
+    border-radius: 5px;
     box-shadow: rgb(188, 188, 188) -2px 2px 8px;
     height: 11.2rem;
 }
@@ -53,7 +57,7 @@
     margin: 0;
     height: 100%;
     widows: 100%;
-    border-radius: 15px;
+    border-radius: 5px;
     display: block;
 }
 
