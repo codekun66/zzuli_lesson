@@ -78,12 +78,12 @@ public class LoginController {
         if ("teacher".equals(role)) {
         	int userId = loginService.getUserId(username);
         	modelMap.addAttribute("backInfo", backLessonsService.getBackLessonsListTeacher(userId));
-        	return "background/table" ;
+        	return "background/background-table" ;
     		
         } 
         if ("administrator".equals(role)) {
         	modelMap.addAttribute("backInfo", backLessonsService.getBackLessonsList());
-    		return "background/table" ;
+    		return "background/background-table" ;
         }
         return "login";
     }

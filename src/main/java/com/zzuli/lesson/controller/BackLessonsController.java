@@ -25,7 +25,7 @@ public class BackLessonsController {
 	@RequestMapping(value = "/back/lessonsInfo", method = RequestMethod.GET)
 	public String getLessonAdminList(ModelMap modelMap) throws Exception{
 		modelMap.addAttribute("backInfo", backLessonsService.getBackLessonsList());
-		return "background/table" ;
+		return "background/background-table" ;
 	}	
 	
 	@RequestMapping(value = "/back/lessonsInfojson", method = RequestMethod.GET)

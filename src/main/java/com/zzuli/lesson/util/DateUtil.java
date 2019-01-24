@@ -29,5 +29,12 @@ public class DateUtil extends JsonSerializer<Date> {
         String value = dateFormat.format(date);
         gen.writeString(value);
     }
+    
+    public static String FtpDate() {
+    	   Date date = new Date();
+           SimpleDateFormat sdf = new SimpleDateFormat("yyyyMM");
+           String dateStr = sdf.format(date);
+           return dateStr ;
+    }
 
 }
