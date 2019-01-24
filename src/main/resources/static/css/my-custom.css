@@ -220,8 +220,8 @@ background: linear-gradient(to right, transparent, #fff 55%);
     background-color: #F5F5F5;
 } */
 
-
 body {
+    min-width: 1275px;
     background-color: #F5F5F5;
     margin: 0;
     padding: 0;
@@ -312,6 +312,7 @@ body {
 }
 .navbar{
     position: absolute;
+    min-width: 1275px;
     height: 3rem;
     font-size: 1rem;
 }
