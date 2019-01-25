@@ -601,8 +601,8 @@ body.canvas-menu.mini-navbar nav.navbar-static-side {
   color: #fff;
 }
 .btn-primary {
-  background-color: #1e90ff;
-  border-color: #1e90ff;
+  background-color: #1ab394;
+  border-color: #1ab394;
   color: #FFFFFF;
 }
 .btn-primary:hover,
@@ -3768,7 +3768,8 @@ table.table-mail tr td {
 }
 /* BACKGROUNDS */
 .gray-bg {
-  background-image: url("../img/login/bg-img.jpg");
+  background-image: url("../img/login/bg-img5.jpg");
+  background-size:100%;
 }
 .white-bg {
   background-color: #ffffff;
