@@ -3767,9 +3767,12 @@ table.table-mail tr td {
   right: 0;
 }
 /* BACKGROUNDS */
-.gray-bg {
+.img-bg {
   background-image: url("../img/login/bg-img5.jpg");
   background-size:100%;
+}
+.gray-bg{
+  background-color: #f3f3f4;
 }
 .white-bg {
   background-color: #ffffff;
