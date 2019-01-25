@@ -276,6 +276,7 @@ body {
     color: #EEE;
     min-width: 1275px;
     overflow: hidden;
+	bottom: 0px;
 }
 
 .footer a {
