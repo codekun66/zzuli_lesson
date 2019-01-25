@@ -250,59 +250,12 @@
         <nav class="navbar-default navbar-side" role="navigation">
             <div class="sidebar-collapse">
                 <ul class="nav" id="main-menu">
-                    <!--
-                    <li>
-                        <a href="index.html"><i class="fa fa-dashboard"></i> Dashboard</a>
-                    </li>
-                    <li>
-                        <a href="ui-elements.html"><i class="fa fa-desktop"></i> UI Elements</a>
-                    </li>
-					<li>
-                        <a href="chart.html"><i class="fa fa-bar-chart-o"></i> Charts</a>
-                    </li>
-                    <li>
-                        <a href="tab-panel.html"><i class="fa fa-qrcode"></i> Tabs & Panels</a>
-                    </li>
-                    -->
                     <li>
                         <a href="background-form.html"><i class="fa fa-edit"></i> 添加课程 </a>
                     </li>
                     <li>
                         <a href="background-table.html" class="active-menu"><i class="fa fa-table"></i> 编辑信息</a>
                     </li>
-                    <!--
-
-                    <li>
-                        <a href="#"><i class="fa fa-sitemap"></i> Multi-Level Dropdown<span class="fa arrow"></span></a>
-                        <ul class="nav nav-second-level">
-                            <li>
-                                <a href="#">Second Level Link</a>
-                            </li>
-                            <li>
-                                <a href="#">Second Level Link</a>
-                            </li>
-                            <li>
-                                <a href="#">Second Level Link<span class="fa arrow"></span></a>
-                                <ul class="nav nav-third-level">
-                                    <li>
-                                        <a href="#">Third Level Link</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Third Level Link</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Third Level Link</a>
-                                    </li>
-
-                                </ul>
-
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="empty.html"><i class="fa fa-fw fa-file"></i> Empty Page</a>
-                    </li>
-                    -->
                 </ul>
 
             </div>
@@ -337,18 +290,12 @@
                                                 <th>↕️&nbsp;分类</th>
                                                 <th>↕️&nbsp;级别</th>
                                                 <th>↕️&nbsp;访问量</th>
-                                                <th></th>
+                                                <th>操作</th>
                                             </tr>
                                         </thead>
-                                        <tbody>
-                                            <tr class="odd gradeX" th:each="info : ${backInfo}">
-                                                <td th:text="${info.lessName}">Onions</td>
-                                                <td th:text="${info.teaName}">Onions</td>
-                                                <td th:text="${info.lessCategory}">Onions</td>
-                                                <td th:text="${info.rank}">Onions</td>
-                                                <td th:text="${info.pageView}">Onions</td>
-                                                <td><button>编辑</button><button id="delete">删除</button></td>
-                                            </tr>
+                                        <tbody id="backLessonsall">
+
+
                                         </tbody>
                                     </table>
                                 </div>
@@ -369,21 +316,69 @@
     <!-- /. WRAPPER  -->
     <!-- JS Scripts-->
     <!-- jQuery Js -->
-    <script th:src="@{/background/js/jquery-1.10.2.js}"></script>
+    <script src="background/js/jquery-1.10.2.js"></script>
     <!-- Bootstrap Js -->
-    <script th:src="@{/background/js/bootstrap.min.js}"></script>
+    <script src="background/js/bootstrap.min.js"></script>
     <!-- Metis Menu Js -->
-    <script th:src="@{/background/js/jquery.metisMenu.js}"></script>
+    <script src="background/js/jquery.metisMenu.js"></script>
     <!-- DATA TABLE SCRIPTS -->
-    <script th:src="@{/background/js/dataTables/jquery.dataTables.js}"></script>
-    <script th:src="@{/background/js/dataTables/dataTables.bootstrap.js}"></script>
+    <script src="background/js/dataTables/jquery.dataTables.js"></script>
+    <script src="background/js/dataTables/dataTables.bootstrap.js"></script>
+    <script src="js/layui.all.js"></script>
+    <script src="js/handlebars-v4.0.12.js"></script>
+
     <script>
-        $(document).ready(function () {
-            $('#dataTables-example').dataTable();
-        });
+        var loadTml = function () {
+            var teml =
+                `{{#each this}}
+          		  <tr class="odd gradeX">
+    	        		  <td>{{id}}</td>
+                        <td>{{lessName}}</td>
+                        <td>{{lessCategory}}</td>
+                        <td>{{rank}}</td>
+                        <td>{{pageView}}</td>
+                        <td><button class="del" data-id="{{id}}">删除</button></td>
+                    </tr>
+                    {{/each }}  `
+
+            $.ajax({
+                type: "GET",
+                url: "http://localhost:8080/back/lessonsInfojson",
+                dataType: "json",
+                data: {},
+                success: function (json) {
+                    //console.log(json)
+                    //var tmpl= $('#lessonsall').html();
+                    var func = Handlebars.compile(teml);
+                    var result = func(json);
+                    console.log(result)
+                    $('#backLessonsall').html(result);
+                    $('#dataTables-example').dataTable();
+
+                }
+            });
+        }
+        loadTml()
+        // 模态框确认按钮点击事件
+        $("#backLessonsall").on('click', '.del', function () {
+            var _this = this
+            var flag = confirm('删除？')
+            if (flag) {
+                $.get('/back/deleteLessons/' + $(this).data('id'), function (data) {
+                    console.log(data)
+                    if (data.msg === "succes") {
+                        $(_this).parents('tr').remove()
+                        alert('删除成功')
+                    } else {
+                        alert('删除失败')
+                    }
+                })
+            }
+
+        })
     </script>
     <!-- Custom Js -->
-    <script th:src="@{/background/js/custom-scripts.js}"></script>
+    <script src="background/js/custom-scripts.js"></script>
 
 
 </body>
