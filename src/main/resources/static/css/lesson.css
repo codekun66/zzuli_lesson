@@ -6464,7 +6464,7 @@
 
 			.course-chapters .chapter .video li:first-child a button {
 				position: relative;
-				right: -12px;
+				right: 0px;
 				line-height: 24px;
 			}
 
@@ -6521,7 +6521,8 @@
 				color: #1c1f21;
 				display: block;
 				overflow: hidden;
-				word-break: break-all
+				word-break: break-all;
+				text-decoration:none;
 			}
 
 			.course-chapters .chapter .video li a .type {
