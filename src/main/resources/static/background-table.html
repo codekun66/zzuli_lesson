@@ -135,12 +135,12 @@
             var teml =
                 `{{#each this}}
           		  <tr class="odd gradeX">
-    	        		<td>{{id}}</td>
+    	        		  <td>{{id}}</td>
                         <td>{{lessName}}</td>
                         <td>{{lessCategory}}</td>
                         <td>{{rank}}</td>
                         <td>{{pageView}}</td>
-                        <td style="text-align:center;"><i class="fa fa-pencil-square-o edit" aria-hidden="true" data-id="{{id}}"></i>&nbsp;&nbsp;<i class="fa fa-trash-o del" aria-hidden="true" data-id="{{id}"}></i></td>
+                        <td><button class="edit" data-id="{{id}}"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>&nbsp;&nbsp;<button class="del" data-id="{{id}}"><i class="fa fa-trash-o" aria-hidden="true"></i></button></td>
                     </tr>
                     {{/each }}  `
 
