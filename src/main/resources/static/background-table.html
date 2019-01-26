@@ -362,15 +362,14 @@
         // 模态框确认按钮点击事件
         $("#backLessonsall").on('click', '.del', function () {
             var _this = this
-            var flag = confirm('删除？')
+            var flag = confirm('确定要删除本条记录吗？')
             if (flag) {
                 $.get('/back/deleteLessons/' + $(this).data('id'), function (data) {
                     console.log(data)
                     if (data.msg === "succes") {
                         $(_this).parents('tr').remove()
-                        alert('删除成功')
                     } else {
-                        alert('删除失败')
+                        alert('删除失败！')
                     }
                 })
             }
