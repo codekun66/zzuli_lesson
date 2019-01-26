@@ -1,7 +1,7 @@
 
 			#main {
 				min-height: 750px;
-				padding: 20px 0;
+				/* padding: 20px 0; */
 			}
 
 			.course-infos {
@@ -776,7 +776,7 @@
 
 			#main {
 				min-height: 750px;
-				padding: 20px 0
+				/* padding: 20px 0 */
 			}
 
 			.waper {
@@ -4883,7 +4883,7 @@
 			}
 
 			#main {
-				padding-top: 55px;
+				/* padding-top: 55px; */
 				color: #1c1f21;
 				background: #f8fafc
 			}
