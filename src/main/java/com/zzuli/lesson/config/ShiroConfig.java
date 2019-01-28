@@ -36,7 +36,7 @@ public class ShiroConfig {
         // setLoginUrl 如果不设置值，默认会自动寻找Web工程根目录下的"/login.jsp"页面 或 "/login" 映射
         shiroFilterFactoryBean.setLoginUrl("/login.html");
         //登陆成功后的页面
-        shiroFilterFactoryBean.setSuccessUrl("/back/lessonsInfo");
+        shiroFilterFactoryBean.setSuccessUrl("/background-table.html");
         shiroFilterFactoryBean.setUnauthorizedUrl("/403");
         // 设置无权限时跳转的 url;
         shiroFilterFactoryBean.setUnauthorizedUrl("/notRole");

@@ -1,9 +1,12 @@
 package com.zzuli.lesson.controller;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.shiro.authc.AuthenticationToken;
+import org.apache.shiro.subject.Subject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -14,10 +17,13 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.zzuli.lesson.bean.Lessons;
 import com.zzuli.lesson.service.BackLessonsService;
+import com.zzuli.lesson.service.LoginService;
 
 @Controller
 public class BackLessonsController {
 
+	@Autowired 
+	private LoginService loginService;
 	@Autowired
 	private BackLessonsService backLessonsService;
 
@@ -25,18 +31,28 @@ public class BackLessonsController {
 	public String getLessonAdminList(ModelMap modelMap) throws Exception{
 		modelMap.addAttribute("backInfo", backLessonsService.getBackLessonsList());
 		return "background/background-table" ;
-	}	
+	}
 	
-	@RequestMapping(value = "/back/lessonsInfojson", method = RequestMethod.GET)
+	@RequestMapping(value = "/back/lessonsInfoAdmin", method = RequestMethod.GET)
 	@ResponseBody
 	public List<Map<String, Object>> getLessonAdminListjson() throws Exception{
-		return backLessonsService.getBackLessonsList() ;
+		//String role = loginService.getRole(username);
+		List<Map<String, Object>> list = new ArrayList<Map<String,Object>>();
+		list = backLessonsService.getBackLessonsList();
+	//	Map<String, Object> map = new HashMap<>();
+	//	String Role = loginService.getRole(token.getPrincipal().toString());
+	//	int userId = loginService.getUserId(token.getPrincipal().toString());
+	//	map.put("role", Role);
+	//	map.put("userId", userId);
+	//	list.add(map);
+		return list ;
 	}	
 	
 	@RequestMapping(value = "/back/lessonsInfoTea/{userId}", method = RequestMethod.GET)
-	public String getLessonTeacherList(@PathVariable("userId") int userId ,ModelMap modelMap ) throws Exception{
-		modelMap.addAttribute("backInfo", backLessonsService.getBackLessonsListTeacher(userId));
-		return "background/lessonsManage";
+	@ResponseBody
+	public List<Map<String, Object>> getLessonTeacherList(@PathVariable("userId") int userId ,ModelMap modelMap ) throws Exception{
+		//modelMap.addAttribute("backInfo", backLessonsService.getBackLessonsListTeacher(userId));
+		return backLessonsService.getBackLessonsListTeacher(userId);
 	}
 	
     @RequestMapping("back/lessonAdd.html")

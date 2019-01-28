@@ -39,7 +39,7 @@
 				<div class="form-group">
 					<input type="password" class="form-control" placeholder="密码" name="password" required="" />
 				</div>
-				<button type="submit" class="btn btn-primary block full-width m-b">登录</button>
+				<button type="submit" class="btn btn-primary block full-width m-b"id="sum">登录</button>
 				<a href="register.html" href="#"><small>忘记密码</small></a>
 				<br><br>
 				<p class="text-muted text-center">
@@ -61,23 +61,25 @@
 	<script src="js/sweetalert.min.js"></script>
 
 
-	<script inline="javascript">
+	<script>
 
+$('#sum').click(function(){
 
+	alert(2)
+})
 
 		$.ajax({
 			type: "GET",
-			url: "/back/login",
+			url: "/login",
 			dataType: "json",
 			data: {},
 			success: function (json) {
-				if(returncode==1){
-					window.location.href="backgound-table.html";
+				if(json.returncode == "1"){
+					alert(2)
+					window.location.href="http://www.baidu.com";
 				}
 			}
 		});
-
-
 
 		var error = [
 			[$ {
@@ -91,7 +93,7 @@
 					text: error
 				});
 			}
-		});
+		}); 
 	</script>
 </body>
 

@@ -1,10 +1,16 @@
 package com.zzuli.lesson.controller;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
+
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.UsernamePasswordToken;
+import org.apache.shiro.session.Session;
 import org.apache.shiro.subject.Subject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -17,6 +23,9 @@ import org.springframework.web.bind.annotation.RestController;
 import com.zzuli.lesson.mapper.LoginMapper;
 import com.zzuli.lesson.service.BackLessonsService;
 import com.zzuli.lesson.service.LoginService;
+import com.zzuli.lesson.util.ConstantUtil;
+
+import javassist.expr.NewArray;
 
 @Controller
 public class LoginController {
@@ -66,7 +75,8 @@ public class LoginController {
 	 * @throws Exception 
      */
     @RequestMapping(value = "/login", method = RequestMethod.POST)
-    public String backLogin(String username, String password ,ModelMap modelMap) throws Exception {
+    @ResponseBody
+    public Map<String, Object> backLogin(String username, String password ,ModelMap modelMap,HttpServletRequest request, HttpServletResponse response) throws Exception {
         // 从SecurityUtils里边创建一个 subject
         Subject subject = SecurityUtils.getSubject();
         // 在认证提交前准备 token（令牌）
@@ -75,16 +85,37 @@ public class LoginController {
         subject.login(token);
         //根据权限，指定返回数据
         String role = loginService.getRole(username);
-        if ("teacher".equals(role)) {
-        	int userId = loginService.getUserId(username);
-        	modelMap.addAttribute("backInfo", backLessonsService.getBackLessonsListTeacher(userId));
-        	return "background/background-table" ;
-    		
-        } 
-        if ("administrator".equals(role)) {
-        	modelMap.addAttribute("backInfo", backLessonsService.getBackLessonsList());
-    		return "background/background-table" ;
-        }
-        return "login";
+        String sessionId = (String) subject.getSession().getId();
+        Session session =  subject.getSession();
+        Map<String, Object> map = new HashMap<>();
+        int userId = loginService.getUserId(username);
+        	//modelMap.addAttribute("backInfo", backLessonsService.getBackLessonsList());
+    		//return "background/background-table" ;
+/*        	Cookie cookie = new Cookie("sessionId",sessionId);
+        	response.addCookie(cookie);*/
+        	map.put("msg", "success");
+        	map.put("role", role);
+        	map.put("returncode", 1);
+        	map.put("username", username);
+        	session.setAttribute("role", role);
+        	session.setAttribute("userId", userId);
+        	session.setAttribute("username", username);
+        	session.setAttribute("sessionId", sessionId);
+        return map ;
+    }
+    
+    @RequestMapping(value = "/judge", method = RequestMethod.GET)
+    @ResponseBody
+    public Map<String, Object> judgeIdentity (HttpServletRequest request, HttpServletResponse response){
+    	Map<String, Object> map = new HashMap<>();
+    	Subject subject = SecurityUtils.getSubject();
+    	Session session =  subject.getSession();
+    	String role = (String) session.getAttribute("role");
+    	map.put("role", role);
+    	int userId = (int) session.getAttribute("userId");
+    	map.put("userId", userId);
+    	String	username = (String) session.getAttribute("username");
+    	map.put("username", username);
+    	return map;
     }
 }
