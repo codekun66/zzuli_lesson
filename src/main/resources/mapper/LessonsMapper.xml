@@ -56,7 +56,7 @@
 		ORDER BY chapter_seqno
 	</select>
 	<select id="queryAllSection" resultType="java.util.Map">
-		SELECT section_name , section_seqno
+		SELECT section_name , section_seqno , resource_url
 		FROM less_section
 		where chapter_id = #{id}
 		ORDER BY  section_seqno 
