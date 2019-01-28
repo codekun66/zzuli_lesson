@@ -281,11 +281,12 @@
 	                   <li class="lesson" id={{id}}>
 	                   <div class="channel-pic fl">
 	                     <a href="/lessons/{{id}}"><img src="{{lessPicUrl}}"></a>
-											 <span class="badge badge-danger">{{必修课程}}</span>
+											 
 	                   </div>
 	                   <div class="channel-body">
 	                     <div class="channel-title">
 	                       <a href="/lessons/{{id}}">{{lessName}}</a>
+	                       <span class="badge badge-danger">必修课程</span>
 	                     </div>
 	                     <div class="channel-meta">
 	                       <span><i class="fa fa-user-plus"></i>{{teaName}}</span>
@@ -301,7 +302,7 @@
 
       $.ajax({
         type: "GET",
-        url: "http://localhost:8080/lessons/all",
+        url: "/lessons/all",
         dataType: "json",
         data: {
           "start": start
