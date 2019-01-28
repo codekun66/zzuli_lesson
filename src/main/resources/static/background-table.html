@@ -131,7 +131,26 @@
     <script src="js/handlebars-v4.0.12.js"></script>
 
     <script>
-        var loadTml = function () {
+        var userid;
+        $.ajax({
+                type: "GET",
+                url: "/back/judge",
+                dataType: "json",
+                data: {},
+                success: function (json) {
+                    if(uesrname=='admin'){
+                        loadAdmin();
+                    }else{
+                        loadTeacher();
+                        userid = userId;
+                    }
+
+                }
+            });
+
+
+
+        var loadAdmin = function () {
             var teml =
                 `{{#each this}}
           		  <tr class="odd gradeX">
@@ -146,7 +165,7 @@
 
             $.ajax({
                 type: "GET",
-                url: "http://localhost:8080/back/lessonsInfojson",
+                url: "/back/lessonsInfoAdmin",
                 dataType: "json",
                 data: {},
                 success: function (json) {
@@ -161,7 +180,38 @@
                 }
             });
         }
-        loadTml()
+
+        var loadTeacher = function () {
+            var teml =
+                `{{#each this}}
+          		  <tr class="odd gradeX">
+    	        		  <td>{{id}}</td>
+                        <td>{{lessName}}</td>
+                        <td>{{lessCategory}}</td>
+                        <td>{{rank}}</td>
+                        <td>{{pageView}}</td>
+                        <td><button class="edit" data-id="{{id}}"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>&nbsp;&nbsp;<button class="del" data-id="{{id}}"><i class="fa fa-trash-o" aria-hidden="true"></i></button></td>
+                    </tr>
+                    {{/each }}  `
+
+            $.ajax({
+                type: "GET",
+                url: "/back/lessonsInfoTea/{userId} ",
+                dataType: "json",
+                data: {},
+                success: function (json) {
+                    //console.log(json)
+                    //var tmpl= $('#lessonsall').html();
+                    var func = Handlebars.compile(teml);
+                    var result = func(json);
+                    console.log(result)
+                    $('#backLessonsall').html(result);
+                    $('#dataTables-example').dataTable();
+
+                }
+            });
+        }
+
         // 模态框确认按钮点击事件
         $("#backLessonsall").on('click', '.del', function () {
             var _this = this
