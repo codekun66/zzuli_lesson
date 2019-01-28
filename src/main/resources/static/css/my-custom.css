@@ -19,11 +19,6 @@ main{
     overflow: hidden;
     /* min-height: 100%; */
 }
-#show_label{
-    padding: 0;
-    margin: 0;
-    text-align: center;
-}
 
 .carousel-caption {
     max-width: 40em;

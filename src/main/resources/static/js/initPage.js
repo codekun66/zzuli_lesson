@@ -252,7 +252,7 @@ if(typeof layui ==='undefined' && typeof layer ==='undefined'){
 			jumpDiv.id='jumpDiv';
 			button.id = 'jump';
 			button.innerHTML = '跳转';
-			label.style.marginRight='15px';	
+			label.style.margin='0px';	
 			label.style.verticalAlign='middle';
 			label.id = 'show_label';
 			label.innerHTML = '共 '+totalPage+' 页';
