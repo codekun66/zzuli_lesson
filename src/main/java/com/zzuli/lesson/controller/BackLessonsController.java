@@ -5,6 +5,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.apache.shiro.authc.AuthenticationToken;
 import org.apache.shiro.subject.Subject;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -61,7 +63,7 @@ public class BackLessonsController {
     }
 
 	@RequestMapping(value = "/back/lessonsAdd", method = RequestMethod.POST)
-	public String addLessons(Lessons lessons , ModelMap modelMap) {
+	public String addLessons(Lessons lessons , ModelMap modelMap,HttpServletRequest request) {
 		int count = backLessonsService.addLessons(lessons);
 		if(count > 0) {
 			return "redirect:lessonsInfo";

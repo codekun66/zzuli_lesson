@@ -76,7 +76,7 @@ public class LoginController {
      */
     @RequestMapping(value = "/login", method = RequestMethod.POST)
     @ResponseBody
-    public Map<String, Object> backLogin(String username, String password ,ModelMap modelMap,HttpServletRequest request, HttpServletResponse response) throws Exception {
+    public Map<String, Object> backLogin(String username, String password ) throws Exception {
         // 从SecurityUtils里边创建一个 subject
         Subject subject = SecurityUtils.getSubject();
         // 在认证提交前准备 token（令牌）
