@@ -34,7 +34,7 @@
             <a class="nav-link active" href="#">首页</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" th:href="@{lesson}">课程信息</a>
+            <a class="nav-link" th:href="@{class-content.html}">课程信息</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#">教学资源</a>
@@ -43,7 +43,7 @@
             <a class="nav-link" href="#">实验资源</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" th:href="@{teacher}">教师专栏</a>
+            <a class="nav-link" th:href="@{teacher.html}">教师专栏</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#">公告</a>
@@ -290,7 +290,7 @@
 	                     <div class="channel-meta">
 	                       <span><i class="fa fa-user-plus"></i>{{teaName}}</span>
 	                       <span><i class="fa fa fa-tasks"></i>{{rank}}</span>
-	                       <span><i class="fa fa-cubes"></i>10:20</span>
+	                       <span><i class="fa fa-cubes"></i>{{lessCategory}}</span>
 	                       <span><i class="fa fa-line-chart"></i>{{pageView}}</span>
 	                     </div>
 	                     <div class="channel-desc"><p>

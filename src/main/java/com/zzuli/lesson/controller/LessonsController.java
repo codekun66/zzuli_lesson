@@ -25,20 +25,20 @@ import com.zzuli.lesson.util.RedisUtil;
 @Controller
 public class LessonsController {
 
-	@Autowired 
+	@Autowired
 	LessonsService lessonsService;
-	
-	
+
 	/**
 	 * 热门课程排行
 	 * 
 	 * @return
 	 */
 	@RequestMapping(value = "/lessons/index.html", method = RequestMethod.GET)
-    public String getIndexInfo(ModelMap modelMap) throws Exception {
-		modelMap.addAttribute("pageView",lessonsService.getPageView());
-        return "index";
-    }
+	public String getIndexInfo(ModelMap modelMap) throws Exception {
+		modelMap.addAttribute("pageView", lessonsService.getPageView());
+		return "index";
+	}
+
 	/**
 	 * 获取课程列表
 	 * 
@@ -46,10 +46,12 @@ public class LessonsController {
 	 */
 	@RequestMapping(value = "/lessons/all", method = RequestMethod.GET)
 	@ResponseBody
-	public List<Map<String, Object>> getLessonList(@RequestParam(value = "start", defaultValue = "1") int start,@RequestParam(value = "size", defaultValue = "5") int size) throws Exception{
-		PageHelper.startPage(start,size);
-		return  lessonsService.getLessonsList();
+	public List<Map<String, Object>> getLessonList(@RequestParam(value = "start", defaultValue = "1") int start,
+			@RequestParam(value = "size", defaultValue = "5") int size) throws Exception {
+		PageHelper.startPage(start, size);
+		return lessonsService.getLessonsList();
 	}
+
 	/**
 	 * 获得课程总数totalCount
 	 *
@@ -57,25 +59,31 @@ public class LessonsController {
 	 */
 	@RequestMapping(value = "/lessons/totalCount", method = RequestMethod.GET)
 	@ResponseBody
-	public Map<String, Object> getLessonTotalCount(){
+	public Map<String, Object> getLessonTotalCount() {
 		Map<String, Object> map = new HashMap<String, Object>();
 		map.put("totalCount", lessonsService.getLessonsTotalCount());
 		return map;
 	}
+
 	/**
 	 * 通过Id获取课程信息
 	 * 
 	 * @param teacher
 	 * @return
 	 */
-	  @RequestMapping(value = "/lessons/{id}", method = RequestMethod.GET)
-	    public String getAllChapter(@PathVariable("id") int id , ModelMap modelMap) {  //@PathVariable用于定义自定义或动态请求URI
-		   modelMap.addAttribute("info",lessonsService.getAllChapter(id));
-	       return "lesson";
-	    }
-	
-	  
-	
+	@RequestMapping(value = "/lessons/{id}", method = RequestMethod.GET)
+	public String getAllChapter(@PathVariable("id") int id, ModelMap modelMap) { // @PathVariable用于定义自定义或动态请求URI
+		modelMap.addAttribute("info", lessonsService.getAllChapter(id));
+		return "lesson";
+	}
 
-	
+	@RequestMapping("/lessons/teacher.html")
+	public String goTeacher() {
+		return "teacher";
+	}
+
+	@RequestMapping("/lessons/class-content.html")
+	public String goLesson() {
+		return "class-content";
+	}
 }
