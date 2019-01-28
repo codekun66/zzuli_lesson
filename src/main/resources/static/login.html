@@ -62,6 +62,23 @@
 
 
 	<script inline="javascript">
+
+
+
+		$.ajax({
+			type: "GET",
+			url: "/back/login",
+			dataType: "json",
+			data: {},
+			success: function (json) {
+				if(returncode==1){
+					
+				}
+			}
+		});
+
+
+
 		var error = [
 			[$ {
 				error
