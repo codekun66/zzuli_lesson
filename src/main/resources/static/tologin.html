@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+				<div >
+					<input type="text" placeholder="用户名/邮箱" name="username" id="username" required="" />
+				</div>
+				<div >
+					<input type="password"  placeholder="密码" name="password" id="password" required="" />
+				</div>
+				<button  id="sum">登录</button>
+			
+ <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+
+
+	<script>
+	$("#sum").click(function () {
+      
+       
+            $.ajax({
+                type: "POST",
+                url: "/login",
+                data: {username:$("#username").val(), password:$("#password").val()},
+                success: function(msg) {
+                    console.log(msg.returncode);
+                	if(msg.returncode == "1"){
+    					window.location.href="http://www.baidu.com";
+    				}
+                }
+            });
+        
+    });
+		</script>
+		</body>
+</html>
