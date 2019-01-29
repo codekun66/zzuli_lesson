@@ -131,22 +131,27 @@
     <script src="js/handlebars-v4.0.12.js"></script>
 
     <script>
-        var userid;
-        $.ajax({
+        var userid
+        var aj = $.ajax({
                 type: "GET",
                 url: "/back/judge",
                 dataType: "json",
-                data: {},
-                success: function (json) {
-                    if(uesrname=='admin'){
+                data: {
+                    username : username,
+                    userId : userId
+                },
+                success: function (data) {
+                    if(data.uesrname=='administrator'){
                         loadAdmin();
-                    }else{
+                    }else if(data.username=='teacher'){
                         loadTeacher();
                         userid = userId;
                     }
 
                 }
             });
+
+        
 
 
 
@@ -197,7 +202,7 @@
 
             $.ajax({
                 type: "GET",
-                url: "/back/lessonsInfoTea/{userId} ",
+                url: "/back/lessonsInfoTea/"+userid,
                 dataType: "json",
                 data: {},
                 success: function (json) {
