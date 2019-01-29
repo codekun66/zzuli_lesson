@@ -59,11 +59,10 @@
 
 	<script th:inline="javascript">
 		var data={}
-		data["username"] = "admin";
-		data["password"] = "admin";
-
-		// data["username"] = $("#usernameText").val();
-		// data["password"] = $("#passwordText").val();
+		data["username"] = "admin"
+		data["password"] = "admin"
+		// data["username"] = $("input:text[name='username']").val();
+		// data["password"] = $("input:password[name='password']").val();
 		$('#loginButton').click(function () {
 			$.ajax({
 				type: "post",
@@ -73,7 +72,6 @@
 				success: function (result) {
 					
 							if (result.returncode == "1") {
-								alert(2)
 								window.location.href = "http://www.baidu.com";
 							}else{
 								console.log(result.returncode)
@@ -83,25 +81,19 @@
 					console.log(data)
 				}
 			})
-
-
-
-
 		})
-
-
 		// var error = [
 		// 	[${error}]
 		// ];
-		var error = "error"
-		$(document).ready(function () {
-			if (error != null) {
-				swal({
-					title: "温馨提示",
-					text: error
-				});
-			}
-		});
+		// var error = "error"
+		// $(document).ready(function () {
+		// 	if (error != null) {
+		// 		swal({
+		// 			title: "温馨提示",
+		// 			text: error
+		// 		});
+		// 	}
+		// });
 	</script>
 </body>
 
