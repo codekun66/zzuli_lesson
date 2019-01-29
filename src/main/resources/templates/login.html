@@ -58,38 +58,35 @@
 
 
 	<script th:inline="javascript">
-		var data={}
-		data["username"] = "admin"
-		data["password"] = "admin"
-		// data["username"] = $("input:text[name='username']").val();
-		// data["password"] = $("input:password[name='password']").val();
+		var data = {}
 		$('#loginButton').click(function () {
+			data["username"] = $("input:text[name='username']").val()
+			data["password"] = $("input:password[name='password']").val()
 			$.ajax({
 				type: "post",
-				data:data,
+				data: data,
 				url: '/login',
 				cache: false,
 				success: function (result) {
-					
-							if (result.returncode == "1") {
-								window.location.href = "/background-table.html";
-								var userName = data.username;
-								var nameRes = JSON.stringify(userName)
-								sessionStorage.userName = nameRes;
-								var userPassword = data.password;
-								var passwordRes = JSON.stringify(userPassword)
-								sessionStorage.userPassword = passwordRes;
-							}else{
-								alert("出错了 T.T\n错误代码：1");
-							}
+					if (result.returncode == "1") {
+						window.location.href = "/background-table.html";
+						var userName = data.username;
+						var nameRes = JSON.stringify(userName)
+						sessionStorage.userName = nameRes;
+						var userPassword = data.password;
+						var passwordRes = JSON.stringify(userPassword)
+						sessionStorage.userPassword = passwordRes;
+					} else {
+						alert("出错了 T.T\n错误代码：1");
+					}
 				},
 				error: errFunction
 			})
 		})
 
 		function errFunction() {
-            alert("出错了 T.T\n错误代码：2");
-        }
+			alert("出错了 T.T\n错误代码：2");
+		}
 		// var error = [
 		// 	[${error}]
 		// ];
