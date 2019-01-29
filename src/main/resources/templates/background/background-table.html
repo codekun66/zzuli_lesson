@@ -34,7 +34,7 @@
             </div>
 
             <ul class="nav navbar-top-links navbar-right">
-                <li><label style="color:#fff;">欢迎登录</label></li>
+                <li><label style="color:#fff;">{{username}},欢迎登录</label></li>
                 <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">
                         <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
@@ -131,7 +131,29 @@
     <script src="js/handlebars-v4.0.12.js"></script>
 
     <script>
-        var loadTml = function () {
+        var userid
+        var data = {}
+        data["username"] = "admin"
+        data["password"] = "admin"
+        // data["username"] = $("input:text[name='username']").val();
+        // data["password"] = $("input:password[name='password']").val();
+        $.ajax({
+                type: "post",
+                data: data,
+                url: '/login',
+                cache: false,
+                success: function (result) {
+
+                    if (result.username == "admin") {
+                        loadAdmin();
+                    } else if(result.username == "teacher") {
+                        loadTeacher();
+                        userid = result.userId;
+                    }
+                }
+            })
+
+        var loadAdmin = function () {
             var teml =
                 `{{#each this}}
           		  <tr class="odd gradeX">
@@ -146,7 +168,7 @@
 
             $.ajax({
                 type: "GET",
-                url: "http://localhost:8080/back/lessonsInfojson",
+                url: "/back/lessonsInfoAdmin",
                 dataType: "json",
                 data: {},
                 success: function (json) {
@@ -161,18 +183,50 @@
                 }
             });
         }
-        loadTml()
+        loadAdmin()
+
+        var loadTeacher = function () {
+            var teml =
+                `{{#each this}}
+          		  <tr class="odd gradeX">
+    	        		  <td>{{id}}</td>
+                        <td>{{lessName}}</td>
+                        <td>{{lessCategory}}</td>
+                        <td>{{rank}}</td>
+                        <td>{{pageView}}</td>
+                        <td><button class="edit" data-id="{{id}}"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>&nbsp;&nbsp;<button class="del" data-id="{{id}}"><i class="fa fa-trash-o" aria-hidden="true"></i></button></td>
+                    </tr>
+                    {{/each }}  `
+
+            $.ajax({
+                type: "GET",
+                url: "/back/lessonsInfoTea/" + userid,
+                dataType: "json",
+                data: {},
+                success: function (json) {
+                    //console.log(json)
+                    //var tmpl= $('#lessonsall').html();
+                    var func = Handlebars.compile(teml);
+                    var result = func(json);
+                    console.log(result)
+                    $('#backLessonsall').html(result);
+                    $('#dataTables-example').dataTable();
+
+                }
+            });
+        }
+
         // 模态框确认按钮点击事件
         $("#backLessonsall").on('click', '.del', function () {
             var _this = this
-            var flag = confirm('删除？')
+            var flag = confirm('确定要删除本条记录吗？')
             if (flag) {
                 $.get('/back/deleteLessons/' + $(this).data('id'), function (data) {
                     console.log(data)
                     if (data.msg === "succes") {
                         $(_this).parents('tr').remove()
                     } else {
-                        alert('删除失败')
+                        alert('删除失败！')
                     }
                 })
             }

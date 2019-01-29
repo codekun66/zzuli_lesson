@@ -132,28 +132,26 @@
 
     <script>
         var userid
-        var aj = $.ajax({
-                type: "GET",
-                url: "/back/judge",
-                dataType: "json",
-                data: {
-                    username : username,
-                    userId : userId
-                },
-                success: function (data) {
-                    if(data.uesrname=='administrator'){
+        var data = {}
+        data["username"] = "admin"
+        data["password"] = "admin"
+        // data["username"] = $("input:text[name='username']").val();
+        // data["password"] = $("input:password[name='password']").val();
+        $.ajax({
+                type: "post",
+                data: data,
+                url: '/login',
+                cache: false,
+                success: function (result) {
+
+                    if (result.username == "admin") {
                         loadAdmin();
-                    }else if(data.username=='teacher'){
+                    } else if(result.username == "teacher") {
                         loadTeacher();
-                        userid = userId;
+                        userid = result.userId;
                     }
-
                 }
-            });
-
-        
-
-
+            })
 
         var loadAdmin = function () {
             var teml =
@@ -202,7 +200,7 @@
 
             $.ajax({
                 type: "GET",
-                url: "/back/lessonsInfoTea/"+userid,
+                url: "/back/lessonsInfoTea/" + userid,
                 dataType: "json",
                 data: {},
                 success: function (json) {

@@ -72,16 +72,18 @@
 				success: function (result) {
 					
 							if (result.returncode == "1") {
-								window.location.href = "http://www.baidu.com";
+								window.location.href = "/background-table.html";
 							}else{
-								console.log(result.returncode)
+								alert("出错了 T.T\n错误代码：1");
 							}
 				},
-				error:function (result) {
-					console.log(data)
-				}
+				error: errFunction
 			})
 		})
+
+		function errFunction() {
+            alert("出错了 T.T\n错误代码：2");
+        }
 		// var error = [
 		// 	[${error}]
 		// ];
