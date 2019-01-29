@@ -18,7 +18,7 @@ import java.util.Date;
 @Component
 public class FtpUtil {
     //ftp服务器ip地址
-    private static final String FTP_ADDRESS = "172.18.255.43";
+   // private static final String FTP_ADDRESS = "172.18.255.43";
     //端口号
     private static final int FTP_PORT = 21;
     //用户名
@@ -33,7 +33,7 @@ public class FtpUtil {
         ftp.setControlEncoding("GBK");
         try {
             int reply;
-            ftp.connect(FTP_ADDRESS, FTP_PORT);// 连接FTP服务器
+            ftp.connect(ConstantUtil.FTP_ADDRESS.FTP_ADDRESS, FTP_PORT);// 连接FTP服务器
             ftp.login(FTP_USERNAME, FTP_PASSWORD);// 登录
             reply = ftp.getReplyCode();
             if (!FTPReply.isPositiveCompletion(reply)) {

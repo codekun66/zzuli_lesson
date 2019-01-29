@@ -14,6 +14,7 @@ import org.w3c.dom.ls.LSInput;
 import com.zzuli.lesson.bean.Lessons;
 import com.zzuli.lesson.mapper.LessonsMapper;
 import com.zzuli.lesson.service.LessonsService;
+import com.zzuli.lesson.util.ConstantUtil;
 import com.zzuli.lesson.util.RedisUtil;
 @Service  //声明当前是Spring管理的一个Bean
 public class LessonsServiceImpl implements LessonsService {
@@ -35,7 +36,15 @@ public class LessonsServiceImpl implements LessonsService {
 			object.setPageView(redisUtil.getString(String.valueOf(object.getId())));
 		}
 		*/
-		return lessonsMapper.queryLessons();
+		List<Map<String, Object>> list = new ArrayList<Map<String, Object>>();
+		list = lessonsMapper.queryLessons();
+		for (Map<String, Object> map : list) {
+			String url = (String) map.get("lessPicUrl");
+			
+			String ultimaUrl = ConstantUtil.FTP_PRE.FTP_PRE + url ;
+			map.put("lessPicUrl", ultimaUrl);
+		}
+		return list;
 	}
 
 	@Override
