@@ -58,6 +58,19 @@
 
 
 	<script th:inline="javascript">
+		//回车监听，触发button的click事件
+		$("#usernameText").keyup(function (event) {
+			if (event.keyCode == 13) {
+				$("#loginButton").trigger("click");
+			}
+		});
+		$("#passwordText").keyup(function (event) {
+			if (event.keyCode == 13) {
+				$("#loginButton").trigger("click");
+			}
+		});
+
+		//button的click事件
 		var data = {}
 		$('#loginButton').click(function () {
 			data["username"] = $("input:text[name='username']").val()
@@ -78,15 +91,14 @@
 						sessionStorage.userPassword = passwordRes;
 					} else {
 						alert("出错了 T.T\n错误代码：1");
+
 					}
 				},
-				error: errFunction
+				error: function(){
+					alert("出错了 T.T\n错误代码：2")
+				}
 			})
 		})
-
-		function errFunction() {
-			alert("出错了 T.T\n错误代码：2");
-		}
 		// var error = [
 		// 	[${error}]
 		// ];
