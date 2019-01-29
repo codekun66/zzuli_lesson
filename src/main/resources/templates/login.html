@@ -73,6 +73,12 @@
 					
 							if (result.returncode == "1") {
 								window.location.href = "/background-table.html";
+								var userName = data.username;
+								var nameRes = JSON.stringify(userName)
+								sessionStorage.userName = nameRes;
+								var userPassword = data.password;
+								var passwordRes = JSON.stringify(userPassword)
+								sessionStorage.userPassword = passwordRes;
 							}else{
 								alert("出错了 T.T\n错误代码：1");
 							}

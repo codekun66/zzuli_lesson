@@ -131,27 +131,32 @@
     <script src="js/handlebars-v4.0.12.js"></script>
 
     <script>
+        var roleRestore = sessionStorage.userName;
+        var userName = JSON.parse(roleRestore);
+        // console.log(userName.type);
+        var roleIDRestore = sessionStorage.userPassword;
+        var userPassword = JSON.parse(roleIDRestore);
+        // console.log(userPassword.type);
         var userid
         var data = {}
-        data["username"] = "admin"
-        data["password"] = "admin"
+        data["username"] = userName
+        data["password"] = userPassword
         // data["username"] = $("input:text[name='username']").val();
         // data["password"] = $("input:password[name='password']").val();
         $.ajax({
-                type: "post",
-                data: data,
-                url: '/login',
-                cache: false,
-                success: function (result) {
-
-                    if (result.username == "admin") {
-                        loadAdmin();
-                    } else if(result.username == "teacher") {
-                        loadTeacher();
-                        userid = result.userId;
-                    }
+            type: "post",
+            data: data,
+            url: '/login',
+            cache: false,
+            success: function (result) {
+                if (result.role == "administrator") {
+                    loadAdmin();
+                } else if (result.role == "teacher") {
+                    loadTeacher();
+                    userid = result.userId;
                 }
-            })
+            }
+        })
 
         var loadAdmin = function () {
             var teml =
@@ -183,7 +188,6 @@
                 }
             });
         }
-        loadAdmin()
 
         var loadTeacher = function () {
             var teml =
