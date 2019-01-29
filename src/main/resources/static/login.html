@@ -63,27 +63,34 @@
 
 	<script>
 
-$('#sum').click(function(){
+$('#loginButton').click(function () {
+			$.post('/login', {
+				username: $("#username"),
+				password: $("#password")
+			}, function (data) {
+				alert(data)
+			})
 
-	alert(2)
-})
 
-		$.ajax({
-			type: "GET",
-			url: "/login",
-			dataType: "json",
-			data: {},
-			success: function (json) {
-				if(json.returncode == "1"){
-					alert(2)
-					window.location.href="http://www.baidu.com";
+			$.ajax({
+				type: "GET",
+				url: "/login",
+				dataType: "json",
+				data: {},
+				success: function (json) {
+					if (json.returncode == "1") {
+						alert(2)
+						window.location.href = "http://www.baidu.com";
+					}
 				}
-			}
-		});
+			});
+		})
 
-		var error = [
-			[${error}]
-		];
+		
+		// var error = [
+		// 	[${error}]
+		// ];
+		var error = "error"
 		$(document).ready(function () {
 			if (error != null) {
 				swal({
