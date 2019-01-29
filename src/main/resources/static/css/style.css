@@ -3769,6 +3769,7 @@ table.table-mail tr td {
 /* BACKGROUNDS */
 .img-bg {
   background-image: url("../img/login/bg-img5.jpg");
+  height: 1vw;
   background-size:100%;
 }
 .gray-bg{
