@@ -13,11 +13,17 @@ import com.zzuli.lesson.bean.Teacher;
  */
 public interface TeacherMapper {
 	/**
-     * 查询教师信息列表
+     * 查询所有教师信息列表
      *
      * @return
      */
 	List<Map<String, Object>> queryTeacher();
+	/**
+     * 查询有效教师信息列表
+     *
+     * @return
+     */
+	List<Map<String, Object>> queryValidTeacher();
 	/**
     *  根据教师ID获取教师信息列表
     *
