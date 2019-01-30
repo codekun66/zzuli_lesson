@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.zzuli.lesson.mapper.LessonsMapper">
 
-	<!-- 获取课程信息列表 -->
+	<!-- 获取所有课程信息列表 -->
 	<select id="queryLessons" resultType="java.util.Map">
 		SELECT id,
 		less_pic_url as lessPicUrl,
@@ -14,6 +14,19 @@
 		less_category as lessCategory
 		FROM lessons
 	</select>
+	<!-- 获取有效的课程信息列表 -->
+	<select id="queryValidLessons" resultType="java.util.Map">
+		SELECT id,
+		less_pic_url as lessPicUrl,
+		less_name as lessName,
+		rank,
+		tea_name as teaName,
+		pageview as	pageView,
+		summary,
+		less_category as lessCategory
+		FROM lessons
+		WHERE valid_sts_cd = 1
+	</select>
 	<!-- 获取热门课程信息 -->
 	<select id="queryPageViewByPageView" resultType="java.util.Map">
 		SELECT id,
@@ -21,6 +34,7 @@
 		tea_name as teaName,
 		pageview 
 		FROM lessons
+		WHERE valid_sts_cd = 1
 		ORDER BY
 		pageview
 		DESC
@@ -43,22 +57,36 @@
 		WHERE
 		id=#{id}
 	</select>
+	<!-- 获取列表所有课程数量 -->
 	<select id="queryLessonsTotalCount"  resultType="java.lang.Integer">
 	    SELECT 
 	    count(id) 
 	    FROM 
 	    lessons
 	</select>
+	<!-- 获取列表有效课程数量 -->
+	<select id="queryLessonsValidCount"  resultType="java.lang.Integer">
+	    SELECT count(id) 
+	    FROM lessons
+	    WHERE valid_sts_cd = 1
+	</select>
+	<!-- 根据课程ID查询课程所有章节信息 -->
 	<select id="queryAllChapter" resultType="java.util.Map">
 		SELECT chapter_name , chapter_intro ,id
 		FROM less_chapter
 		where less_id = #{id}
 		ORDER BY chapter_seqno
 	</select>
+	<!-- 根据章节ID查询章节所有小节（或部分的信息） -->
 	<select id="queryAllSection" resultType="java.util.Map">
 		SELECT section_name , section_seqno , resource_url
 		FROM less_section
 		where chapter_id = #{id}
 		ORDER BY  section_seqno 
 	</select>
+	<!-- 添加课程 -->
+	<insert id="insertLessson">
+		INSERT INTO lessons (less_pic_url , less_name , rank , tea_name , pageview , summary ,create_time , less_category , valid_sts_cd)
+		values(#{lessPicUrl} , #{lessName} , #{rank} , #{teaName} , 0 , #{summary} , now() , #{lessCategory} , 1 )
+	</insert>
 </mapper>

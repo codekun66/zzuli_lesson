@@ -14,11 +14,17 @@ import com.zzuli.lesson.bean.Lessons;
 
 public interface LessonsMapper {
     /**
-     * 查询课程信息列表
+     * 查询所有课程信息列表
      *
      * @return
      */
-	List<Map<String, Object>> queryLessons();   
+	List<Map<String, Object>> queryLessons();
+	/**
+     * 查询有效的课程信息列表
+     *
+     * @return
+     */
+	List<Map<String, Object>> queryValidLessons();
 	 /**
      * 根据pagegview获取热门课程信息
      * 
@@ -57,4 +63,9 @@ public interface LessonsMapper {
 	 * @return 
 	 */
 	List<Map<String, Object>> queryAllSection(@Param("id") int id);
+	/**
+     * 添加课程
+     *
+     */
+	int insertLesson(Lessons lesson);
 }
