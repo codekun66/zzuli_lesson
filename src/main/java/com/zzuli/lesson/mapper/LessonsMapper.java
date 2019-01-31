@@ -49,6 +49,12 @@ public interface LessonsMapper {
 	 * @return 
 	 */
 	int queryLessonsTotalCount();
+	/**
+	 * 查询课程总数totalCount
+	 * @param 
+	 * @return 
+	 */
+	int queryLessonsValidCount();
 	
 	/**
 	 * 查询课程所有章

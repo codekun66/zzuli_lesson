@@ -12,11 +12,18 @@ import com.zzuli.lesson.bean.Lessons;
  */
 public interface LessonsService {
 	/**
-	 * 获取课程列表
+	 * 获取所有课程列表
 	 * 
 	 * @return
 	 */
 	List<Map<String, Object>> getLessonsList() throws Exception;
+	
+	/**
+	 * 获取有效的课程列表
+	 * 
+	 * @return
+	 */
+	List<Map<String, Object>> getValidLessonsList() throws Exception;
 
 	/**
 	 * 热门课程排行
@@ -40,17 +47,28 @@ public interface LessonsService {
 	 */
 	Map<String, Object> getlessonsInfoById(int id);
 	/**
-	 * 获得课程总数totalCount
+	 * 获得所有课程总数totalCount
 	 *
 	 * @return
 	 */
 	int getLessonsTotalCount();
+	/**
+	 * 获得有效课程总数validCount
+	 *
+	 * @return
+	 */
+	int getLessonsValidCount();
 	/**
 	 * 获得课程所有章
 	 *
 	 * @return
 	 */
 	List<Map<String, Object>> getAllChapter(int id);
-	
+	/**
+	 * 添加课程
+	 *
+	 * @return
+	 */
+	int addLesson(Lessons lesson);
 	/*List<Lessons> getLessonsList2();*/
 }

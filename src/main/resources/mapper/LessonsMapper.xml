@@ -85,7 +85,7 @@
 		ORDER BY  section_seqno 
 	</select>
 	<!-- 添加课程 -->
-	<insert id="insertLessson">
+	<insert id="insertLesson">
 		INSERT INTO lessons (less_pic_url , less_name , rank , tea_name , pageview , summary ,create_time , less_category , valid_sts_cd)
 		values(#{lessPicUrl} , #{lessName} , #{rank} , #{teaName} , 0 , #{summary} , now() , #{lessCategory} , 1 )
 	</insert>

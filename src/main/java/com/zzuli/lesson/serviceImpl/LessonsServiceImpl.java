@@ -46,6 +46,19 @@ public class LessonsServiceImpl implements LessonsService {
 		}
 		return list;
 	}
+	@Override
+	public List<Map<String, Object>> getValidLessonsList() throws Exception {
+		// TODO Auto-generated method stub
+		List<Map<String, Object>> list = new ArrayList<Map<String, Object>>();
+		list = lessonsMapper.queryValidLessons();
+		for (Map<String, Object> map : list) {
+			String url = (String) map.get("lessPicUrl");
+			
+			String ultimaUrl = ConstantUtil.FTP_PRE.FTP_PRE + url ;
+			map.put("lessPicUrl", ultimaUrl);
+		}
+		return list;
+	}
 
 	@Override
 	public List<Map<String, Object>> getPageView() {
@@ -71,6 +84,8 @@ public class LessonsServiceImpl implements LessonsService {
 		
 		return lessonsMapper.queryLessonsTotalCount();
 	}
+	
+	
 
 	@Override
 	public List<Map<String, Object>> getAllChapter(int id) {
@@ -83,6 +98,25 @@ public class LessonsServiceImpl implements LessonsService {
 			map.put("section", list2);
 		}
 		return list;
+	}
+
+	
+
+	@Override
+	public int getLessonsValidCount() {
+		// TODO Auto-generated method stub
+		return lessonsMapper.queryLessonsValidCount();
+	}
+
+	@Override
+	public int addLesson(Lessons lesson) {
+		// TODO Auto-generated method stub
+		try {
+            return lessonsMapper.insertLesson(lesson);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return 0;
+        }
 	}
 	
 	

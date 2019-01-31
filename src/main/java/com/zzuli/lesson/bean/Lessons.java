@@ -113,6 +113,4 @@ public class Lessons implements Serializable {
 	public void setValidStsCd(String validStsCd) {
 		this.validStsCd = validStsCd;
 	}
-	
-	
 }

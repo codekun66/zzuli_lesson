@@ -29,7 +29,7 @@ public interface TeacherMapper {
     *
     * @return
     */
-	List<Map<String, Object>> queryTeacherById();
+	List<Map<String, Object>> queryTeacherById(int id);
 	/**
     * 获取教师信息列表所有的信息数量
     *
