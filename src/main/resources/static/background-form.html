@@ -30,7 +30,7 @@
             </div>
 
             <ul class="nav navbar-top-links navbar-right">
-                <li><label style="color:#fff;">欢迎登录</label></li>
+                <li><label style="color:#fff;" id="welcomeLabel"></label></li>
                 <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">
                         <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
@@ -188,6 +188,17 @@
     <!-- Custom Js -->
     <script src="background/js/custom-scripts.js"></script>
     <script>
+        var roleRestore = sessionStorage.userName;
+        var userName = JSON.parse(roleRestore);
+        // console.log(userName.type);
+        var roleIDRestore = sessionStorage.userPassword;
+        var userPassword = JSON.parse(roleIDRestore);
+        // console.log(userPassword.type);
+
+        $(function(){
+            $("#welcomeLabel").text("亲爱的"+userName+"，欢迎您登录")
+        })
+
         var chapterCnt = 1
         var addChapter = document.getElementById('addChapter')
         addChapter.onclick = addChapters
