@@ -188,15 +188,18 @@
     <!-- Custom Js -->
     <script src="background/js/custom-scripts.js"></script>
     <script>
-        var roleRestore = sessionStorage.userName;
-        var userName = JSON.parse(roleRestore);
-        // console.log(userName.type);
-        var roleIDRestore = sessionStorage.userPassword;
-        var userPassword = JSON.parse(roleIDRestore);
-        // console.log(userPassword.type);
-
-        $(function(){
-            $("#welcomeLabel").text("亲爱的"+userName+"，欢迎您登录")
+        var role
+        var userid
+        var userName
+        $.ajax({
+            type: "get",
+            url: '/judge',
+            success: function (result) {
+                userName = result["username"]
+                userid = result["userId"]
+                role = result["role"]
+                $("#welcomeLabel").text("亲爱的"+userName+"，欢迎您登录")
+            }
         })
 
         var chapterCnt = 1
