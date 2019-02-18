@@ -131,39 +131,32 @@
     <script src="js/handlebars-v4.0.12.js"></script>
 
     <script>
-        var roleRestore = sessionStorage.userName;
-        var userName = JSON.parse(roleRestore);
-        // console.log(userName.type);
-        var roleIDRestore = sessionStorage.userPassword;
-        var userPassword = JSON.parse(roleIDRestore);
-        // console.log(userPassword.type);
-
-        $(function(){
-            $("#welcomeLabel").text("亲爱的"+userName+"，欢迎您登录")
-        })
-
+        var role
         var userid
-        var data = {}
-        data["username"] = userName
-        data["password"] = userPassword
-        // data["username"] = $("input:text[name='username']").val();
-        // data["password"] = $("input:password[name='password']").val();
+        var userName
         $.ajax({
-            type: "post",
-            data: data,
-            url: '/login',
-            cache: false,
+            type: "get",
+            url: '/judge',
             success: function (result) {
-                if (result.role == "administrator") {
+                userName = result["username"]
+                userid = result["userId"]
+                role = result["role"]
+                if (role == "administrator") {
                     loadAdmin();
-                } else if (result.role == "teacher") {
+                } else if (role == "teacher") {
                     loadTeacher();
-                    userid = result.userId;
                 }
             }
         })
 
+
+        $(function(){
+            console.log(userName)
+            $("#welcomeLabel").text("亲爱的"+userName+"，欢迎您登录")
+        })
+
         var loadAdmin = function () {
+            console.log(userid)
             var teml =
                 `{{#each this}}
           		  <tr class="odd gradeX">
@@ -186,7 +179,6 @@
                     //var tmpl= $('#lessonsall').html();
                     var func = Handlebars.compile(teml);
                     var result = func(json);
-                    console.log(result)
                     $('#backLessonsall').html(result);
                     $('#dataTables-example').dataTable();
 
@@ -195,6 +187,7 @@
         }
 
         var loadTeacher = function () {
+            console.log(userid)
             var teml =
                 `{{#each this}}
           		  <tr class="odd gradeX">
