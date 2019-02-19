@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>视频播放</title>
+		<!-- Required meta tags -->
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<link rel="icon" href="img/logo-elements/icon.ico">
+		<!-- Bootstrap CSS -->
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+		 crossorigin="anonymous">
+		<link href="https://netdna.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
+		<link href="css/carousel.css" rel="stylesheet">
+		<link href="css/my-custom.css" rel="stylesheet">
+		<link href="css/lesson.css" rel="stylesheet" />
+		<style>
+			.video::after{
+				clear:both;
+			}
+			.video-right{
+				border-left: 1px solid #000000;
+			}
+			.video-right span{
+				margin: 15px 60px;
+			}
+			.video-right img{
+				width: 200px;
+				height: 150px;
+				margin-top:100px;
+			}
+		</style>
+	<body>
+		<header>
+			<a name="n"></a>
+			<nav class="navbar navbar-expand-md navbar-dark fixed-top" style="background-color:#333">
+				<a class="navbar-brand" href="#">
+					<img src="img/logo-elements/Logo.png" width="32" height="32" class="d-inline-block align-top" alt="">
+					课</a>
+				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse"
+				 aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="collapse navbar-collapse" id="navbarCollapse">
+					<ul class="navbar-nav mr-auto">
+						<li class="nav-item">
+							<a class="nav-link active" href="#main">首页</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="#courses_info">课程信息</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="#tch_res">教学资源</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="#exp_res">实验资源</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="#bull_board">公告</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="#chatting_online">在线交流</a>
+						</li>
+					</ul>
+					<!-- <form class="form-inline mt-2 mt-md-0">
+		            <button class="btn btn-outline-success my-2 my-sm-0" type="button" style="margin-left:8px;">登录</button>
+		          </form> -->
+				</div>
+			</nav>
+		</header>
+		<main>
+			<div id="main">
+				<div class="course-infos">
+					<div class="w pr">
+						<div class="path">
+							<a href="/course/list">课程</a>
+							<i class="path-split">\</i><a href="/course/list?c=be">课程信息</a>
+							<i class="path-split">\</i><a href="/course/list?c=java">Web</a>
+							<i class="path-split">\</i><a href="/learn/1079"><span>第几章第几课</a></span>
+						</div>
+						<div class="hd clearfix">
+							<h2 class="l">XXXXXXXXXXXXXXXXX</h2>
+						</div>
+
+						<div class="statics clearfix">
+							<div class="teacher-info l">
+								<a href="/u/7143508/courses?sort=publish" target="_blank">
+									<img data-userid="7143508" class="js-usercard-dialog" src="img/1.jpg" width="80" height="80">
+								</a>
+								<span class="tit">
+									<a href="/u/7143508/courses?sort=publish" target="_blank">崔建涛</a><i class="icon-imooc"></i>
+								</span>
+								<span class="job"></span>
+							</div>
+
+							<div class="static-item l">
+								<span class="meta">难度</span><span class="meta-value">中级</span>
+							</div>
+							<div class="static-item l">
+								<span class="meta">时长</span><span class="meta-value"> 6小时31分</span>
+							</div>
+							<div class="static-item l">
+								<span class="meta">学习人数</span><span class="meta-value js-learn-num"></span>
+							</div>
+							<div class="static-item l score-btn">
+								<span class="meta">综合评分</span><span class="meta-value">9.5</span>
+
+
+								<div class="score-wrap triangle">
+									<div class="score-box">
+										<a href="/coursescore/1079" class="person-num">
+											<span class="person-num l">28人评价</span>
+										</a>
+										<a href="/coursescore/1079?page=1" class="evaluation-btn r">查看评价</a>
+										<div class="score-detail-box">
+											<div class="score-static-item">
+												<span class="meta-value">9.9</span>
+												<span class="meta">内容实用</span>
+											</div>
+											<div class="score-static-item">
+												<span class="meta-value">9.4</span>
+												<span class="meta">简洁易懂</span>
+											</div>
+											<div class="score-static-item">
+												<span class="meta-value">9.4</span>
+												<span class="meta">逻辑清晰</span>
+											</div>
+										</div>
+										<div class="icon-drop_down"></div>
+									</div>
+
+								</div>
+
+							</div>
+
+						</div>
+						<div class="extra">
+
+							<!-- credit -->
+
+							<!-- share -->
+							<div class="share-action r bdsharebuttonbox">
+								<!--收藏-->
+								<div class="share js-follow-action"><i class="follow-action"></i><span>收藏</span></div>
+								<a href="javascript:;" class="share wx js-share icon-share-weichat" data-cmd="weixin"></a>
+								<a href="javascript:;" class="share qq js-share icon-share-qq" data-cmd="qzone"></a>
+								<a href="javascript:;" class="share sina js-share icon-share-weibo" data-cmd="tsina"></a>
+							</div>
+						</div>
+					</div>
+					<div class="info-bg" id="js-info-bg">
+						<div class="cover-img-wrap">
+							<img data-src="//img3.mukewang.com/5bfe54e80001e28706000338.jpg" alt="" style="display: none" id="js-cover-img">
+						</div>
+						<div class="cover-mask"></div>
+					</div>
+				</div>
+				<div class="video" style="background-color:#171A23;">
+					<div class="video-left" style="float: left;">
+						<video id="example_video_1" class="video-js vjs-default-skin" controls preload="none" width="1000" height="510"
+						 poster="http://vjs.zencdn.net/v/oceans.png">
+							<source src="video/20190122221148.mp4" type="video/mp4">
+						</video>
+
+					</div>
+					<div class="video-right" style="float: right;color: white;width: 200px;height: 510px;">
+						<span>教师名</span>
+						<p>语言是一种计算机程序设计语言。它既有高级语言的特点，又具有汇编语言的特点。它可以作为系统设计语言，编写工作系统应用程序，也可以作为应用程序设计语言，编写不依赖计算机硬件的应用程序。因此，它的应用范围非常广泛。</p>
+						</p>
+						<img src="img/login/bg-img4.jpg" />
+					</div>
+					<div style="clear: both;"></div>
+
+				</div>
+
+
+
+		</main> <!-- FOOTER -->
+		<footer class="footer">
+			<div class="footer-fl footer-1st">
+				<span id="logo_desc">
+					<img src="img/logo-elements/Logo.png" width="32" height="32" class="d-inline-block align-top" alt="">
+					课</a>
+				</span>
+				<br>
+				<br>
+				<span class="proj_desc">
+					做一个更懂每一个师生的的网络学习空间、公共服务平台。
+				</span>
+			</div>
+			<div class="footer-fr" id="friendly_url">
+				<span>友情链接</span>
+				<!-- friendly_url_table -->
+				<table id="fri_u_table">
+					<tr>
+						<td><a href="">郑州轻工业大学</a></td>
+						<td><a href="">河南大学</a></td>
+					</tr>
+					<tr>
+						<td><a href="">郑州大学</a></td>
+						<td><a href="">河南工业大学</a></td>
+					</tr>
+					<tr>
+						<td><a href="">清华大学</a></td>
+						<td><a href="">北京大学</a></td>
+					</tr>
+				</table>
+			</div>
+			<div class="footer-fr" id="follow_us">
+				<span>关注我们</span><br>
+				<!-- follow_us_table -->
+				<table id="f_u_table">
+					<tr>
+						<td id="url_wb"><a href=""><i class="fa fa-weibo"></i><br>微博</a></td>
+						<td id="url_wx"><a href=""><i class="fa fa-weixin"></i><br>微信</a></td>
+					</tr>
+				</table>
+			</div>
+			<div class="footer-fr" id="about_us">
+				<!-- about_us_table -->
+				<table id="a_u_table">
+					<tr>
+						<td>关于我们</td>
+					</tr>
+					<tr>
+						<td><a href="">关于我们</a></td>
+						<td><a href="">意见反馈</a></td>
+					</tr>
+					<tr>
+						<td><a href="">常见问题</a></td>
+						<td><a href="">资源下载</a></td>
+					</tr>
+				</table>
+			</div>
+			<div id="footer_copyright">
+				<p>&copy; 郑州轻工业大学 &middot; <a href="">豫ICP备05002456号</a> &middot; 软件学院Genius项目组<a href="#n" id="back2head">返回页首</a></p>
+			</div>
+		</footer>
+		<!-- Optional JavaScript -->
+		<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+		<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+		 crossorigin="anonymous"></script>
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.js"></script>
+		<script src="https://cdn.bootcss.com/vue/2.5.21/vue.js"></script>
+		<!-- <script src="https://cdn.jsdelivr.net/npm/vue@2.5.21/dist/vue.js"></script> -->
+		<!-- <script src="https://vuejs.org/js/vue.js"></script> -->
+	</body>
+</html>
