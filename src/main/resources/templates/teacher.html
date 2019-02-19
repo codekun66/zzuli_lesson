@@ -33,40 +33,7 @@
 	<body>
 		<header>
 			<a name="n"></a>
-			<nav class="navbar navbar-expand-md navbar-dark fixed-top" style="background-color:#333">
-				<a class="navbar-brand" href="#">
-					<img th:src="@{/img/logo-elements/Logo.png}" width="32" height="32" class="d-inline-block align-top" alt="">
-					课</a>
-				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse"
-				 aria-expanded="false" aria-label="Toggle navigation">
-					<span class="navbar-toggler-icon"></span>
-				</button>
-				<div class="collapse navbar-collapse" id="navbarCollapse">
-					<ul class="navbar-nav mr-auto">
-						<li class="nav-item">
-							<a class="nav-link active" href="#main">首页</a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link" href="#courses_info">课程信息</a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link" href="#tch_res">教学资源</a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link" href="#exp_res">实验资源</a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link" href="#chatting_online">教师专栏</a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link" href="#bull_board">公告</a>
-						</li>
-					</ul>
-					<!-- <form class="form-inline mt-2 mt-md-0">
-              <button class="btn btn-outline-success my-2 my-sm-0" type="button" style="margin-left:8px;">登录</button>
-            </form> -->
-				</div>
-			</nav>
+			<div class="header_navbar" th:include="header :: header_navbar"></div>
 		</header>
 		<main>
 			<div class="container" style="margin-top: 10px;">
@@ -149,66 +116,7 @@
 				</div>
 			</div>
 		</main>
-		<footer class="footer">
-			<div class="footer-fl footer-1st">
-				<span id="logo_desc">
-					<img th:src="@{/img/logo-elements/Logo.png}" width="32" height="32" class="d-inline-block align-top" alt="">
-					课</a>
-				</span>
-				<br>
-				<br>
-				<span class="proj_desc">
-					做一个更懂每一个师生的的网络学习空间、公共服务平台。
-				</span>
-			</div>
-			<div class="footer-fr" id="friendly_url">
-				<span>友情链接</span>
-				<!-- friendly_url_table -->
-				<table id="fri_u_table">
-					<tr>
-						<td><a href="">郑州轻工业大学</a></td>
-						<td><a href="">河南大学</a></td>
-					</tr>
-					<tr>
-						<td><a href="">郑州大学</a></td>
-						<td><a href="">河南工业大学</a></td>
-					</tr>
-					<tr>
-						<td><a href="">清华大学</a></td>
-						<td><a href="">北京大学</a></td>
-					</tr>
-				</table>
-			</div>
-			<div class="footer-fr" id="follow_us">
-				<span>关注我们</span><br>
-				<!-- follow_us_table -->
-				<table id="f_u_table">
-					<tr>
-						<td id="url_wb"><a href=""><i class="fa fa-weibo"></i><br>微博</a></td>
-						<td id="url_wx"><a href=""><i class="fa fa-weixin"></i><br>微信</a></td>
-					</tr>
-				</table>
-			</div>
-			<div class="footer-fr" id="about_us">
-				<!-- about_us_table -->
-				<table id="a_u_table">
-					<tr>
-						<td>关于我们</td>
-					</tr>
-					<tr>
-						<td><a href="">关于我们</a></td>
-						<td><a href="">意见反馈</a></td>
-					</tr>
-					<tr>
-						<td><a href="">常见问题</a></td>
-						<td><a href="">资源下载</a></td>
-					</tr>
-				</table>
-			</div>
-			<div id="footer_copyright">
-				<p>&copy; 郑州轻工业大学 &middot; <a href="">豫ICP备05002456号</a> &middot; 软件学院Genius项目组<a href="#n" id="back2head">返回页首</a></p>
-			</div>
-		</footer>
+		<div class="copyright" th:include="footer :: copyright"></div>
 		<!-- Optional JavaScript -->
 		<!-- jQuery first, then Popper.js, then Bootstrap JS -->
 		<script th:src="@{https://code.jquery.com/jquery-3.3.1.min.js}"></script>
