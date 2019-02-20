@@ -2,7 +2,9 @@ main {
 	position: relative;
 	top: 60px;
 }
-
+.card{
+	border: 0;
+}
 .container {
 
 	position: relative;
@@ -37,6 +39,10 @@ main {
 	height: 18px;
 	overflow: hidden;
 	margin: 6px 0;
+}
+.col-md-3 img{
+	border-radius: 6px;
+	width: 200px;
 }
 .types-title{
 	position: relative;
