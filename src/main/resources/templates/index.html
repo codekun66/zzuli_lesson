@@ -276,7 +276,7 @@
         `{{#each this}}
 	                   <li class="lesson" id={{id}}>
 	                   <div class="channel-pic fl">
-	                     <a href="/lessons/{{id}}"><img src="{{lessPicUrl}}"></a>
+	                     <a href="/lessons/{{id}}"  target="_blank"><img src="{{lessPicUrl}}"></a>
 											 
 	                   </div>
 	                   <div class="channel-body">
@@ -321,7 +321,7 @@
 
     $(document).on("click", '.lesson', function () {
       console.log(this.id)
-      window.location.href = "/lessons/" + this.id
+      window.open ( "/lessons/" + this.id );
       /*  	   $.ajax({
 		               type: "GET",
 		               url: "/lessons/list/"+this.id,
