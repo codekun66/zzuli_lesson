@@ -70,5 +70,16 @@ public interface LessonsService {
 	 * @return
 	 */
 	int addLesson(Lessons lesson);
-	/*List<Lessons> getLessonsList2();*/
+	/**
+	 * 根据关键字筛选课程
+	 *
+	 * @return
+	 */
+	List<Map<String, Object>> getLessonsByKeyWord(Map<String, Object> map);
+	/**
+	 * 根据节id返回课程地址
+	 *
+	 * @return
+	 */
+	Map<String, Object> getVideoUrlBySectionId (int id);
 }

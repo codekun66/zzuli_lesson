@@ -40,7 +40,6 @@ public class LessonsServiceImpl implements LessonsService {
 		list = lessonsMapper.queryLessons();
 		for (Map<String, Object> map : list) {
 			String url = (String) map.get("lessPicUrl");
-			
 			String ultimaUrl = ConstantUtil.FTP_PRE.FTP_PRE + url ;
 			map.put("lessPicUrl", ultimaUrl);
 		}
@@ -118,6 +117,50 @@ public class LessonsServiceImpl implements LessonsService {
             return 0;
         }
 	}
+	@Override
+	public List<Map<String, Object>> getLessonsByKeyWord(Map<String, Object> map) {
+	    String keyWord = (String) map.get("keyWord");
+	    String easy = (String) map.get("easy");
+	    String keyWord1 = null;
+	    String easy1 = null ;
+	    if("bcyy".equals(keyWord)) {
+	    	keyWord1 = "编程语言";
+	    }else if ("hdkf".equals(keyWord)) {
+	    	keyWord1 = "后端开发";
+	    }else if ("qdkf".equals(keyWord)) {
+	    	keyWord1 = "前端开发";
+	    }else if ("ydkf".equals(keyWord)) {
+	    	keyWord1 = "移动开发";
+	    }else if ("wlyyw".equals(keyWord)) {
+	    	keyWord1 = "网络与运维";
+	    }
+	    
+	    map.put("keyWord", "%" + keyWord1 + "%");
+	    if(easy != null) {
+	    	if("1".equals(easy)) {
+	    		easy1 = "入门";
+	    	}else if ("2".equals(easy)) {
+	    		easy1 = "初级";
+	    	}
+	    	else if ("3".equals(easy)) {
+	    		easy1 = "中级";
+	    	}
+	    	else if ("4".equals(easy)) {
+	    		easy1 = "高级";
+	    	}
+	    	map.put("easy" , "%" + easy1 + "%");
+	    }
+	    
+		return lessonsMapper.queryLessonsByKeyWord(map);
+	}
+	
+	@Override
+	public Map<String, Object> getVideoUrlBySectionId(int id) {
+		// TODO Auto-generated method stub
+		return lessonsMapper.queryVideoUrlBySectionId(id);
+	}
+	
+	
 	
 	
 	

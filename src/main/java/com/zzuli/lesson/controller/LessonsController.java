@@ -6,6 +6,8 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -85,5 +87,26 @@ public class LessonsController {
 	@RequestMapping("/lessons/class-content.html")
 	public String goLesson() {
 		return "class-content";
+	}
+	
+	@RequestMapping(value = "/lessons/screen" , method = RequestMethod.GET)
+	@ResponseBody
+	public List<Map<String, Object>> getLessonsByKeyWord (HttpServletRequest request) {
+		String keyWord = (String) request.getParameter("keyWord");
+		String easy = (String) request.getParameter("easy");
+		Map<String, Object> map = new HashMap<>();
+		map.put("keyWord", keyWord);
+		if(easy != null) {
+			map.put("easy", easy);
+		}
+		List<Map<String, Object>> list = new ArrayList<Map<String,Object>>();
+		list = lessonsService.getLessonsByKeyWord(map);
+		return list;
+	}
+	
+	@RequestMapping(value = "/video/{id}" ,  method = RequestMethod.GET)
+	public String getSectionVideo(@PathVariable("id") int id, ModelMap modelMap) {
+		modelMap.addAttribute("videoUrl", lessonsService.getVideoUrlBySectionId(id));
+		return "video";
 	}
 }

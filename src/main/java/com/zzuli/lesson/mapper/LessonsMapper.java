@@ -74,4 +74,14 @@ public interface LessonsMapper {
      *
      */
 	int insertLesson(Lessons lesson);
+	/**
+     * 根据关键字筛选课程课程
+     *
+     */
+	List<Map<String, Object>> queryLessonsByKeyWord(Map<String, Object> map);
+	/**
+     * 根据节id返回课程地址
+     *
+     */
+	Map<String, Object> queryVideoUrlBySectionId(@Param("id") int id);
 }

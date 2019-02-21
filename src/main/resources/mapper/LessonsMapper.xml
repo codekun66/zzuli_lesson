@@ -79,14 +79,40 @@
 	</select>
 	<!-- 根据章节ID查询章节所有小节（或部分的信息） -->
 	<select id="queryAllSection" resultType="java.util.Map">
-		SELECT section_name , section_seqno , resource_url
+		SELECT id, section_name , section_seqno , resource_url
 		FROM less_section
 		where chapter_id = #{id}
 		ORDER BY  section_seqno 
 	</select>
 	<!-- 添加课程 -->
 	<insert id="insertLesson">
-		INSERT INTO lessons (less_pic_url , less_name , rank , tea_name , pageview , summary ,create_time , less_category , valid_sts_cd)
+		INSERT INTO 
+		lessons 
+		(less_pic_url , less_name , rank , tea_name , pageview , summary ,create_time , less_category , valid_sts_cd)
 		values(#{lessPicUrl} , #{lessName} , #{rank} , #{teaName} , 0 , #{summary} , now() , #{lessCategory} , 1 )
 	</insert>
+	<!-- 根据关键字筛选课程课程 -->
+	<select id="queryLessonsByKeyWord" resultType="java.util.Map">
+		SELECT id,
+		less_pic_url as lessPicUrl,
+		less_name as lessName,
+		rank,
+		tea_name as teaName,
+		pageview as	pageView,
+		summary,
+		less_category as lessCategory
+		FROM lessons
+		WHERE less_category like #{keyWord}
+		
+		<if test = "easy != null &amp; easy != '' ">
+		AND rank like #{easy}
+		</if>
+	</select>
+	<!-- 根据节id返回课程地址 -->
+	<select id="queryVideoUrlBySectionId" resultType="java.util.Map">
+		SELECT  resource_url
+		FROM less_section
+		where id = #{id}
+	</select>
+	
 </mapper>
