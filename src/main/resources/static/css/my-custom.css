@@ -138,6 +138,8 @@ background: linear-gradient(to right, transparent, #fff 55%);
     background: #FFF;
     margin-bottom: 30px;
     overflow: hidden;
+    box-shadow: rgb(208, 208, 208) -.5px .5px 5px;
+
 }
 
 .channel-item h3 {
@@ -168,7 +170,7 @@ background: linear-gradient(to right, transparent, #fff 55%);
     width: 22rem;
     height: 22rem;
     margin-bottom: 30px;
-    box-shadow: rgb(188, 188, 188) -2px 2px 8px;
+    box-shadow: rgb(188, 188, 188) -.5px .5px 5px;
 }
 
 .side-sponsor img {
