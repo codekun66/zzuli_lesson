@@ -6,14 +6,16 @@ import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
+import org.springframework.stereotype.Service;
 
 import com.zzuli.lesson.bean.Teacher;
 import com.zzuli.lesson.mapper.TeacherMapper;
-import com.zzuli.lesson.service.TeacherServive;
+import com.zzuli.lesson.service.TeacherService;
 import com.zzuli.lesson.util.ConstantUtil;
 import com.zzuli.lesson.util.RedisUtil;
 
-public class TeacherServiceImpl implements TeacherServive {
+@Service 
+public class TeacherServiceImpl implements TeacherService {
 
 	//使用mapper层提供的接口
 	@Autowired  

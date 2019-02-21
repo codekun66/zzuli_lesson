@@ -11,7 +11,7 @@ import com.zzuli.lesson.bean.Teacher;
  * Created by Jqf
  * date 2019/1/31
  */
-public interface TeacherServive {
+public interface TeacherService {
 
 	/**
 	 * 获取所有教师列表

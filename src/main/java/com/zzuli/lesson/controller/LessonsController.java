@@ -83,6 +83,10 @@ public class LessonsController {
 	public String goTeacher() {
 		return "teacher";
 	}
+	@RequestMapping("/lessons/teacher-content.html")
+	public String goTeacherInfo() {
+		return "teacher-content";
+	}
 
 	@RequestMapping("/lessons/class-content.html")
 	public String goLesson() {
