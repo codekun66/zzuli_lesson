@@ -39,19 +39,17 @@ main{
 
 .channels li {
     overflow: hidden;
-    margin-bottom: 30px;
+    margin-bottom: 45px;
     background: #FFF;
-    border-radius: 5px;
-    box-shadow: rgb(188, 188, 188) -2px 2px 8px;
-    height: 11.2rem;
+    box-shadow: rgb(188, 188, 188) -.5px .5px 5px;
+    height: 15rem;
 }
 
 .channel-pic {
     padding: 0;
-    margin: 10px;
     margin-right: 20px;
-    height: 10rem;
-    width: 10rem;
+    height: 15rem;
+    width: 15rem;
     overflow: hidden;
 }
 
@@ -60,7 +58,6 @@ main{
     margin: 0;
     height: 100%;
     widows: 100%;
-    border-radius: 5px;
     display: block;
 }
 
@@ -80,17 +77,24 @@ main{
 
 .channel-body {
     margin-left: 11rem;
-    padding: 1rem 1rem 1rem 1rem;
+    padding: 1rem 2rem 1rem 6.5rem;
 }
 
 .channel-title {
     font-size: 18px;
-    margin-bottom: .2rem;
+    margin-bottom: .5rem;
+    
+    white-space:nowrap;
+    overflow: hidden;
 }
 .channel-title a{
-    font-size: 1.1rem;
+    font-size: 1.4rem;
+    margin-right: .5rem;
     text-decoration: none;
     color: #333;
+}
+.channel-title span{
+    font-size: 1rem;
 }
 .channel-title a:hover{
 	color: #EE5044;
@@ -102,9 +106,9 @@ main{
 
 .channel-meta span {
     display: inline-block;
-    font-size: .9rem;
+    font-size: 1rem;
     margin-right: 7px;
-    margin-bottom: 5px;
+    margin-bottom: 18px;
 }
 
 .channel-desc {
@@ -119,7 +123,7 @@ main{
     -webkit-line-clamp: 4;
     margin: 0;
     padding: 0;
-    font-size: .9rem;
+    font-size: 1.1rem;
 	overflow: hidden;
 }
 /* .channel-desc p::after{content: "..."; position: absolute; bottom: 0; right: 0; padding-left: 40px;
