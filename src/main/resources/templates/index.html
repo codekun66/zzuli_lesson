@@ -238,7 +238,7 @@
     currrentPage(1);
     $.ajax({
       type: "GET", //发送是以POST还是GET
-      url: "http://localhost:8080/lessons/totalCount", //发送的地址
+      url: "/lessons/totalCount", //发送的地址
       dataType: "json", //传输数据的格式
       data: {}, //传输的数据
       //成功的回调函数
