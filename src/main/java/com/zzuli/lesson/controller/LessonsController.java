@@ -99,7 +99,9 @@ public class LessonsController {
 		String keyWord = (String) request.getParameter("keyWord");
 		String easy = (String) request.getParameter("easy");
 		Map<String, Object> map = new HashMap<>();
+		if(keyWord != null) {
 		map.put("keyWord", keyWord);
+		}
 		if(easy != null) {
 			map.put("easy", easy);
 		}

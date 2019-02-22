@@ -102,8 +102,9 @@
 		summary,
 		less_category as lessCategory
 		FROM lessons
+		<if test = "keyWord != null &amp; keyWord != '' ">
 		WHERE less_category like #{keyWord}
-		
+		</if>
 		<if test = "easy != null &amp; easy != '' ">
 		AND rank like #{easy}
 		</if>

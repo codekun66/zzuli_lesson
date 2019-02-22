@@ -119,23 +119,31 @@ public class LessonsServiceImpl implements LessonsService {
 	}
 	@Override
 	public List<Map<String, Object>> getLessonsByKeyWord(Map<String, Object> map) {
+		List<Map<String, Object>> list = new ArrayList<Map<String, Object>>();
+		list = lessonsMapper.queryLessonsByKeyWord(map);
+		for (Map<String, Object> map2 : list) {
+			String url = (String) map2.get("lessPicUrl");
+			String ultimaUrl = ConstantUtil.FTP_PRE.FTP_PRE + url ;
+			map2.put("lessPicUrl", ultimaUrl);
+		}
 	    String keyWord = (String) map.get("keyWord");
 	    String easy = (String) map.get("easy");
 	    String keyWord1 = null;
 	    String easy1 = null ;
-	    if("bcyy".equals(keyWord)) {
-	    	keyWord1 = "编程语言";
-	    }else if ("hdkf".equals(keyWord)) {
-	    	keyWord1 = "后端开发";
-	    }else if ("qdkf".equals(keyWord)) {
-	    	keyWord1 = "前端开发";
-	    }else if ("ydkf".equals(keyWord)) {
-	    	keyWord1 = "移动开发";
-	    }else if ("wlyyw".equals(keyWord)) {
-	    	keyWord1 = "网络与运维";
-	    }
-	    
+	    if(keyWord != null) {
+		    if("bcyy".equals(keyWord)) {
+		    	keyWord1 = "编程语言";
+		    }else if ("hdkf".equals(keyWord)) {
+		    	keyWord1 = "后端开发";
+		    }else if ("qdkf".equals(keyWord)) {
+		    	keyWord1 = "前端开发";
+		    }else if ("ydkf".equals(keyWord)) {
+		    	keyWord1 = "移动开发";
+		    }else if ("wlyyw".equals(keyWord)) {
+		    	keyWord1 = "网络与运维";
+		    }
 	    map.put("keyWord", "%" + keyWord1 + "%");
+	    }
 	    if(easy != null) {
 	    	if("1".equals(easy)) {
 	    		easy1 = "入门";
@@ -151,7 +159,7 @@ public class LessonsServiceImpl implements LessonsService {
 	    	map.put("easy" , "%" + easy1 + "%");
 	    }
 	    
-		return lessonsMapper.queryLessonsByKeyWord(map);
+		return list;
 	}
 	
 	@Override
