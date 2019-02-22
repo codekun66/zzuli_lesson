@@ -88,7 +88,7 @@ public class LessonsController {
 		return "teacher-content";
 	}
 
-	@RequestMapping("/lessons/class-content.html")
+	@RequestMapping("/lessons/list")
 	public String goLesson() {
 		return "class-content";
 	}

@@ -102,7 +102,7 @@
     <div class="container marketing">
       <!-- START THE FEATURETTES -->
 
-      <h2 class="h2-title">我们的课程</h2>
+      <h2 class="h2-title">U课程</h2>
       <h5 class="h5-sub_title">练习、评测、提问一键直达</h5>
       <h5 class="h5-sub_title">做更懂你的在线学习平台</h5>
 
@@ -224,17 +224,32 @@
   <script th:src="@{/js/initPage.js}"></script>
   <script th:src="@{/js/layui.all.js}"></script>
   <script th:src="@{/js/handlebars-v4.0.12.js}"></script>
+  
+   <script id="table-template" type="text/x-handlebars-template">
+  		{{#each this}}
+	                   <li class="lesson" id={{id}}>
+	                   <div class="channel-pic fl">
+	                     <a href="/lessons/{{id}}"  target="_blank"><img src="{{lessPicUrl}}"></a>
+											 
+	                   </div>
+	                   <div class="channel-body">
+	                     <div class="channel-title">
+	                       <a href="/lessons/{{id}}" target="_blank">{{lessName}}</a>
+	                       <span class="badge badge-danger">必修课程</span>
+	                     </div>
+	                     <div class="channel-meta">
+	                       <span><i class="fa fa-user-plus"></i>{{teaName}}</span>
+	                       <span><i class="fa fa fa-tasks"></i>{{rank}}</span>
+	                       <span><i class="fa fa-cubes"></i>{{lessCategory}}</span>
+	                       <span><i class="fa fa-line-chart"></i>{{pageView}}</span>
+	                     </div>
+	                     <div class="channel-desc"><p>
+	                     {{summary}}</p>
+	                     </div>
+	                 </li>
+	      {{/each }}  
+   </script>
   <script>
-    /**
-     * 纯粹的JS分页插件，代码缺点：JS操作DOM冗余太多，太繁琐
-     */
-    /* 	 var curPage;
-    	if(curPage){
-    		
-    	}
-    	else{
-    		curPage=1;
-    	} */
     currrentPage(1);
     $.ajax({
       type: "GET", //发送是以POST还是GET
@@ -272,30 +287,6 @@
 
 
     function currrentPage(start) {
-      let teml =
-        `{{#each this}}
-	                   <li class="lesson" id={{id}}>
-	                   <div class="channel-pic fl">
-	                     <a href="/lessons/{{id}}"  target="_blank"><img src="{{lessPicUrl}}"></a>
-											 
-	                   </div>
-	                   <div class="channel-body">
-	                     <div class="channel-title">
-	                       <a href="/lessons/{{id}}">{{lessName}}</a>
-	                       <span class="badge badge-danger">必修课程</span>
-	                     </div>
-	                     <div class="channel-meta">
-	                       <span><i class="fa fa-user-plus"></i>{{teaName}}</span>
-	                       <span><i class="fa fa fa-tasks"></i>{{rank}}</span>
-	                       <span><i class="fa fa-cubes"></i>{{lessCategory}}</span>
-	                       <span><i class="fa fa-line-chart"></i>{{pageView}}</span>
-	                     </div>
-	                     <div class="channel-desc"><p>
-	                     {{summary}}</p>
-	                     </div>
-	                 </li>
-	                  {{/each }}  `
-
       $.ajax({
         type: "GET",
         url: "/lessons/all",
@@ -304,35 +295,18 @@
           "start": start
         },
         success: function (json) {
-          //console.log(json)
-          //var tmpl= $('#lessonsall').html();
-          var func = Handlebars.compile(teml);
+          var func = Handlebars.compile($("#table-template").html());
           var result = func(json);
           $('#lessonsall').html(result);
         }
       });
     }
 
-    /*           $('.lesson').click(function(){
-                // alert(this.id)
-              	window.location.href="/lessons/"+this.id
-             })  */
-
 
     $(document).on("click", '.lesson', function () {
       console.log(this.id)
       window.open ( "/lessons/" + this.id );
-      /*  	   $.ajax({
-		               type: "GET",
-		               url: "/lessons/list/"+this.id,
-		               dataType: "json",
-		              // data: {"id": this.id}, 
-		               success: function (json) {
-		           
-		               }
-		           });  */
     });
-    //      */
   </script>
 </body>
 
