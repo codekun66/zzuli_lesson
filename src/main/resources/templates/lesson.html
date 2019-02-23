@@ -20,88 +20,48 @@
 		<main>
 			<div id="main">
 				<div class="course-infos">
-					<div class="w pr">
-						<div class="path">
-							<a href="/course/list">课程</a>
-							<i class="path-split">\</i><a href="/course/list?c=be">课程信息</a>
-							<i class="path-split">\</i><a href="/course/list?c=java">Web</a>
-							<i class="path-split">\</i><a href="/learn/1079"><span>第几章第几课</a></span>
-						</div>
-						<div class="hd clearfix">
-							<h2 class="l">XXXXXXXXXXXXXXXXX</h2>
-						</div>
-
-						<div class="statics clearfix">
-							<div class="teacher-info l">
-								<a href="/u/7143508/courses?sort=publish" target="_blank">
-									<img data-userid="7143508" class="js-usercard-dialog" th:src="@{/img/1.jpg}" width="80" height="80">
-								</a>
-								<span class="tit">
-									<a href="/u/7143508/courses?sort=publish" target="_blank">崔建涛</a><i class="icon-imooc"></i>
-								</span>
-								<span class="job"></span>
-							</div>
-
-							<div class="static-item l">
-								<span class="meta">难度</span><span class="meta-value">中级</span>
-							</div>
-							<div class="static-item l">
-								<span class="meta">时长</span><span class="meta-value"> 6小时31分</span>
-							</div>
-							<div class="static-item l">
-								<span class="meta">学习人数</span><span class="meta-value js-learn-num"></span>
-							</div>
-							<div class="static-item l score-btn">
-								<span class="meta">综合评分</span><span class="meta-value">9.5</span>
-
-
-								<div class="score-wrap triangle">
-									<div class="score-box">
-										<a href="/coursescore/1079" class="person-num">
-											<span class="person-num l">28人评价</span>
-										</a>
-										<a href="/coursescore/1079?page=1" class="evaluation-btn r">查看评价</a>
-										<div class="score-detail-box">
-											<div class="score-static-item">
-												<span class="meta-value">9.9</span>
-												<span class="meta">内容实用</span>
-											</div>
-											<div class="score-static-item">
-												<span class="meta-value">9.4</span>
-												<span class="meta">简洁易懂</span>
-											</div>
-											<div class="score-static-item">
-												<span class="meta-value">9.4</span>
-												<span class="meta">逻辑清晰</span>
-											</div>
-										</div>
-										<div class="icon-drop_down"></div>
-									</div>
-
-								</div>
-
-							</div>
-
-						</div>
-						<div class="extra">
-
-							<!-- credit -->
-
-							<!-- share -->
-							<div class="share-action r bdsharebuttonbox">
-								<!--收藏-->
-								<div class="share js-follow-action"><i class="follow-action"></i><span>收藏</span></div>
-								<a href="javascript:;" class="share wx js-share icon-share-weichat" data-cmd="weixin"></a>
-								<a href="javascript:;" class="share qq js-share icon-share-qq" data-cmd="qzone"></a>
-								<a href="javascript:;" class="share sina js-share icon-share-weibo" data-cmd="tsina"></a>
-							</div>
-						</div>
+					<div class="course-info-min course-left">
+						<img th:href="@{../static/img/LessonPicture/l_p_C.jpg}">
 					</div>
-					<div class="info-bg" id="js-info-bg">
-						<div class="cover-img-wrap">
-							<img th:data-src="@{///img3.mukewang.com/5bfe54e80001e28706000338.jpg}" alt="" style="display: none" id="js-cover-img">
+					<div class="course-info-min course-middle">
+						<h1>C语言</h1>
+						<input type="hidden" />
+						<p class="intro-more">
+							<span>
+								<em>主讲:</em>
+								<a href="#">杨华:</a>
+							</span>
+							<span>
+								<em>难度:</em>
+								<a href="#">中级:</a>
+							</span>
+							<span>
+								<em>时长:</em>
+								1h23m45s
+							</span>
+							<span>
+								<em>学习人数:</em>
+								<em class="red">12</em>
+							</span>
+							<span>
+								<em>综合评分:</em>
+								9.6
+							</span>
+				
+						</p>
+					</div>
+					<div class="course-info-min course-right">
+						<div class="course-share">
+							<div class="share "><a href="#"><span>收藏</span></a></div>						
+							<a class="weixin"><i class="fa fa-weixin" aria-hidden="true"></i></a>
+							<a class="weibo"><i class="fa fa-weibo" aria-hidden="true"></i></a>
 						</div>
-						<div class="cover-mask"></div>
+						<!-- <div class="course-button">
+							<button type="button">参加课程</button>
+						</div> -->
+					</div>
+					<div class="clrarfix">
+				
 					</div>
 				</div>
 				<div class="course-info-menu ">
