@@ -165,7 +165,12 @@ public class LessonsServiceImpl implements LessonsService {
 	@Override
 	public Map<String, Object> getVideoUrlBySectionId(int id) {
 		// TODO Auto-generated method stub
-		return lessonsMapper.queryVideoUrlBySectionId(id);
+		Map<String, Object> map = new HashMap<>();
+		map = lessonsMapper.queryVideoUrlBySectionId(id);
+		String videoUrl = (String) map.get("resource_url");
+		String videoUrlAdd = ConstantUtil.FTP_PRE.FTP_PRE + videoUrl ;
+		map.put("resource_url", videoUrlAdd);
+		return map;
 	}
 	
 	
