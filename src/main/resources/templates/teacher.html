@@ -28,12 +28,31 @@
 					<p>师资列表</p>
 					<hr />
 					<div class="">
+						<ul class="lists" th:each = "tea : ${teaInfo}">
+							<a>
+								<li>
+									<dl>
+										<dt>
+											<img th:href="${tea.picUrl}" />
+										</dt>
+										<dd>
+											<b class="" th:text = "${tea.teaName}">崔建涛</b>
+											<strong class="">软件学院教授</strong>
+											<div class="channel-desc" th:text = "${tea.teaIntroduce}">
+												<p>XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</p>
+											</div>
+										</dd>
+									</dl>
+								</li>
+							</a>
+						</ul>
+						<!--  
 						<ul class="lists">
 							<a>
 								<li>
 									<dl>
 										<dt>
-											<img th:href="@{img/TeacherPicture/t_p_CaoJ.jpg}" />
+											<img src="img/TeacherPicture/t_p_CaoJ.jpg" />
 										</dt>
 										<dd>
 											<b class="">崔建涛</b>
@@ -64,24 +83,7 @@
 								</li>
 							</a>
 						</ul>
-						<ul class="lists">
-							<a>
-								<li>
-									<dl>
-										<dt>
-											<img src="img/TeacherPicture/t_p_CaoJ.jpg" />
-										</dt>
-										<dd>
-											<b class="">崔建涛</b>
-											<strong class="">软件学院教授</strong>
-											<div class="channel-desc">
-												<p>XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</p>
-											</div>
-										</dd>
-									</dl>
-								</li>
-							</a>
-						</ul>
+						-->
 					</div>
 				</div>
 				<div class="con-right"></div>
