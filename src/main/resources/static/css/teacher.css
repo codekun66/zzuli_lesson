@@ -1,0 +1,60 @@
+.lists{
+	width: 700px;
+}
+.con-left ul{
+	list-style-type: none;
+	background-color: beige;
+}
+.lists a{
+	text-decoration: none;
+}
+.lists a:hover{
+	background-color: #BEE5EB;
+}
+.lists li{
+	width: 700px;
+	padding-top: 25px;
+	padding-bottom: 25px;
+	cursor: pointer;
+}
+.lists dl dt{
+	height: 70px;
+	width: 70px;
+	float: left;
+	margin-right: 20px;
+	border-radius: 50%;
+}
+.lists dl dt img{
+	display:block;
+	height: 100%;
+	width: 100%;
+	border-radius: 50%;
+}
+.lists dl dd{
+	width: 580px;
+}
+.lists dl dd b{
+	font-size: 18px;
+	color: #475766;
+	padding-right: 10px;
+}
+.lists dl dd strong{
+	font-size: 13px;
+	color: #475766;
+	word-break: break-all;
+}
+.con-left{
+	width: 790px;
+	height: 100%;
+}
+.con-right{
+	float: right;
+}
+.clear{
+	content: ".";
+	display: block;
+	height: 0;
+	clear: both;
+	overflow: hidden;
+	visibility: hidden;
+}
