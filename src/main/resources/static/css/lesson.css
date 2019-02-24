@@ -75,7 +75,7 @@ span a:link {
 }
 .share a{
 	text-decoration: none;
-	color: #00FFFF;
+	color: greenyellow;
 }
 .course-share a{
 	margin-left: 10px;	
@@ -101,6 +101,7 @@ span a:link {
 
 .course-left img {
 	width: 300px;
+	height: 168px;
 	margin: 20px;
 	border: 3px solid darkgray;
 }
