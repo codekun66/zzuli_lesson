@@ -13,22 +13,7 @@
 		<link href="css/carousel.css" rel="stylesheet">
 		<link href="css/my-custom.css" rel="stylesheet">
 		<link href="css/lesson.css" rel="stylesheet" />
-		<style>
-			.video::after{
-				clear:both;
-			}
-			.video-right{
-				border-left: 1px solid #000000;
-			}
-			.video-right span{
-				margin: 15px 60px;
-			}
-			.video-right img{
-				width: 200px;
-				height: 150px;
-				margin-top:100px;
-			}
-		</style>
+		<link href="css/video.css" rel="stylesheet" />
 	<body>
 		<header>
 			<a name="n"></a>
@@ -69,104 +54,106 @@
 		</header>
 		<main>
 			<div id="main">
-				<div class="course-infos">
-					<div class="w pr">
-						<div class="path">
-							<a href="/course/list">课程</a>
-							<i class="path-split">\</i><a href="/course/list?c=be">课程信息</a>
-							<i class="path-split">\</i><a href="/course/list?c=java">Web</a>
-							<i class="path-split">\</i><a href="/learn/1079"><span>第几章第几课</a></span>
-						</div>
-						<div class="hd clearfix">
-							<h2 class="l">XXXXXXXXXXXXXXXXX</h2>
-						</div>
-
-						<div class="statics clearfix">
-							<div class="teacher-info l">
-								<a href="/u/7143508/courses?sort=publish" target="_blank">
-									<img data-userid="7143508" class="js-usercard-dialog" src="img/1.jpg" width="80" height="80">
-								</a>
-								<span class="tit">
-									<a href="/u/7143508/courses?sort=publish" target="_blank">崔建涛</a><i class="icon-imooc"></i>
-								</span>
-								<span class="job"></span>
-							</div>
-
-							<div class="static-item l">
-								<span class="meta">难度</span><span class="meta-value">中级</span>
-							</div>
-							<div class="static-item l">
-								<span class="meta">时长</span><span class="meta-value"> 6小时31分</span>
-							</div>
-							<div class="static-item l">
-								<span class="meta">学习人数</span><span class="meta-value js-learn-num"></span>
-							</div>
-							<div class="static-item l score-btn">
-								<span class="meta">综合评分</span><span class="meta-value">9.5</span>
-
-
-								<div class="score-wrap triangle">
-									<div class="score-box">
-										<a href="/coursescore/1079" class="person-num">
-											<span class="person-num l">28人评价</span>
-										</a>
-										<a href="/coursescore/1079?page=1" class="evaluation-btn r">查看评价</a>
-										<div class="score-detail-box">
-											<div class="score-static-item">
-												<span class="meta-value">9.9</span>
-												<span class="meta">内容实用</span>
-											</div>
-											<div class="score-static-item">
-												<span class="meta-value">9.4</span>
-												<span class="meta">简洁易懂</span>
-											</div>
-											<div class="score-static-item">
-												<span class="meta-value">9.4</span>
-												<span class="meta">逻辑清晰</span>
-											</div>
-										</div>
-										<div class="icon-drop_down"></div>
-									</div>
-
-								</div>
-
-							</div>
-
-						</div>
-						<div class="extra">
-
-							<!-- credit -->
-
-							<!-- share -->
-							<div class="share-action r bdsharebuttonbox">
-								<!--收藏-->
-								<div class="share js-follow-action"><i class="follow-action"></i><span>收藏</span></div>
-								<a href="javascript:;" class="share wx js-share icon-share-weichat" data-cmd="weixin"></a>
-								<a href="javascript:;" class="share qq js-share icon-share-qq" data-cmd="qzone"></a>
-								<a href="javascript:;" class="share sina js-share icon-share-weibo" data-cmd="tsina"></a>
-							</div>
-						</div>
-					</div>
-					<div class="info-bg" id="js-info-bg">
-						<div class="cover-img-wrap">
-							<img data-src="//img3.mukewang.com/5bfe54e80001e28706000338.jpg" alt="" style="display: none" id="js-cover-img">
-						</div>
-						<div class="cover-mask"></div>
-					</div>
-				</div>
 				<div class="video" style="background-color:#171A23;">
 					<div class="video-left" style="float: left;">
-						<video id="example_video_1" class="video-js vjs-default-skin" controls preload="none" width="1000" height="510"
-						 poster="http://vjs.zencdn.net/v/oceans.png">
+						<video id="example_video_1" class="video-js vjs-default-skin" controls preload="none" width="1000" height="590"
+						 poster="static/img/slide/1.png">
 							<source src="video/20190122221148.mp4" type="video/mp4">
 						</video>
 
 					</div>
-					<div class="video-right" style="float: right;color: white;width: 200px;height: 510px;">
-						<span>教师名</span>
-						<p>语言是一种计算机程序设计语言。它既有高级语言的特点，又具有汇编语言的特点。它可以作为系统设计语言，编写工作系统应用程序，也可以作为应用程序设计语言，编写不依赖计算机硬件的应用程序。因此，它的应用范围非常广泛。</p>
-						</p>
-						<img src="img/login/bg-img4.jpg" />
+					<div class="video-right" style="float: right;color: white;width: 332px;height: 590px;">
+						<span class="video-head">播放章节</span>
+						<hr />
+						<div class="video-main">
+							<ul>
+								<li class="sec-title">
+										<span>第1章 Java初体验</span>
+								</li>
+								<li class="sec-li">
+									<a href="#" class="">
+										<em class=""><i class="fa fa-television" aria-hidden="true"></i></em>
+										<span>1-1 Java简介（05:34）</span>
+									</a>
+								</li>
+								<li class="sec-li">
+									<a href="#" class="">
+										<em class=""><i class="fa fa-television" aria-hidden="true"></i></em>
+										<span>1-1 Java简介（05:34）</span>
+									</a>
+								</li>
+								<li class="sec-li">
+									<a href="#" class="">
+										<em class=""><i class="fa fa-television" aria-hidden="true"></i></em>
+										<span>1-1 Java简介（05:34）</span>
+									</a>
+								</li>
+								<li class="sec-li">
+									<a href="#" class="">
+										<em class=""><i class="fa fa-television" aria-hidden="true"></i></em>
+										<span>1-1 Java简介（05:34）</span>
+									</a>
+								</li>
+							</ul>
+							<ul>
+								<li class="sec-title">
+										<span>第1章 Java初体验</span>
+								</li>
+								<li class="sec-li">
+									<a href="#" class="">
+										<em class=""><i class="fa fa-television" aria-hidden="true"></i></em>
+										<span>1-1 Java简介（05:34）</span>
+									</a>
+								</li>
+								<li class="sec-li">
+									<a href="#" class="">
+										<em class=""><i class="fa fa-television" aria-hidden="true"></i></em>
+										<span>1-1 Java简介（05:34）</span>
+									</a>
+								</li>
+								<li class="sec-li">
+									<a href="#" class="">
+										<em class=""><i class="fa fa-television" aria-hidden="true"></i></em>
+										<span>1-1 Java简介（05:34）</span>
+									</a>
+								</li>
+								<li class="sec-li">
+									<a href="#" class="">
+										<em class=""><i class="fa fa-television" aria-hidden="true"></i></em>
+										<span>1-1 Java简介（05:34）</span>
+									</a>
+								</li>
+							</ul>
+							<ul>
+								<li class="sec-title">
+										<span>第1章 Java初体验</span>
+								</li>
+								<li class="sec-li">
+									<a href="#" class="">
+										<em class=""><i class="fa fa-television" aria-hidden="true"></i></em>
+										<span>1-1 Java简介（05:34）</span>
+									</a>
+								</li>
+								<li class="sec-li">
+									<a href="#" class="">
+										<em class=""><i class="fa fa-television" aria-hidden="true"></i></em>
+										<span>1-1 Java简介（05:34）</span>
+									</a>
+								</li>
+								<li class="sec-li">
+									<a href="#" class="">
+										<em class=""><i class="fa fa-television" aria-hidden="true"></i></em>
+										<span>1-1 Java简介（05:34）</span>
+									</a>
+								</li>
+								<li class="sec-li">
+									<a href="#" class="">
+										<em class=""><i class="fa fa-television" aria-hidden="true"></i></em>
+										<span>1-1 Java简介（05:34）</span>
+									</a>
+								</li>
+							</ul>
+						</div>
 					</div>
 					<div style="clear: both;"></div>
 
