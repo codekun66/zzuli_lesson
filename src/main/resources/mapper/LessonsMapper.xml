@@ -49,6 +49,20 @@
 		where id = #{id}
 	</update>
 	<!-- 根据Id查询课程信息 -->
+	<select id="queryLessonInfoByTeaId" resultType = "java.util.Map">
+		SELECT 
+		id,
+		less_pic_url as lessPicUrl, 
+		tea_name as teaName,
+		less_name as lessName,
+		rank,
+		pageview as	pageView,
+		summary,
+		less_category as lessCategory
+		FROM lessons
+		WHERE
+		tea_id = #{tea_id}
+	</select>
 	<select id="queryLessonsInfoById" resultType="java.util.Map">
 		SELECT 
 		id,

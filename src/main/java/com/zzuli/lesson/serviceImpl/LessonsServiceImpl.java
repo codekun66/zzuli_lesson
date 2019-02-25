@@ -82,6 +82,16 @@ public class LessonsServiceImpl implements LessonsService {
 	}
 
 	@Override
+	public Map<String, Object> getlessonInfoByTeaId(int teaId) {
+		// TODO Auto-generated method stub
+		Map<String, Object> map = lessonsMapper.queryLessonInfoByTeaId(teaId);
+	    String url = (String) map.get("lessPicUrl");
+	    String urlAdd = ConstantUtil.FTP_PRE.FTP_PRE + url ;
+	    map.put("lessPicUrl", urlAdd);
+		return map;
+	}
+	
+	@Override
 	public int getLessonsTotalCount() {
 		
 		return lessonsMapper.queryLessonsTotalCount();
@@ -197,6 +207,7 @@ public class LessonsServiceImpl implements LessonsService {
 		return list;
 	
 	}
+	
 	
 	
 	

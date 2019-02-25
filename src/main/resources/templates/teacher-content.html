@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
 	<head>
 		<title>U课 · 更懂你的在线学习平台</title>
 		<!-- Required meta tags -->
@@ -20,10 +21,10 @@
 			<div class="header_navbar" th:include="header :: header_navbar"></div>
 		</header>
 		<main>
-			<div class="container">
+			<div class="container" th:each="tea_p:${teaInfo_p}">
 				<div class="cont">
-					<img th:src="@{/img/module/study-1.jpg}" />
-					<div class="cont-right">
+					<img th:src="${tea_p.picUrl}" />
+					<div class="cont-right" th:teat={tea_p.teaIntroduce}>
 						<p>网络前端工程师</p>
 						1998.09至2002.06四川师范学院计算机系，获工学学士学位（本科）；<br>
 						2002.09至2005.06西华师范大学计算机学院，获工学硕士学位；<br>
@@ -42,7 +43,7 @@
 						<tbody>
 							<tr class="active">
 								<td>姓名<span>:</span></td>
-								<td>杨华</td>
+								<td th:text="${tea_p.teaName}">杨华</td>
 								<td>性别<span>:</span></td>
 								<td>女</td>
 								<td>职称/学历<span>:</span></td>
@@ -96,6 +97,7 @@
 							</div>
 						</div>
 					</a>
+					<!--  
 					<a href="#">
 						<div class="card img-fluid">
 							<img class="card-img-top" th:src="@{/img/module/internet-1.jpg}">
@@ -152,6 +154,7 @@
 							</div>
 						</div>
 					</a>
+					-->
 				</div>
 
 			</div>

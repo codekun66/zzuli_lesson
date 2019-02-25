@@ -29,7 +29,7 @@
 					<hr />
 					<div class="">
 						<ul class="lists" th:each = "tea : ${teaInfo}">
-							<a>
+							<a th:href = "@{/teacher/{id}(id=${tea.id})}">
 								<li>
 									<dl>
 										<dt>

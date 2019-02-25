@@ -44,6 +44,13 @@ public interface LessonsMapper {
 	 */
 	Map<String, Object> queryLessonsInfoById(@Param("id") int id);
 	/**
+	 * 根据教师编号查询课程信息
+	 * @return Lesson
+	 * 
+	 */
+	Map<String, Object> queryLessonInfoByTeaId(@Param("teaId") int teaId);
+	
+	/**
 	 * 查询课程总数totalCount
 	 * @param 
 	 * @return 

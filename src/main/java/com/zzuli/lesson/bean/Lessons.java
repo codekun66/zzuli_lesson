@@ -35,6 +35,8 @@ public class Lessons implements Serializable {
 	private String summary;
 	//课程分类
 	private String lessCategory;
+	//教师id
+	private int teaId;
 	//创建时间
 	@DateTimeFormat(pattern = "yyyy-MM-dd hh:mm:ss")
 	@JsonSerialize(using = DateUtil.class)
@@ -112,5 +114,11 @@ public class Lessons implements Serializable {
 	}
 	public void setValidStsCd(String validStsCd) {
 		this.validStsCd = validStsCd;
+	}
+	public int getTeaId() {
+		return teaId;
+	}
+	public void setTeaId(int teaId) {
+		this.teaId = teaId;
 	}
 }

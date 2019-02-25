@@ -47,6 +47,12 @@ public interface LessonsService {
 	 */
 	Map<String, Object> getlessonsInfoById(int id);
 	/**
+	 * 通过teaId获取课程信息
+	 * 
+	 * @return
+	 */
+	Map<String, Object> getlessonInfoByTeaId(int teaId);
+	/**
 	 * 获得所有课程总数totalCount
 	 *
 	 * @return
