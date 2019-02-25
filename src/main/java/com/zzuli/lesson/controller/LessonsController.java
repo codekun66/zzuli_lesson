@@ -76,6 +76,7 @@ public class LessonsController {
 	@RequestMapping(value = "/lessons/{id}", method = RequestMethod.GET)
 	public String getAllChapter(@PathVariable("id") int id, ModelMap modelMap) { // @PathVariable用于定义自定义或动态请求URI
 		modelMap.addAttribute("info", lessonsService.getAllChapter(id));
+		modelMap.addAttribute("lessonInfoById",lessonsService.getlessonsInfoById(id));
 		return "lesson";
 	}
 

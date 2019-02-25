@@ -21,19 +21,19 @@
 			<div id="main">
 				<div class="course-infos">
 					<div class="course-info-min course-left">
-						<img th:href="@{../static/img/LessonPicture/l_p_C.jpg}">
+						<img th:href="${lessonInfoById.lessPicUrl}">
 					</div>
 					<div class="course-info-min course-middle">
-						<h1>C语言</h1>
+						<h1 th:text="${lessonInfoById.lessName}">C语言</h1>
 						<input type="hidden" />
 						<p class="intro-more">
 							<span>
 								<em>主讲:</em>
-								<a href="#">杨华:</a>
+								<a href="#"  th:text="${lessonInfoById.teaName}">杨华:</a>
 							</span>
 							<span>
 								<em>难度:</em>
-								<a href="#">中级:</a>
+								<a href="#" th:text="${lessonInfoById.rank}">中级:</a>
 							</span>
 							<span>
 								<em>时长:</em>
@@ -41,7 +41,7 @@
 							</span>
 							<span>
 								<em>学习人数:</em>
-								<em class="red">12</em>
+								<em class="red" th:text="${lessonInfoById.pageView}">12</em>
 							</span>
 							<span>
 								<em>综合评分:</em>
@@ -68,8 +68,8 @@
 				<div class="course-info-main clearfix w">
 					<div class="content-wrap clearfix">
 						<div class="content">
-							<!-- 课程简介 -->
-							<div class="course-description course-wrap">
+							<!-- 课程简介 --> 
+							<div class="course-description course-wrap"  th:text="${lessonInfoById.summary}">
 								本课程将带领大家理解XXXXXXXXXXXXXXXXX
 							</div>
 							<!-- 课程简介 end -->

@@ -74,8 +74,11 @@ public class LessonsServiceImpl implements LessonsService {
 
 	@Override
 	public Map<String, Object> getlessonsInfoById(int id) {
-	
-		return lessonsMapper.queryLessonsInfoById(id);
+	    Map<String, Object> map = lessonsMapper.queryLessonsInfoById(id);
+	    String url = (String) map.get("lessPicUrl");
+	    String urlAdd = ConstantUtil.FTP_PRE.FTP_PRE + url ;
+	    map.put("lessPicUrl", urlAdd);
+		return map;
 	}
 
 	@Override
