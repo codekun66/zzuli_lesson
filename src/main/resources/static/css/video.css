@@ -47,7 +47,13 @@ a:hover {
 	margin: 0;
 	margin-left: 40px;
 	margin-top: 5px;
+	margin-bottom: 10px;
 	width: 20px;
 	height: 1px;
 	background-color: orangered;
+}
+.video-main{
+	overflow-y: auto;
+	height: 540px;
+	
 }
