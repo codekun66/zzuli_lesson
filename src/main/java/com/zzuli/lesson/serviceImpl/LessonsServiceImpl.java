@@ -82,13 +82,15 @@ public class LessonsServiceImpl implements LessonsService {
 	}
 
 	@Override
-	public Map<String, Object> getlessonInfoByTeaId(int teaId) {
+	public List<Map<String, Object>> getlessonInfoByTeaId(int teaId) {
 		// TODO Auto-generated method stub
-		Map<String, Object> map = lessonsMapper.queryLessonInfoByTeaId(teaId);
-	    String url = (String) map.get("lessPicUrl");
-	    String urlAdd = ConstantUtil.FTP_PRE.FTP_PRE + url ;
-	    map.put("lessPicUrl", urlAdd);
-		return map;
+		List<Map<String, Object>> list = lessonsMapper.queryLessonInfoByTeaId(teaId);
+		for (Map<String, Object> map2 : list) {
+			 String url = (String) map2.get("lessPicUrl");
+			    String urlAdd = ConstantUtil.FTP_PRE.FTP_PRE + url ;
+			    map2.put("lessPicUrl", urlAdd);
+		}
+		return list;
 	}
 	
 	@Override

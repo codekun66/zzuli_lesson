@@ -61,7 +61,7 @@
 		less_category as lessCategory
 		FROM lessons
 		WHERE
-		tea_id = #{tea_id}
+		tea_id = #{teaId}
 	</select>
 	<select id="queryLessonsInfoById" resultType="java.util.Map">
 		SELECT 

@@ -48,7 +48,7 @@ public interface LessonsMapper {
 	 * @return Lesson
 	 * 
 	 */
-	Map<String, Object> queryLessonInfoByTeaId(@Param("teaId") int teaId);
+	List<Map<String, Object>> queryLessonInfoByTeaId(@Param("teaId") int teaId);
 	
 	/**
 	 * 查询课程总数totalCount

@@ -21,6 +21,7 @@ import com.zzuli.lesson.service.TeacherService;
 public class TeacherController {
 	@Autowired
 	TeacherService teacherService;
+	@Autowired
 	LessonsService lessonsService;
 	/*
 	 * 教师列表
@@ -38,9 +39,10 @@ public class TeacherController {
 	 * @return
 	 * */
 	@RequestMapping(value = "/teacher/{id}", method = RequestMethod.GET)
-	public String getTeacherInfoByID(@PathVariable("id") int id,ModelMap modelMap){
+	public String getTeacherInfoById(@PathVariable("id") int id,ModelMap modelMap){
 		modelMap.addAttribute("teaInfo_p", teacherService.getTeacherInfoByID(id));
-		//modelMap.addAttribute("tea_lessonInfo", lessonsService.getlessonInfoByTeaId(id));
+		modelMap.addAttribute("tea_lessonInfo", lessonsService.getlessonInfoByTeaId(id));
 		return "teacher-content";
 	}
+	
 }

@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="en">
-<html xmlns:th="http://www.thymeleaf.org">
+
 	<head>
 		<title>U课 · 更懂你的在线学习平台</title>
 		<!-- Required meta tags -->
@@ -89,15 +89,15 @@
 					</li>
 				</ul>
 				<div class="content mtm mhm cl">
-					<div class="card-img">
-					<a href="#">
-						<div class="card img-fluid">
-							<img class="card-img-top" th:src="@{/img/module/internet-1.jpg}">
-							<div class="card-img-overlay">
-								<p class="card-title">FYH</p>
+					<div class="card-img" th:each="teaLesson:${tea_lessonInfo}">
+						<a th:href="@{/lessons/{id}(id=${teaLesson.id})}">
+							<div class="card img-fluid">
+								<img class="card-img-top" th:src="${teaLesson.lessPicUrl}">
+								<div class="card-img-overlay">
+									<p class="card-title" th:text = "${teaLesson.lessName}">FYH</p>
+								</div>
 							</div>
-						</div>
-					</a>
+						</a>
 					</div>
 					<!--  
 					<a href="#">
