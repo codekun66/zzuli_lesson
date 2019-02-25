@@ -113,7 +113,25 @@
 	<select id="queryVideoUrlBySectionId" resultType="java.util.Map">
 		SELECT  resource_url
 		FROM less_section
-		where id = #{id}
+		WHERE id = #{id}
 	</select>
-	
+	<!-- 根据节id查询章id -->
+	<select id="queryChapterIdBySectionId" resultType="java.util.Map">
+		SELECT chapter_id
+		FROM less_section
+		WHERE id = #{id}
+    </select>
+    <!-- 根据章id查询课程id -->
+	<select id="queryLessonIdByChapterId" resultType="java.util.Map">
+		SELECT less_id
+		FROM less_chapter
+		WHERE id = #{chapterId}
+    </select>
+    	<!-- 根据课程ID查询课程所有章节信息Map -->
+	<select id="queryAllSectionMap" resultType="java.util.Map">
+		SELECT chapter_name , chapter_intro ,id
+		FROM less_chapter
+		where less_id = #{lessonId}
+		ORDER BY chapter_seqno
+	</select>
 </mapper>

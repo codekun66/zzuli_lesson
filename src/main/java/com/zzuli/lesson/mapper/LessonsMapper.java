@@ -84,4 +84,20 @@ public interface LessonsMapper {
      *
      */
 	Map<String, Object> queryVideoUrlBySectionId(@Param("id") int id);
+	/**
+     * 根据节id查询章id
+     *
+     */
+	Map<String, Object> queryChapterIdBySectionId(@Param("id") int id);
+	/**
+     * 根据章id查询课程id
+     *
+     */
+	Map<String, Object> queryLessonIdByChapterId(@Param("chapterId") int chapterId);
+	/**
+	 * 查询课程所有节Map
+	 * @param 
+	 * @return 
+	 */
+	List<Map<String, Object>> queryAllSectionMap(Map<String, Object> map);
 }

@@ -173,6 +173,30 @@ public class LessonsServiceImpl implements LessonsService {
 		return map;
 	}
 	
+	@Override
+	public Map<String, Object> getLessonIdBySectionId(int id) {
+		Map<String, Object> map = lessonsMapper.queryChapterIdBySectionId(id);
+		int chapterId = (int) map.get("chapter_id");
+		Map<String, Object> map2 = lessonsMapper.queryLessonIdByChapterId(chapterId);
+		return map2;
+	}
+	
+	@Override
+	public List<Map<String, Object>> getAllChapterMap(Map<String, Object> map) {
+		List<Map<String, Object>> list = new ArrayList<Map<String, Object>>();
+		List<Map<String, Object>> list2 = new ArrayList<Map<String, Object>>();
+		list = lessonsMapper.queryAllSectionMap(map);
+		for (Map<String, Object> map2 : list) {
+			int chapterId= (int) map2.get("id");
+			list2 = lessonsMapper.queryAllSection(chapterId);
+			map2.put("section", list2);
+		}
+		return list;
+	
+	}
+	
+	
+	
 	
 	
 	

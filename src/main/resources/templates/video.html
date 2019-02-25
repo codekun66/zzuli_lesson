@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+<html xmlns:th="http://www.thymeleaf.org">
 	<head>
 		<title>视频播放</title>
 		<!-- Required meta tags -->
@@ -23,8 +24,8 @@
 			<div id="main">
 				<div class="video" style="background-color:#171A23;">
 					<div class="video-left" style="float: left;">
-						<video id="example_video_1" class="video-js vjs-default-skin" controls preload="none" width="1000" height="590"
-						 poster="static/img/slide/1.png">
+						<video id="example_video_1" class="video-js vjs-default-skin vjs-big-play-centered"  controls preload="none" width="1330" height="700"
+						 poster="static/img/slide/1.png" data-setup="{}">
 							<source th:src="${videoUrl.resource_url}" type="video/mp4">
 						</video>
 
@@ -33,90 +34,14 @@
 						<span class="video-head">播放章节</span>
 						<hr />
 						<div class="video-main">
-							<ul>
-								<li class="sec-title">
-									<span>第1章 Java初体验</span>
+							<ul th:each="lessinfo:${info}">
+								<li class="sec-title" >
+									<span th:text="${lessinfo.chapter_name}">第1章 Java初体验</span>
 								</li>
-								<li class="sec-li">
-									<a href="#" class="">
+								<li class="sec-li"  th:each="sectioninfo:${lessinfo.section}">
+									<a th:href="@{/video/{id}(id=${sectioninfo.id})}" class="">
 										<em class=""><i class="fa fa-television" aria-hidden="true"></i></em>
-										<span>1-1 Java简介（05:34）</span>
-									</a>
-								</li>
-								<li class="sec-li">
-									<a href="#" class="">
-										<em class=""><i class="fa fa-television" aria-hidden="true"></i></em>
-										<span>1-1 Java简介（05:34）</span>
-									</a>
-								</li>
-								<li class="sec-li">
-									<a href="#" class="">
-										<em class=""><i class="fa fa-television" aria-hidden="true"></i></em>
-										<span>1-1 Java简介（05:34）</span>
-									</a>
-								</li>
-								<li class="sec-li">
-									<a href="#" class="">
-										<em class=""><i class="fa fa-television" aria-hidden="true"></i></em>
-										<span>1-1 Java简介（05:34）</span>
-									</a>
-								</li>
-							</ul>
-							<ul>
-								<li class="sec-title">
-									<span>第1章 Java初体验</span>
-								</li>
-								<li class="sec-li">
-									<a href="#" class="">
-										<em class=""><i class="fa fa-television" aria-hidden="true"></i></em>
-										<span>1-1 Java简介（05:34）</span>
-									</a>
-								</li>
-								<li class="sec-li">
-									<a href="#" class="">
-										<em class=""><i class="fa fa-television" aria-hidden="true"></i></em>
-										<span>1-1 Java简介（05:34）</span>
-									</a>
-								</li>
-								<li class="sec-li">
-									<a href="#" class="">
-										<em class=""><i class="fa fa-television" aria-hidden="true"></i></em>
-										<span>1-1 Java简介（05:34）</span>
-									</a>
-								</li>
-								<li class="sec-li">
-									<a href="#" class="">
-										<em class=""><i class="fa fa-television" aria-hidden="true"></i></em>
-										<span>1-1 Java简介（05:34）</span>
-									</a>
-								</li>
-							</ul>
-							<ul>
-								<li class="sec-title">
-									<span>第1章 Java初体验</span>
-								</li>
-								<li class="sec-li">
-									<a href="#" class="">
-										<em class=""><i class="fa fa-television" aria-hidden="true"></i></em>
-										<span>1-1 Java简介（05:34）</span>
-									</a>
-								</li>
-								<li class="sec-li">
-									<a href="#" class="">
-										<em class=""><i class="fa fa-television" aria-hidden="true"></i></em>
-										<span>1-1 Java简介（05:34）</span>
-									</a>
-								</li>
-								<li class="sec-li">
-									<a href="#" class="">
-										<em class=""><i class="fa fa-television" aria-hidden="true"></i></em>
-										<span>1-1 Java简介（05:34）</span>
-									</a>
-								</li>
-								<li class="sec-li">
-									<a href="#" class="">
-										<em class=""><i class="fa fa-television" aria-hidden="true"></i></em>
-										<span>1-1 Java简介（05:34）</span>
+										<span th:text="${sectioninfo.section_name}">1-1 Java简介（05:34）</span>
 									</a>
 								</li>
 							</ul>
@@ -125,7 +50,7 @@
 					<div style="clear: both;"></div>
 
 				</div>
-
+  
 
 
 		</main> <!-- FOOTER -->

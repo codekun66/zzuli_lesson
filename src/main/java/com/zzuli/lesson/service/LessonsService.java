@@ -82,4 +82,18 @@ public interface LessonsService {
 	 * @return
 	 */
 	Map<String, Object> getVideoUrlBySectionId (int id);
+	/**
+	 * 根据节id获取课程id
+	 *
+	 * @return
+	 */
+	Map<String, Object> getLessonIdBySectionId (int id);
+	/**
+	 * 获得课程所有章Map
+	 *
+	 * @return
+	 */
+	List<Map<String, Object>> getAllChapterMap(Map<String, Object> map);
+	
+	
 }

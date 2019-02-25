@@ -113,6 +113,12 @@ public class LessonsController {
 	@RequestMapping(value = "/video/{id}" ,  method = RequestMethod.GET)
 	public String getSectionVideo(@PathVariable("id") int id, ModelMap modelMap) {
 		modelMap.addAttribute("videoUrl", lessonsService.getVideoUrlBySectionId(id));
+		Map<String, Object> map = lessonsService.getLessonIdBySectionId(id);
+		int lessonId = (int) map.get("less_id");
+		Map<String, Object> map2 = new HashMap<>();
+		map2.put("lessonId", lessonId);
+		modelMap.addAttribute("info", lessonsService.getAllChapterMap(map2));
 		return "video";
 	}
+
 }
