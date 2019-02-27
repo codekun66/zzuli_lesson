@@ -2,6 +2,7 @@ package com.zzuli.lesson.controller;
 
 
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -13,12 +14,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.zzuli.lesson.service.LessonsService;
 import com.zzuli.lesson.service.TeacherService;
 
 @Controller
 public class TeacherController {
 	@Autowired
 	TeacherService teacherService;
+	@Autowired
+	LessonsService lessonsService;
 	/*
 	 * 教师列表
 	 * 
@@ -35,8 +39,10 @@ public class TeacherController {
 	 * @return
 	 * */
 	@RequestMapping(value = "/teacher/{id}", method = RequestMethod.GET)
-	public String getTeacherInfoByID(@PathVariable("id") int id,ModelMap modelMap){
+	public String getTeacherInfoById(@PathVariable("id") int id,ModelMap modelMap){
 		modelMap.addAttribute("teaInfo_p", teacherService.getTeacherInfoByID(id));
+		modelMap.addAttribute("tea_lessonInfo", lessonsService.getlessonInfoByTeaId(id));
 		return "teacher-content";
 	}
+	
 }

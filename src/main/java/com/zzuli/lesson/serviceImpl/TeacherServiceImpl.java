@@ -57,7 +57,14 @@ public class TeacherServiceImpl implements TeacherService {
 	@Override
 	public List<Map<String, Object>> getTeacherInfoByID(int id) {
 		// TODO Auto-generated method stub
-		return teacherMapper.queryTeacherById(id);
+		List<Map<String, Object>> list = new ArrayList<Map<String, Object>>();
+		list =  teacherMapper.queryTeacherById(id);
+		for (Map<String, Object> map : list) {
+			String url = (String) map.get("picUrl");
+			String ultimaUrl = ConstantUtil.FTP_PRE.FTP_PRE + url ;
+			map.put("picUrl", ultimaUrl);
+		}
+		return list;
 	}
 
 	@Override
