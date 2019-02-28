@@ -5,8 +5,12 @@
 	line-height: 22px;
 	margin-bottom: 8px;
 }
-.sec-title span{
+
+.sec-title span {
 	margin-left: 10px;
+}
+#main{
+	min-height: 635px;
 }
 .sec-li {
 	height: 30px;
@@ -25,30 +29,39 @@
 	color: rgba(255, 255, 255, 6);
 	line-height: 20px;
 }
-.sec-li em{
+
+.sec-li em {
 	margin-right: 10px;
 	color: #00B43C;
 }
+
 a:hover {
 	color: #EE5044;
 }
-.video{
-	height: 700px;
+
+.video {
+	height: 590px;
 }
-.video-left{
+
+.video-left {
 	width: 75%;
 }
+
 .video-right {
 	border-left: 3px solid #000000;
 	width: 25%;
-	float: right;color: white;height: 590px;
+	float: right;
+	color: white;
+	height: 590px;
 }
-.video-head{
+
+.video-head {
 	margin-left: 20px;
 	margin-top: 20px;
 	color: orangered;
 }
-.video-right hr{
+
+.video-right hr {
 	margin: 0;
 	margin-left: 40px;
 	margin-top: 5px;
@@ -57,8 +70,9 @@ a:hover {
 	height: 1px;
 	background-color: orangered;
 }
-.video-main{
+
+.video-main {
 	overflow-y: auto;
 	height: 540px;
-	
+
 }
