@@ -5500,8 +5500,8 @@ i {
 }
 
 .course-info-main .aside {
-	margin-top: -608px;
-	margin-right: -352px;
+	margin-top: 40px;
+	margin-right: 40px;
 	width: 320px;
 	position: relative;
 	z-index: 2
@@ -5610,7 +5610,7 @@ i {
 .course-info-main .content {
 	float: left;
 	padding-top: 36px;
-	width: 100%
+	width: 650px;
 }
 
 .course-info-main .content .ctit {
