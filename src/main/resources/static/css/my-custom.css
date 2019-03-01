@@ -191,14 +191,10 @@ background: linear-gradient(to right, transparent, #fff 55%);
 }
 
 .channel-list li {
-    padding-top: .5rem;
-    padding-bottom: .5rem;
-    border-bottom: 1px dashed #EEE;
-    margin-top: .4rem;
-    margin-bottom: .4rem;
+    padding: .5rem;
+    border-bottom: none;
+    margin: .6rem 0rem .6rem 1rem;
     line-height: 1.2rem;
-    padding-right: 0;
-    margin-right: 0;
     font-size: 1rem;
 }
 .channel-list li a{
@@ -210,6 +206,7 @@ background: linear-gradient(to right, transparent, #fff 55%);
 
 .channel-list li div {
     color: #999;
+    display: none;
 }
 
 .channel-list li div span {
