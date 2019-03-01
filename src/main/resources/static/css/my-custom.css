@@ -81,13 +81,12 @@ ul#lessonsall {
 
 .channel-body {
     margin-left: 11rem;
-    padding: 1rem 2rem 1rem 6.5rem;
+    padding: 1rem 1rem 1rem 6.5rem;
 }
 
 .channel-title {
     font-size: 18px;
-    margin-bottom: .5rem;
-    
+    margin: .5rem 0rem .5rem 0rem;
     white-space:nowrap;
     overflow: hidden;
 }
@@ -126,10 +125,9 @@ ul#lessonsall {
 	-webkit-box-orient: vertical;
     -webkit-line-clamp: 3;
     text-indent: 0;
-    line-height: 2rem;
-    margin: 0;
-    padding: 0;
-    font-size: 1.1rem;
+    line-height: 2.5rem;
+    padding: 1.2rem 0rem 0rem 0rem;
+    font-size: 1.2rem;
 	overflow: hidden;
 }
 /* .channel-desc p::after{content: "..."; position: absolute; bottom: 0; right: 0; padding-left: 40px;
