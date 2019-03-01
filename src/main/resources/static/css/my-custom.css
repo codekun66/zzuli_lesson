@@ -125,11 +125,12 @@ ul#lessonsall {
 	-webkit-box-orient: vertical;
     -webkit-line-clamp: 3;
     text-indent: 0;
-    line-height: 2.5rem;
+    line-height: 2.0rem;
     letter-spacing: 2px;
     padding: 1.2rem 0rem 0rem 0rem;
-    font-size: 1.2rem;
+    font-size: 1.0rem;
 	overflow: hidden;
+	color: rgb(112, 112, 112);
 }
 /* .channel-desc p::after{content: "..."; position: absolute; bottom: 0; right: 0; padding-left: 40px;
 background: -webkit-linear-gradient(left, transparent, #fff 55%);
