@@ -253,15 +253,15 @@ body {
 
 .h2-title {
     padding: 0;
-    margin-top:1rem;
-    margin-bottom: .5rem;;
+    margin-top: 3rem;
+    margin-bottom: .5rem;
     text-align: center;
     color: #000;
 }
 
 .h5-sub_title {
     padding: 0;
-    margin: 0;
+    margin: 1rem 0rem 3rem 0rem;
     text-align: center;
 }
 
