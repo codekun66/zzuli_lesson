@@ -63,17 +63,19 @@ public class BackLessonsController {
         return "background/lessonsAdd";
     }
 
-	@RequestMapping(value = "/back/lessonsAdd", method = RequestMethod.POST)
+	@RequestMapping(value = "/back/lessonsAdd", method = RequestMethod.POST , consumes="application/json")
 	@ResponseBody
-	public String addLessons(@RequestBody Lessons lessons , ModelMap modelMap,HttpServletRequest request) {
+	public Map<String,Object> addLessons(@RequestBody Lessons lessons ,HttpServletRequest request) {
 		System.out.println(lessons.toString());
 		int count = backLessonsService.addLessons(lessons);
+		Map<String, Object> map = new HashMap<>();
 		if(count > 0) {
-			return "redirect:lessonsInfo";
+			map.put("msg", 1);
+			return map;
 		}
 		else {
-			modelMap.addAttribute("erro","失败");
-			return"errro";
+			map.put("msg", 0);
+			return map;
 		}
 	}
 	

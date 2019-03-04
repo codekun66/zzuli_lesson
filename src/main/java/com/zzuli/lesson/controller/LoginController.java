@@ -89,6 +89,7 @@ public class LoginController {
         Session session =  subject.getSession();
         Map<String, Object> map = new HashMap<>();
         int userId = loginService.getUserId(username);
+        String teaName = loginService.getTeaName(username);
         	//modelMap.addAttribute("backInfo", backLessonsService.getBackLessonsList());
     		//return "background/background-table" ;
 /*        	Cookie cookie = new Cookie("sessionId",sessionId);
@@ -101,6 +102,7 @@ public class LoginController {
         	session.setAttribute("userId", userId);
         	session.setAttribute("username", username);
         	session.setAttribute("sessionId", sessionId);
+        	session.setAttribute("teaname", teaName);
         return map ;
     }
     
@@ -116,6 +118,8 @@ public class LoginController {
     	map.put("userId", userId);
     	String	username = (String) session.getAttribute("username");
     	map.put("username", username);
+    	String  teaName = (String) session.getAttribute("teaname");
+    	map.put("teaname", teaName);
     	return map;
     }
 }

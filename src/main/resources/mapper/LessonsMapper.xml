@@ -11,7 +11,9 @@
 		tea_name as teaName,
 		pageview as	pageView,
 		summary,
-		less_category as lessCategory
+		less_category as lessCategory,
+		tea_id as teaId,
+		required
 		FROM lessons
 	</select>
 	<!-- 获取有效的课程信息列表 -->
@@ -23,7 +25,9 @@
 		tea_name as teaName,
 		pageview as	pageView,
 		summary,
-		less_category as lessCategory
+		less_category as lessCategory,
+		tea_id as teaId,
+		required
 		FROM lessons
 		WHERE valid_sts_cd = 1
 	</select>
@@ -58,7 +62,9 @@
 		rank,
 		pageview as	pageView,
 		summary,
-		less_category as lessCategory
+		less_category as lessCategory,
+		tea_id as teaId,
+		required
 		FROM lessons
 		WHERE
 		tea_id = #{teaId}
@@ -72,7 +78,9 @@
 		rank,
 		pageview as	pageView,
 		summary,
-		less_category as lessCategory
+		less_category as lessCategory,
+		tea_id as teaId,
+		required
 		FROM lessons
 		WHERE
 		id=#{id}
@@ -120,7 +128,9 @@
 		tea_name as teaName,
 		pageview as	pageView,
 		summary,
-		less_category as lessCategory
+		less_category as lessCategory,
+		tea_id as teaId,
+		required
 		FROM lessons
 		<if test = "keyWord != null &amp; keyWord != '' ">
 		WHERE less_category like #{keyWord}

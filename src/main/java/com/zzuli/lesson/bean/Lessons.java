@@ -47,7 +47,8 @@ public class Lessons implements Serializable {
 	private Date modifieldTime;
 	//有效状态码
 	private String validStsCd;
-	
+	//必修课程
+	private String required;
 	public int getId() {
 		return id;
 	}
@@ -121,4 +122,20 @@ public class Lessons implements Serializable {
 	public void setTeaId(int teaId) {
 		this.teaId = teaId;
 	}
+	
+	public String getRequired() {
+		return required;
+	}
+	public void setRequired(String required) {
+		this.required = required;
+	}
+	@Override
+	public String toString() {
+		return "Lessons [id=" + id + ", lessPicUrl=" + lessPicUrl + ", lessName=" + lessName + ", rank=" + rank
+				+ ", teaName=" + teaName + ", pageView=" + pageView + ", summary=" + summary + ", lessCategory="
+				+ lessCategory + ", teaId=" + teaId + ", createTime=" + createTime + ", modifieldTime=" + modifieldTime
+				+ ", validStsCd=" + validStsCd + ", required=" + required + "]";
+	}
+
+	
 }

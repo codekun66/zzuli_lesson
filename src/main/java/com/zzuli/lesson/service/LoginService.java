@@ -23,4 +23,10 @@ public interface LoginService {
      * @return user/admin
      */
     int getUserId(String username);
+	/**
+     * 获得用戶姓名
+     * @param username 用户名
+     * @return teaname
+     */
+	String getTeaName(String username);
 }

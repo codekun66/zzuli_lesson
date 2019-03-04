@@ -1,5 +1,6 @@
 package com.zzuli.lesson.serviceImpl;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -24,8 +25,9 @@ public class BackLessonsServiceImpl implements BackLessonsService {
 	
 	@Override
 	public List<Map<String, Object>> getBackLessonsListTeacher(int userId) throws Exception {
-	
-		return backLessonsMapper.queryBackLessonsTeacher(userId);
+		Map<String, Object> map = backLessonsMapper.queryTeaIdByUserId(userId);
+		String teaId =  (String) map.get("tea_id");
+		return backLessonsMapper.queryBackLessonsTeacher(teaId);
 	}
 
 	@Override

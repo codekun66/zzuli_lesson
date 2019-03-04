@@ -21,4 +21,10 @@ public interface LoginMapper {
      * @return user/admin
      */
     int queryUserId(String username);
+    /**
+     * 获得用户姓名
+     * @param username 用户名
+     * @return teaname
+     */
+    String queryTeaNameByUsername(String username);
 }

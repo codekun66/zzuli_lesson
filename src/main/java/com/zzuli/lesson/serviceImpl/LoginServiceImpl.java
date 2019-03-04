@@ -30,6 +30,12 @@ public class LoginServiceImpl  implements LoginService{
 		// TODO Auto-generated method stub
 		return loginMapper.queryUserId(username);
 	}
+
+	@Override
+	public String getTeaName(String username) {
+		// TODO Auto-generated method stub
+		return loginMapper.queryTeaNameByUsername(username);
+	}
 	
 
 }
