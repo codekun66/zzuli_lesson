@@ -60,3 +60,30 @@ main {
     color: #4D555D;
     margin: 0 3px;
 }
+.card-class{
+	background-color: #f7f7f7;
+    margin-top: 15px;
+	margin-left: 15px;
+    font-size: 16px;
+	width: 1060px;
+}
+.card-class ul{
+	margin-top: 20px;
+	display: block;
+	height: 40px;
+}
+.card-class li{
+    width: 100px;
+    height: 30px;
+    line-height: 30px;
+    float: left;
+    margin-right: 7px;
+	margin-top: 20px;
+	margin-bottom: 10px;
+}
+.card-class li a{
+	text-decoration: none;
+}
+.class-top{
+	margin-left: 20px;
+}
