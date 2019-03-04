@@ -12,6 +12,7 @@
     <link href="background/css/font-awesome.css" rel="stylesheet" />
     <!-- Custom Styles-->
     <link href="background/css/custom-styles.css" rel="stylesheet" />
+    <link href="background/css/cropper.css" rel="stylesheet">
     <!-- Google Fonts-->
     <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
 </head>
@@ -83,41 +84,41 @@
                                         <div class="col-lg-6">
                                             <div class="form-group">
                                                 <label>课程名称</label>
-                                                <input class="form-control">
+                                                <input class="form-control" id="form_lesson_name">
+                                            </div>
+                                            <div class="form-group">
+                                                <label>课程封面</label>
+                                                <button type="button" id="form_lesson_cover">点击上传（暂时无用）</button>
                                             </div>
                                             <div class="form-group">
                                                 <label>课程级别</label><br>
-                                                <input type="radio" name="lessonLevel" value="option1" checked="">入门&nbsp;&nbsp;&nbsp;
-                                                <input type="radio" name="lessonLevel" value="option2">初级&nbsp;&nbsp;&nbsp;
-                                                <input type="radio" name="lessonLevel" value="option3">中级&nbsp;&nbsp;&nbsp;
-                                                <input type="radio" name="lessonLevel" value="option4">高级&nbsp;&nbsp;&nbsp;
+                                                <input type="radio" name="form_lesson_level" value="rumen" checked="">入门&nbsp;&nbsp;&nbsp;
+                                                <input type="radio" name="form_lesson_level" value="chuji">初级&nbsp;&nbsp;&nbsp;
+                                                <input type="radio" name="form_lesson_level" value="zhongji">中级&nbsp;&nbsp;&nbsp;
+                                                <input type="radio" name="form_lesson_level" value="gaoji">高级&nbsp;&nbsp;&nbsp;
                                             </div>
                                             <div class="form-group">
                                                 <label>课程类别</label>
-                                                <select class="form-control">
-                                                        <option>经济学</option>
-                                                        <option>文学</option>
-                                                        <option>计算机类</option>
-                                                        <option>化学</option>
-                                                        <option>物理学</option>
+                                                <select class="form-control" id="form_lesson_cate">
+                                                    <option value="economy">经济学</option>
+                                                    <option value="literature">文学</option>
+                                                    <option value="software">软件工程</option>
+                                                    <option value="chemistry">化学</option>
+                                                    <option value="physics">物理学</option>
                                                 </select>
                                             </div>
                                             <div class="form-group">
                                                 <label>是否必修</label><br>
-                                                <input type="radio" name="ifCompulsory" value="yes" checked="">是&nbsp;&nbsp;&nbsp;
-                                                <input type="radio" name="ifCompulsory" value="no">否
+                                                <input type="radio" name="form_lesson_required" value="yes" checked="">是&nbsp;&nbsp;&nbsp;
+                                                <input type="radio" name="form_lesson_required" value="no">否
                                             </div>
                                             <div class="form-group">
                                                 <label>授课教师</label>
-                                                <input class="form-control" placeholder="当前登录教师名">
+                                                <input class="form-control" id="form_teacher">
                                             </div>
                                             <div class="form-group">
                                                 <label>课程简介</label>
-                                                <textarea class="form-control" rows="3"></textarea>
-                                            </div>
-                                            <div class="form-group">
-                                                <label>上传课程封面</label>
-                                                <input type="file">
+                                                <textarea class="form-control" rows="3" id="form_lesson_intro"></textarea>
                                             </div>
                                         </div>
                                         <!-- /.col-lg-6 (nested) -->
@@ -155,7 +156,7 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <button type="submit" class="btn btn-default">提交</button>
+                                            <button id="submit" class="btn btn-default">提交</button>
                                             <button type="reset" class="btn btn-default">重置</button>
                                     </form>
                                 </div>
@@ -187,6 +188,7 @@
     <script src="background/js/jquery.metisMenu.js"></script>
     <!-- Custom Js -->
     <script src="background/js/custom-scripts.js"></script>
+    <script src="background/js/cropper.js"></script>
     <script>
         var role
         var userid
@@ -198,7 +200,8 @@
                 userName = result["username"]
                 userid = result["userId"]
                 role = result["role"]
-                $("#welcomeLabel").text("亲爱的"+userName+"，欢迎您登录")
+                $("#welcomeLabel").text("亲爱的" + userName + "，欢迎您登录")
+                $("#form_teacher").attr("placeholder", userName);
             }
         })
 
@@ -262,6 +265,27 @@
             video.className = 'video'
             video.innerHTML = html
             this.parentNode.insertBefore(video, this)
+        })
+
+        $("#submit").click(function () {
+            var obj = JSON.stringify({
+                'lessonName': $("#form_lesson_name").val(),
+                'lessonLevel': $("input[name='form_lesson_level']:checked").val(),
+                'lessonCate': $("#form_lesson_cate").val(),
+                'ifRequired': $("input[name='form_lesson_required']:checked").val(),
+                'teacher': $("#form_teacher").val(),
+                'lesson_intro': $("#form_lesson_intro").val(),
+            });
+            alert(obj);
+            $.ajax({
+                url: "/back/lessonsAdd",
+                type: "post",
+                data: obj,
+                contentType: 'application/json;charset=utf-8',
+                success: function (data) {
+                    alert("haha");
+                }
+            });
         })
     </script>
 
