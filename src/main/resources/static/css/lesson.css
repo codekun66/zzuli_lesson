@@ -1,11 +1,32 @@
 #main {
 	min-height: 750px;
 	/* padding: 20px 0; */
+	background-color: #FFFFFF;
 }
-
+.teacher-fa{
+	margin-bottom: 20px;
+}
+.teacher-list img{
+	border-radius: 50%;
+	width: 80px;
+	height: 80px;
+	float: left;
+	margin-right: 30px;
+	margin-top: 10px;
+}
+.teacher-list a{
+	text-decoration: none;
+}
+.teacher-list a:hover{
+	color: #00B43C;
+}
+.teacher-main{
+	margin-left: 20px;
+	margin-top: 10px;
+}
 .course-infos {
 	position: relative;
-	background-color: #d1d2dc;
+	background-color: #F7F7F7;
 	width: 1160px;
 	/* margin-top: 20px; */
 	margin-left: auto;
@@ -4989,7 +5010,9 @@ i {
 #main {
 	/* padding-top: 55px; */
 	color: #1c1f21;
-	background: #f8fafc
+	background: #FFFFFF;
+	margin-top: 20px;
+	
 }
 
 
