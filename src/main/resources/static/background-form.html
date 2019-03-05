@@ -127,10 +127,9 @@
                                             <div>
                                                 <h4>课程内容</h4>
                                                 <br>
-                                                
-                                                <!-- <div class="split" id="chapters">
+                                                <div class="split" id="chapters">
                                                     <div class="chapter">
-                                                        <label>第1章</label>
+                                                        <!-- <label>第1章</label>
                                                         <div class="form-group">
                                                             <label>标题</label>
                                                             <input class="form-control">
@@ -151,10 +150,10 @@
                                                             </div>
 
                                                             <button class="btn btn-default" type="button" id="addVideo">添加视频</button>
-                                                        </div>
+                                                        </div> -->
                                                         <button class="btn btn-default" type="button" id="addChapter">添加章节</button>
                                                     </div>
-                                                </div> -->
+                                                </div>
                                             </div>
                                             <button id="submit" class="btn btn-default">提交</button>
                                             <button type="reset" class="btn btn-default">重置</button>
@@ -190,11 +189,15 @@
     <script src="background/js/custom-scripts.js"></script>
     <script src="background/js/cropper.js"></script>
     <script>
+
+        window.onload=addChapters
+
         var role
         var userid
         var userName
         var teacherName
         var chapterNum = 1
+        var dataRes={}
         $.ajax({
             type: "get",
             url: '/judge',
@@ -205,7 +208,6 @@
                 role = result["role"]
                 $("#welcomeLabel").text("亲爱的" + teacherName + "，欢迎您登录")
                 $("#form_teacher").attr("placeholder", teacherName);
-                addChapters();
             }
         })
         var addChapter = document.getElementById('addChapter')
@@ -214,6 +216,7 @@
         function addChapters() {
             // var div = document.getElementById('videos');
             var videoCnt = 1
+            var m,n
             var html =
                 `
                 <label>第${chapterNum}章</label>
@@ -228,7 +231,7 @@
                 </div>
                 <div class="split" id="videos">
                     <div class="video">
-                        <label>视频${chapterNum}</label>
+                        <label>视频${videoCnt}</label>
                         <div class="form-group">
                             <label>标题（例如：1-1 课程介绍）</label>
                             <input class="form-control">
@@ -246,10 +249,15 @@
             chapter.className = 'chapter'
             chapter.innerHTML = html
             this.parentNode.insertBefore(chapter, this)
-            chapterCnt++;
+            n = chapterNum
+            m = videoCnt
+            dataRes.n = m   //存储["章节值":"最新视频值"]键值对
+            chapterNum++;
         }
         $(".chapter").on('click', '#addVideo', function () {
-            
+
+            video = dataRes[n]
+            videoCnt++;
             var html =
                 `
                 <hr style="background-color:#888;height: 1px;border: none;"/>
@@ -265,7 +273,6 @@
             video.className = 'video'
             video.innerHTML = html
             this.parentNode.insertBefore(video, this)
-            videoCnt++;
         })
 
         $("#submit").click(function () {
