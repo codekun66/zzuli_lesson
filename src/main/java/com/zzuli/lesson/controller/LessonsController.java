@@ -100,10 +100,10 @@ public class LessonsController {
 		String keyWord = (String) request.getParameter("keyWord");
 		String easy = (String) request.getParameter("easy");
 		Map<String, Object> map = new HashMap<>();
-		if(keyWord != null) {
+		if(keyWord != null && !"".equals(keyWord)) {
 		map.put("keyWord", keyWord);
 		}
-		if(easy != null) {
+		if(easy != null && !"".equals(easy)) {
 			map.put("easy", easy);
 		}
 		List<Map<String, Object>> list = new ArrayList<Map<String,Object>>();

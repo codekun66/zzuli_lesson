@@ -132,12 +132,14 @@
 		tea_id as teaId,
 		required
 		FROM lessons
+		<where>
 		<if test = "keyWord != null &amp; keyWord != '' ">
-		WHERE less_category like #{keyWord}
+		less_category like #{keyWord}
 		</if>
 		<if test = "easy != null &amp; easy != '' ">
 		AND rank like #{easy}
 		</if>
+		</where>
 	</select>
 	<!-- 根据节id返回课程地址 -->
 	<select id="queryVideoUrlBySectionId" resultType="java.util.Map">

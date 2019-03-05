@@ -140,7 +140,7 @@ public class LessonsServiceImpl implements LessonsService {
 	    String easy = (String) map.get("easy");
 	    String keyWord1 = null;
 	    String easy1 = null ;
-	    if(keyWord != null) {
+	    if(keyWord != null && !"".equals(keyWord)) {
 		    if("bcyy".equals(keyWord)) {
 		    	keyWord1 = "编程语言";
 		    }else if ("hdkf".equals(keyWord)) {
@@ -154,7 +154,7 @@ public class LessonsServiceImpl implements LessonsService {
 		    }
 	    map.put("keyWord", "%" + keyWord1 + "%");
 	    }
-	    if(easy != null) {
+	    if(easy != null && !"".equals(easy)) {
 	    	if("1".equals(easy)) {
 	    		easy1 = "入门";
 	    	}else if ("2".equals(easy)) {
