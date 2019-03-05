@@ -5,6 +5,7 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.zzuli.lesson.bean.User;
 import com.zzuli.lesson.mapper.LoginMapper;
 import com.zzuli.lesson.service.LoginService;
 @Service
@@ -35,6 +36,12 @@ public class LoginServiceImpl  implements LoginService{
 	public String getTeaName(String username) {
 		// TODO Auto-generated method stub
 		return loginMapper.queryTeaNameByUsername(username);
+	}
+
+	@Override
+	public int addUser(User user) {
+		// TODO Auto-generated method stub
+		return loginMapper.insertUser(user);
 	}
 	
 

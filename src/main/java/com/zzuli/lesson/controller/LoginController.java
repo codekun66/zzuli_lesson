@@ -15,11 +15,15 @@ import org.apache.shiro.subject.Subject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+
+import com.zzuli.lesson.bean.Lessons;
+import com.zzuli.lesson.bean.User;
 import com.zzuli.lesson.mapper.LoginMapper;
 import com.zzuli.lesson.service.BackLessonsService;
 import com.zzuli.lesson.service.LoginService;
@@ -122,4 +126,20 @@ public class LoginController {
     	map.put("teaname", teaName);
     	return map;
     }
+    
+	@RequestMapping(value = "/register/userAdd", method = RequestMethod.POST , consumes="application/json")
+	@ResponseBody
+	public Map<String,Object> addUser(@RequestBody User user ,HttpServletRequest request) {
+		System.out.println(user.toString());
+		int count = loginService.addUser(user);
+		Map<String, Object> map = new HashMap<>();
+		if(count > 0) {
+			map.put("msg", 1);
+			return map;
+		}
+		else {
+			map.put("msg", 0);
+			return map;
+		}
+	}
 }

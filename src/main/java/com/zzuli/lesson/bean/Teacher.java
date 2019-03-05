@@ -26,7 +26,9 @@ public class Teacher {
 	private Date createTime;
 	// 更新时间
 	private Date modifieldTime;
-	//有效状态码
+	//userid
+	private String userId;
+	
 	public int getId() {
 		return id;
 	}
@@ -80,6 +82,18 @@ public class Teacher {
 	}
 	public void setModifieldTime(Date modifieldTime) {
 		this.modifieldTime = modifieldTime;
+	}
+	public String getUserId() {
+		return userId;
+	}
+	public void setUserId(String userId) {
+		this.userId = userId;
+	}
+	@Override
+	public String toString() {
+		return "Teacher [id=" + id + ", teaNum=" + teaNum + ", teaName=" + teaName + ", teaIntroduce=" + teaIntroduce
+				+ ", picUrl=" + picUrl + ", sort=" + sort + ", validStsCd=" + validStsCd + ", createTime=" + createTime
+				+ ", modifieldTime=" + modifieldTime + ", userId=" + userId + "]";
 	}
 	
 	

@@ -28,4 +28,20 @@
 		FROM user
 		WHERE username = #{username}
 	</select>
+	<!-- 添加user信息 -->
+	<insert id="insertUser" useGeneratedKeys="true" keyProperty="id"
+		keyColumn="id" parameterType="com.zzuli.lesson.bean.User">
+		insert into
+		user(
+		username ,
+		password,
+		role_id,
+		tea_name,
+		create_time,
+		modifield_time
+		)
+		values
+		(#{username},#{password},2,#{teaName},now(),now())
+	</insert>
+	
 </mapper>

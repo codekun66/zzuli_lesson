@@ -2,6 +2,9 @@ package com.zzuli.lesson.service;
 
 import java.util.Map;
 
+import com.zzuli.lesson.bean.Lessons;
+import com.zzuli.lesson.bean.User;
+
 public interface LoginService {
 
 	/**
@@ -29,4 +32,10 @@ public interface LoginService {
      * @return teaname
      */
 	String getTeaName(String username);
+	/**
+	 * 添加user
+	 *
+	 * @return
+	 */
+	int addUser(User user);
 }

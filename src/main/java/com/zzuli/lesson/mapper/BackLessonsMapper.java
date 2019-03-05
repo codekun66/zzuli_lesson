@@ -21,7 +21,7 @@ public interface BackLessonsMapper {
 	 *
 	 * @return
 	 */
-	List<Map<String, Object>> queryBackLessonsTeacher(String teaId);
+	List<Map<String, Object>> queryBackLessonsTeacher(int teaId);
 
 	/**
 	 * 添加课程信息

@@ -58,10 +58,10 @@
 	</update>
 	<!-- 查询teaId by userId -->
 	<select id="queryTeaIdByUserId" resultType="java.util.Map">
-		SELECT tea_id,
+		SELECT id,
 		tea_name
 		FROM
-		user
-		WHERE id = #{userId}
+		less_teacher
+		WHERE user_id = #{userId}
 	</select>
 </mapper>

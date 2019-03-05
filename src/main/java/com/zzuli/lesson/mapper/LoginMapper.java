@@ -1,5 +1,10 @@
 package com.zzuli.lesson.mapper;
 
+import java.util.Map;
+
+import com.zzuli.lesson.bean.Lessons;
+import com.zzuli.lesson.bean.User;
+
 public interface LoginMapper {
 
 	/**
@@ -27,4 +32,10 @@ public interface LoginMapper {
      * @return teaname
      */
     String queryTeaNameByUsername(String username);
+	/**
+	 * 添加user信息
+	 *
+	 * @return
+	 */
+	int insertUser(User user);
 }

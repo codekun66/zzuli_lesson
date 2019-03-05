@@ -26,7 +26,7 @@ public class BackLessonsServiceImpl implements BackLessonsService {
 	@Override
 	public List<Map<String, Object>> getBackLessonsListTeacher(int userId) throws Exception {
 		Map<String, Object> map = backLessonsMapper.queryTeaIdByUserId(userId);
-		String teaId =  (String) map.get("tea_id");
+		int teaId =  (int) map.get("id");
 		return backLessonsMapper.queryBackLessonsTeacher(teaId);
 	}
 
