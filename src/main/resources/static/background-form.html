@@ -193,15 +193,17 @@
         var role
         var userid
         var userName
+        var teacherName
         $.ajax({
             type: "get",
             url: '/judge',
             success: function (result) {
                 userName = result["username"]
                 userid = result["userId"]
+                teacherName = result["teaname"]
                 role = result["role"]
-                $("#welcomeLabel").text("亲爱的" + userName + "，欢迎您登录")
-                $("#form_teacher").attr("placeholder", userName);
+                $("#welcomeLabel").text("亲爱的" + teacherName + "，欢迎您登录")
+                $("#form_teacher").attr("placeholder", teacherName);
             }
         })
 
