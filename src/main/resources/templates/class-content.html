@@ -29,7 +29,7 @@
 						<span>类别:</span>
 					</li>
 					<li>
-						<a href="#" class="filter">
+						<a href="#" class="filter" data-category="">
 							<i class="fa fa-th-large" aria-hidden="true"></i>
 							<span>全部</span>
 						</a>
@@ -64,12 +64,12 @@
 					<li class="class-top">
 						<span>难度:</span>
 					</li>
-					<!-- <li>
-						<a href="#" class="filter">
-							<i class="fa fa-star-o" aria-hidden="true"></i>
+					<li>
+						<a href="#" class="filter" data-degree="">
+							<i class="fa fa-th-large" aria-hidden="true"></i>
 							<span>全部</span>
 						</a>
-					</li> -->
+					</li>
 					<li>
 						<a href="#" class="filter" data-degree="1">
 							<span>入门</span>
@@ -157,6 +157,7 @@
 				$('#allLessons').html(result);
 			}
 		});
+		 
 		$(document).ready(function () {
 			$("a[class='filter']").click(function () {
 				if ($(this).data('category')) {
@@ -171,6 +172,12 @@
 					var _easy = $(this).data('degree')
 					var url = '/lessons/screen?easy=' + _easy
 					$.get(url, function (json) {
+						var func = Handlebars.compile($("#table-template").html());
+						var result = func(json);
+						$('#allLessons').html(result);
+					})
+				}else{
+					$.get('/lessons/screen?easy=&keyWord=', function (json) {
 						var func = Handlebars.compile($("#table-template").html());
 						var result = func(json);
 						$('#allLessons').html(result);
