@@ -88,6 +88,7 @@
                                             </div>
                                             <div class="form-group">
                                                 <label>课程封面</label>
+                                                <br>
                                                 <button type="button" id="form_lesson_cover">点击上传（暂时无用）</button>
                                             </div>
                                             <div class="form-group">
@@ -126,13 +127,13 @@
                                             <div>
                                                 <h4>课程内容</h4>
                                                 <br>
-                                                <div class="split" id="chapters">
+                                                
+                                                <!-- <div class="split" id="chapters">
                                                     <div class="chapter">
                                                         <label>第1章</label>
                                                         <div class="form-group">
                                                             <label>标题</label>
                                                             <input class="form-control">
-                                                            <!--  <p class="help-block">Example block-level help text here.</p> -->
                                                         </div>
                                                         <div class="form-group">
                                                             <label>简介</label>
@@ -146,7 +147,6 @@
                                                                     <input class="form-control">
                                                                     <label>视频文件</label>
                                                                     <input type="file">
-                                                                    <!--  <p class="help-block">Example block-level help text here.</p> -->
                                                                 </div>
                                                             </div>
 
@@ -154,7 +154,7 @@
                                                         </div>
                                                         <button class="btn btn-default" type="button" id="addChapter">添加章节</button>
                                                     </div>
-                                                </div>
+                                                </div> -->
                                             </div>
                                             <button id="submit" class="btn btn-default">提交</button>
                                             <button type="reset" class="btn btn-default">重置</button>
@@ -194,6 +194,7 @@
         var userid
         var userName
         var teacherName
+        var chapterNum = 1
         $.ajax({
             type: "get",
             url: '/judge',
@@ -204,19 +205,18 @@
                 role = result["role"]
                 $("#welcomeLabel").text("亲爱的" + teacherName + "，欢迎您登录")
                 $("#form_teacher").attr("placeholder", teacherName);
+                addChapters();
             }
         })
-
-        var chapterCnt = 1
         var addChapter = document.getElementById('addChapter')
         addChapter.onclick = addChapters
 
         function addChapters() {
             // var div = document.getElementById('videos');
-            chapterCnt++;
+            var videoCnt = 1
             var html =
                 `
-                <label>第${chapterCnt}章</label>
+                <label>第${chapterNum}章</label>
                 <div class="form-group">
                     <label>标题</label>
                     <input class="form-control">   
@@ -228,7 +228,7 @@
                 </div>
                 <div class="split" id="videos">
                     <div class="video">
-                        <label>视频1</label>
+                        <label>视频${chapterNum}</label>
                         <div class="form-group">
                             <label>标题（例如：1-1 课程介绍）</label>
                             <input class="form-control">
@@ -246,11 +246,10 @@
             chapter.className = 'chapter'
             chapter.innerHTML = html
             this.parentNode.insertBefore(chapter, this)
+            chapterCnt++;
         }
-
-        var videoCnt = 1
         $(".chapter").on('click', '#addVideo', function () {
-            videoCnt++;
+            
             var html =
                 `
                 <hr style="background-color:#888;height: 1px;border: none;"/>
@@ -262,11 +261,11 @@
                 <input type="file">
                 </div>
                 `;
-
             var video = document.createElement('div')
             video.className = 'video'
             video.innerHTML = html
             this.parentNode.insertBefore(video, this)
+            videoCnt++;
         })
 
         $("#submit").click(function () {
