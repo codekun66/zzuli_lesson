@@ -135,12 +135,7 @@ public class LessonsServiceImpl implements LessonsService {
 	@Override
 	public List<Map<String, Object>> getLessonsByKeyWord(Map<String, Object> map) {
 		List<Map<String, Object>> list = new ArrayList<Map<String, Object>>();
-		list = lessonsMapper.queryLessonsByKeyWord(map);
-		for (Map<String, Object> map2 : list) {
-			String url = (String) map2.get("lessPicUrl");
-			String ultimaUrl = ConstantUtil.FTP_PRE.FTP_PRE + url ;
-			map2.put("lessPicUrl", ultimaUrl);
-		}
+		
 	    String keyWord = (String) map.get("keyWord");
 	    String easy = (String) map.get("easy");
 	    String keyWord1 = null;
@@ -174,6 +169,12 @@ public class LessonsServiceImpl implements LessonsService {
 	    	map.put("easy" , "%" + easy1 + "%");
 	    }
 	    
+	    list = lessonsMapper.queryLessonsByKeyWord(map);
+		for (Map<String, Object> map2 : list) {
+			String url = (String) map2.get("lessPicUrl");
+			String ultimaUrl = ConstantUtil.FTP_PRE.FTP_PRE + url ;
+			map2.put("lessPicUrl", ultimaUrl);
+		}
 		return list;
 	}
 	
