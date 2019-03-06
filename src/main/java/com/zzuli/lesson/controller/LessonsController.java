@@ -22,6 +22,7 @@ import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.zzuli.lesson.bean.Lessons;
 import com.zzuli.lesson.service.LessonsService;
+import com.zzuli.lesson.service.TeacherService;
 import com.zzuli.lesson.util.RedisUtil;
 
 @Controller
@@ -29,7 +30,8 @@ public class LessonsController {
 
 	@Autowired
 	LessonsService lessonsService;
-
+	@Autowired
+	TeacherService teacherService;
 	/**
 	 * 热门课程排行
 	 * 
@@ -77,6 +79,9 @@ public class LessonsController {
 	public String getAllChapter(@PathVariable("id") int id, ModelMap modelMap) { // @PathVariable用于定义自定义或动态请求URI
 		modelMap.addAttribute("info", lessonsService.getAllChapter(id));
 		modelMap.addAttribute("lessonInfoById",lessonsService.getlessonsInfoById(id));
+		Map<String, Object> map = lessonsService.getlessonsInfoById(id);
+		int teaId = (int) map.get("teaId");
+		modelMap.addAttribute("teaInfoById", teacherService.getTeacherInfoByID(teaId));
 		return "lesson";
 	}
 

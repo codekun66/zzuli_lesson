@@ -109,17 +109,17 @@
 									<img src="img/EF17.png"/>
 								</a>
 								<hr />
-								<div class="teacher-list">
+								<div class="teacher-list" th:each = "teaInfo:${teaInfoById}">
 									<div class="teacher-fa">
 										<i class="fa fa-circle" aria-hidden="true" style="color: orangered;"></i>
 										<span>授课教师</span>
 										
 									</div>
-									<a href="#">
-										<img src="img/TeacherPicture/t_p_CuiJT.jpg" />
+									<a th:href="@{/teacher/{id}(id=${teaInfo.id})}">
+										<img th:src="${teaInfo.picUrl}" />
 										<div class="teacher-main">
-											<h3>崔建涛</h3>
-											<p>郑州轻工业大学，软件学院主任.副教授，毕业于华中科技大学</p>
+											<h3 th:text = "${teaInfo.teaName}">崔建涛</h3>
+											<p th:text="${teaInfo.teaIntroduce}">郑州轻工业大学，软件学院主任.副教授，毕业于华中科技大学</p>
 										</div>
 									</a>
 								</div>
