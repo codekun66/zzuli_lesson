@@ -97,7 +97,6 @@
 		<div class="card">
 			<div class="card-top">
 				<h3 class="types-title">
-					<em>所</em>／<em>有</em>／<em>课</em>／<em>程</em>
 					<!-- <span><i class="fa fa-scissors fa-2x" style="color: #00B33B;" aria-hidden="true"></i></span> -->
 				</h3>
 			</div>
@@ -135,12 +134,12 @@
 							<a href="/lessons/{{id}}"  target="_blank" class="thumbnail">
 							<img src="{{lessPicUrl}}" style="width: 200px;border-radius: 4px;" />
 							</a>
-							<h3>{{lessName}}<span class="badge badge-info" style="margin-left: 20px;">必修课程</span></h3>
-							<p>项目实战、练习代码、商城实战</p>
+							<h3>{{lessName}}<span class="badge badge-info" style="margin-left: 20px;">{{required}}</span></h3>
+							<p>{{rank}}、{{lessCategory}}、项目实战</p>
 							<div class="channel-meta">
-						    <span style="color: red;">免费</span>
+						    <span >{{teaName}}</span>
 						    <span>|</span>
-							<span>{{pageView}}</span>
+							<span>{{pageView}}人学习</span>
 							</div>
 						</div>
 	      {{/each}}  
