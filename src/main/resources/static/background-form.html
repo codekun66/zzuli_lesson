@@ -215,7 +215,7 @@
 
         function addChapters() {
             // var div = document.getElementById('videos');
-            var videoCnt = 1
+            videoCnt = 1
             var m,n
             var html =
                 `
@@ -255,8 +255,7 @@
             chapterNum++;
         }
         $(".chapter").on('click', '#addVideo', function () {
-
-            video = dataRes[n]
+            video = dataRes.n
             videoCnt++;
             var html =
                 `
@@ -276,24 +275,45 @@
         })
 
         $("#submit").click(function () {
-            var obj = JSON.stringify({
+            var obj = {
                 'lessonName': $("#form_lesson_name").val(),
                 'lessonLevel': $("input[name='form_lesson_level']:checked").val(),
                 'lessonCate': $("#form_lesson_cate").val(),
                 'ifRequired': $("input[name='form_lesson_required']:checked").val(),
                 'teacher': $("#form_teacher").val(),
                 'lesson_intro': $("#form_lesson_intro").val(),
-            });
-            alert(obj);
+
+
+
+            };
+            var sections = []
+
+            $('.chapter').each(function () {
+                var o = {}
+                o.title = '章节标题'
+                o.des = "章节简介"
+                o.section = []
+                $(this).find('.video').each(function () {
+                    o.section.push({
+                        title: '视频标题',
+                        src: '视频地址'
+                    })
+                })
+                sections.push(o)
+        })
+        obj.sections = sections
+
+            console.log(obj);
             $.ajax({
                 url: "/back/lessonsAdd",
                 type: "post",
-                data: obj,
+                data: JSON.stringify(obj),
                 contentType: 'application/json;charset=utf-8',
                 success: function (data) {
                     alert("haha");
                 }
             });
+            return false
         })
     </script>
 
