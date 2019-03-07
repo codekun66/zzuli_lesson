@@ -1,118 +1,105 @@
-.card {
-	display: inline-block;
-	margin: 40px;
+body{
+	background-color: #FFFFFF;
 }
-.card-img{
-	display: inline-block;
-	width: auto;
+.container{
+	background-color: #F7F7F7;
+	height: auto;
+	position: relative;
+	top: 20px;
 }
-p {
-	padding-top: 20px;
+.cont-left{
+	border-right:1px solid #EDEDED ;
+	width: 800px;
+	float: left;
 }
-
-.card-img-top {
-	width: 200px;
+.teacher{
+	margin-bottom: 20px;
 	height: 200px;
 }
-
-.tb {
-	/* margin-top: 10px; */
-	padding-left: 5px;
-	line-height: 30px;
-	border-bottom: 1px solid #CDCDCD;
+.jianjie{
+	padding-left: 10px;
+	border-left-color: orangered;
+	border-left-style: solid;
+	border-left-width: 4px;
+	line-height: 20px;
+	text-align: left;
+	font-family: "Microsoft YaHei", \5fae\8f6f\96c5\9ed1, "Helvetica", "sans-serif";
+	margin-left: 10px;
+	margin-top: 5px;
+	
 }
-
-.tb li {
-	margin-left: -5px !important;
-	margin-right: 12px;
-	font-size: 14px;
+hr{
+	margin: 10px;
+}
+.teacher-top{
+	margin: 40px;
+}
+.teacher-top img{
 	float: left;
-	margin: 0 3px -1px 0;
-}
-
-ul li,
-.xl li {
-	list-style: none;
-}
-
-.mtw {
-	margin-top: 20px !important;
-}
-
-.cl {
-	zoom: 1;
-}
-
-.cl:after {
-	content: ".";
-	display: block;
-	height: 0;
-	clear: both;
-	visibility: hidden;
-}
-
-.content {
-	line-height: 25px;
-
-	/* border-left:1px solid #CDCDCD ; */
-
-}
-
-.cont {
-	margin-bottom: -30px;
-	margin-top: 50px;
-}
-
-.cont img {
-	width: 200px;
-	display: inline-block;
+	width: 100px;
+	height: 100px;
+	border-radius: 50%;
 	position: relative;
-	top: -50px;
+	
 }
-
-.cont-right {
-	display: inline-block;
-	margin-left: 20px;
+.teacher-main{
+	margin-left: 120px;
 }
-
-.mtm {
-	margin-top: 10px !important;
+.teacher-main h3{
+	font-size: 20px;
+	color: #0062CC;
 }
-
-ul {
-	display: block;
-	list-style-type: disc;
-	margin-block-start: 1em;
-	margin-block-end: 1em;
-	margin-inline-start: 0px;
-	margin-inline-end: 0px;
-	padding-inline-start: 40px;
+.teacher-middle{
+	margin: 30px;
 }
-
-.tb .a a {
-	border-bottom-color: #FFF;
-	background: #FFF;
-	font-weight: 700;
+.teacher-middle p{
+	font-size: 15px;
+	font-family: "microsoft yahei";
+	line-height: 29px;
+	word-break:break-word;
+	text-indent: 28px;
+	letter-spacing: 1px;
 }
-
-.tb a {
-	display: block;
-	padding: 0 10px;
-	border: 1px solid #CDCDCD;
-	background: #E5EDF2;
+.cont-right{
+	width: 300px;
+	display: inline;
+	
 }
+.teacher-list{
+	margin-left: 36px;
+	border-bottom: 2px solid #56b929;
 
-a {
-	text-decoration: none;
-	color: #333333;
+	
 }
-
-/* .top-left{
-				float: left;
-			}
-			.top-right{
-				float: right;
-			}
-			.content:after{
-				clear: all;
-			} */
+.teacher-lesson{
+		float: right;
+		position: relative;
+		top: 20px;
+		right: 120px;
+	
+}
+.col-md-3{
+	max-width: 100%;
+	padding-top: 15px;
+}
+.col-md-3 img {
+    border-radius: 6px;
+    width: 200px;
+    height: 200px;
+}
+.col-md-3 h3 {
+    font-size: 14px;
+    color: #333;
+    line-height: 22px;
+    margin: 6px 0;
+    white-space: nowrap;
+    overflow: hidden;
+}
+.col-md-3 p {
+    font-size: 12px;
+    color: #888888;
+    line-height: 18px;
+    height: 18px;
+    overflow: hidden;
+    margin: 6px 0;
+}
