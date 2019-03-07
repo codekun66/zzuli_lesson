@@ -80,8 +80,9 @@ public class LessonsController {
 		modelMap.addAttribute("info", lessonsService.getAllChapter(id));
 		modelMap.addAttribute("lessonInfoById",lessonsService.getlessonsInfoById(id));
 		Map<String, Object> map = lessonsService.getlessonsInfoById(id);
-		int teaId = (int) map.get("teaId");
-		modelMap.addAttribute("teaInfoById", teacherService.getTeacherInfoByID(teaId));
+		String teaId = (String) map.get("teaId");
+		int teaIdInt = Integer.parseInt(teaId);
+		modelMap.addAttribute("teaInfoById", teacherService.getTeacherInfoByID(teaIdInt));
 		return "lesson";
 	}
 
