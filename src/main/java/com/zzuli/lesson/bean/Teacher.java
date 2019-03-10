@@ -1,5 +1,6 @@
 package com.zzuli.lesson.bean;
 
+import java.io.Serializable;
 import java.util.Date;
 /**
  * 教师信息
@@ -7,7 +8,11 @@ import java.util.Date;
  * @data 2018/12/07
  * 
  */
-public class Teacher {
+public class Teacher implements Serializable{
+	
+	//序列化
+	private static final long seriaVersionUID = 1L;
+	
 	// 主键ID
 	private int id;
 	// 教师编号
