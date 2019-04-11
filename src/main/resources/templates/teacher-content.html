@@ -27,10 +27,10 @@
 						
 							<span class="jianjie">教师简介</span>
 							<div class="teacher-top">
-								<img th:src="${}" />
+								<img th:src="${tea_p.picUrl}" />
 								<div class="teacher-main">
-									<h3>崔建涛</h3>
-									<p>郑州轻工业大学，软件学院主任.副教授，毕业于华中科技大学</p>
+									<h3 th:text = "${tea_p.teaName}">崔建涛</h3>
+									<p>郑州轻工业大学</p>
 								</div>
 							</div>
 				
@@ -40,7 +40,7 @@
 						
 							<span class="jianjie">工作历程</span>
 							<div class="teacher-middle">
-								<p>09至2002.06四川师范学院计算机系，获工学学士学位（本科）；
+								<p >09至2002.06四川师范学院计算机系，获工学学士学位（本科）；
 									2002.09至2005.06西华师范大学计算机学院，获工学硕士学位；
 				
 									2011.08至2012.09英国约克大学（UniversityofYork）国家公派留学生，博士联合培养；
@@ -56,16 +56,16 @@
 					<span class="teacher-list">相关课程</span>
 					
 					<div class="teacher-lesson">
-						<div class="col-xs-6 col-md-3">
-							<a href="#" class="thumbnail">
-								<img th:src="${img/slide/codes-1.jpg}"  />
+						<div class="col-xs-6 col-md-3" th:each="tea_less:${tea_lessonInfo}" >
+							<a  class="thumbnail" th:href = "@{/lessons/{id}(id=${tea_less.id})}">
+								<img th:src="${tea_less.lessPicUrl}"  />
 							</a>
-							<h3>JAVA实战训练<span class="badge badge-info" style="margin-left: 20px;">必修课程</span></h3>
-							<p>项目实战、练习代码、商城实战</p>
+							<h3 th:text = "${tea_less.lessName}">JAVA实战训练<span class="badge badge-info" style="margin-left: 20px;" th:text = "${tea_less.rank}">必修课程</span></h3>
+							<p>项目实战、练习代码</p>
 							<div class="channel-meta">
 								<span style="color: red;">免费</span>
 								<span>|</span>
-								<span>6666人学过</span>
+								<span th:text = "${tea_less.pageView}">6666人学过</span>
 							</div>
 						</div>
 						
