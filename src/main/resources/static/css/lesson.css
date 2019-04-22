@@ -240,7 +240,7 @@ img {
 	border: 0;
 
 }
-.course-aside-info a img{
+.course-aside-info>img{
 	width: 250px;
 	height: 75px;
 }
