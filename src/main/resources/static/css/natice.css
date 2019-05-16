@@ -1,0 +1,40 @@
+#main{
+				margin: auto;
+				width: 80%;
+			}
+			.zzuli3{
+				background-color: #E6E6E6;
+				text-align: center;
+				height: 30px;
+				line-height: 30px;
+				color: #005CBF;
+				font-weight: 600;
+			}
+			.zzuli4{
+				background-color: #F1F1F1;
+				text-align: center;
+				height: 30px;
+				line-height: 30px;
+				font-weight: 200;
+			}
+			.input1{
+				height: 26px;
+				border-radius: 8px;
+				line-height: 26px;
+				
+			}
+			
+			.search1{
+				color: #0056B3;
+			}
+			.search2{
+				color: red;
+				margin-left: 10px;
+			}
+			.zzuli5{
+				background-color: #F8F8F8;
+				border-bottom: 1px dashed darkgray;
+			}
+			.zzuli5 a{
+				color: #0069D9;
+			}
