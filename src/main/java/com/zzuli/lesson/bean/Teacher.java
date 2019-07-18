@@ -19,6 +19,8 @@ public class Teacher implements Serializable{
 	private String teaNum;
 	// 教师名字
 	private String teaName;
+	//教师职称
+	private String teaProfessional;
 	// 教师简介
 	private String teaIntroduce;
 	// 图片地址
@@ -96,9 +98,15 @@ public class Teacher implements Serializable{
 	}
 	@Override
 	public String toString() {
-		return "Teacher [id=" + id + ", teaNum=" + teaNum + ", teaName=" + teaName + ", teaIntroduce=" + teaIntroduce
+		return "Teacher [id=" + id + ", teaNum=" + teaNum + ", teaName=" + teaName + ",teaProfessional="+teaProfessional+", teaIntroduce=" + teaIntroduce
 				+ ", picUrl=" + picUrl + ", sort=" + sort + ", validStsCd=" + validStsCd + ", createTime=" + createTime
 				+ ", modifieldTime=" + modifieldTime + ", userId=" + userId + "]";
+	}
+	public String getTeaProfessional() {
+		return teaProfessional;
+	}
+	public void setTeaProfessional(String teaProfessional) {
+		this.teaProfessional = teaProfessional;
 	}
 	
 	

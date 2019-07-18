@@ -6,6 +6,7 @@
 		SELECT id,
 		tea_num as teanNum ,
 		tea_name as teaName ,
+		tea_professional as teaProfessional ,
 		tea_introduce as teaIntroduce ,
 		pic_url as picUrl ,
 		sort ,
@@ -19,6 +20,7 @@
 		SELECT id,
 		tea_num as teanNum ,
 		tea_name as teaName ,
+		tea_professional as teaProfessional ,
 		tea_introduce as teaIntroduce ,
 		pic_url as picUrl ,
 		sort ,
@@ -33,6 +35,7 @@
 		SELECT id,
 		tea_num as teanNum ,
 		tea_name as teaName ,
+		tea_professional as teaProfessional ,
 		tea_introduce as teaIntroduce ,
 		pic_url as picUrl ,
 		sort ,
@@ -55,8 +58,8 @@
 	</select>
 	<!-- 添加教师信息 -->
 	<insert id="insertTeacher">
-		INSERT INTO less_teacher (tea_num , tea_name , tea_introduce , pic_url , summary ,create_time , less_category , valid_sts_cd)
-		values(#{lessPicUrl} , #{lessName} , #{rank} , #{teaName} , 0 , #{summary} , now() , #{lessCategory} , 1 )
+		INSERT INTO less_teacher (tea_num , tea_name , tea_professional , tea_introduce , pic_url , summary ,create_time , less_category , valid_sts_cd)
+		values(#{teaNum} , #{teaName} , #{teaProfessional} , #{teaIntroduce} , #{picUrl} , #{summary} , now() , #{lessCategory} , 1 )
 	</insert>
 	
 </mapper>
